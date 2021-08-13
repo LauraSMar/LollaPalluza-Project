@@ -1,5 +1,6 @@
 acá va algo de contenido
 todo mal aca
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 finalmente fran pudo
 =======
@@ -8,3 +9,7 @@ finalmente fran pudo
 =======
 hola todo bien
 >>>>>>> Stashed changes
+=======
+finalmente fran pudo
+
+>>>>>>> f618f96abebc83c6f78f1fedee5c7aa0fe95a13d
