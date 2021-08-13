@@ -1,3 +1,7 @@
 acá va algo de contenido
 todo mal aca
+<<<<<<< HEAD
 finalmente fran pudo
+=======
+hola todo bien
+>>>>>>> 041585d8e0b8198feb2a066f9319aad6b7a542fd
