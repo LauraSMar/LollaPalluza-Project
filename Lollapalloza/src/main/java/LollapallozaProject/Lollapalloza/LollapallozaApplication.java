@@ -1,0 +1,16 @@
+package LollapallozaProject.Lollapalloza;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LollapallozaApplication {
+
+	public static void main(String[] args) {
+
+		SpringApplication.run(LollapallozaApplication.class, args);
+		System.out.println("Welcome Lollapalooza");
+	}
+
+
+}
