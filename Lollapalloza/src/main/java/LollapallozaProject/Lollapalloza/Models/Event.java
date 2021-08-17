@@ -6,33 +6,30 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.HashSet;
+import java.util.Set;
 @Data
 @NoArgsConstructor
 @Entity
 public class Event {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long Id;
     private LocalDateTime date;
-    private String location;
-    private Integer capacity;
 
-    @ElementCollection
-    @Column(name="bands")
-    private List<String> bands = new ArrayList<>();
+    @OneToMany (fetch = FetchType.EAGER)
+    @JoinColumn(name = "ticketId")
+    Set<Ticket> tickets = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="userId")
-    private User user;
+    @OneToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "campusId")
+    private Campus campus;
 
-    public Event(LocalDateTime date, String location,Integer capacity) {
+    public Event(LocalDateTime date) {
         this.date = date;
-        this.location=location;
-        this.capacity=capacity;
+
 
     }
 }
