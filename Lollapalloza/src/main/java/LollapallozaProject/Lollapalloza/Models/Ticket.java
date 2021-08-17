@@ -10,28 +10,22 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class Ticket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long Id;
 
+    private Integer daysExt;
+    private Integer payment;
+    private double price;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="userId")
+    private User user;
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-        @GenericGenerator(name = "native", strategy = "native")
-        private Long Id;
-        private Integer daysExt;
-        private Integer payment;
-        private double value;
-
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name="userId")
-        private User user;
-
-        public Ticket(Integer daysExt,Integer payment){
-            this.daysExt=daysExt;
-            this.payment=payment;
-            this.value=value;
-
-
-
-        }
-
+    public Ticket(Integer daysExt, Integer payment, double price) {
+        this.daysExt = daysExt;
+        this.payment = payment;
+        this.price = price;
     }
+}

@@ -23,6 +23,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String documentId;
+    private String email;
     private String password;
 
     @OneToMany(mappedBy="user", fetch=FetchType.EAGER)
@@ -32,14 +33,12 @@ public class User {
 
     @OneToMany(mappedBy="user", fetch=FetchType.EAGER)
     Set<Event> events = new HashSet<>();
-   
 
-
-    public User(String firstName,String lastName,String documentId,String password){
+    public User(String firstName, String lastName, String documentId, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.documentId= documentId;
-        this.password=password;
+        this.documentId = documentId;
+        this.email = email;
+        this.password = password;
     }
-
 }

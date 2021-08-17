@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Event {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
