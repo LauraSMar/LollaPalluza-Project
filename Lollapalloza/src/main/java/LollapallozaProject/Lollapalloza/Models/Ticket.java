@@ -23,9 +23,14 @@ public class Ticket {
     @JoinColumn(name="userId")
     private User user;
 
-    public Ticket(Integer daysExt, Integer payment, double price) {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "detail_id")
+    private Detail detail;
+
+    public Ticket(Integer daysExt, Integer payment, double price, Detail detail) {
         this.daysExt = daysExt;
         this.payment = payment;
         this.price = price;
+        this.detail = detail;
     }
 }

@@ -14,7 +14,6 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -26,13 +25,8 @@ public class User {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy="user", fetch=FetchType.EAGER)
-    Set<Ticket> tickets = new HashSet<>();
-
-    // relacion one to Many con los tkts //
-
-    @OneToMany(mappedBy="user", fetch=FetchType.EAGER)
-    Set<Event> events = new HashSet<>();
+    @OneToMany(mappedBy = "user")
+    private Set<Invoice> invoices = new HashSet<>();
 
     public User(String firstName, String lastName, String documentId, String email, String password) {
         this.firstName = firstName;
