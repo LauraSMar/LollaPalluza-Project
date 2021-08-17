@@ -4,41 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYSL Team Site</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">">
-    <link rel="stylesheet" href="../styles/mdhl.css">
-
-</head>
-    
+    <title>Lollapalooza Argentina 2021</title>
+    <link rel="favicon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> crossorigin="anonymous">">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <div class="content">
-       
-                             
-            
-            <header>         
-                <h1 style="background-color: black;color: white;text-align:center;font-size: 50px; font-family:verdana;">SITIO PRUEBA</h1>            
-                
-                <div class="minnav">
-                   <img class="logo" src="img/logo.png" alt="logo">
-                   
-                   <a href="index.html">
-                       Home|</a>
-                   <a href="About.html">
-                       About|</a>
-                   <a href="Contact.html">
-                       Contact|</a>  
-                   <a href="rules.html">
-                       Rules|</a>    
-                    <a href="game_info.html">
-                        Games</a>   
-                        
-                    <div id="boton">
-                        <p>Oficina Virtual</p>
-
-                    </div>
-               </div>      
-            </header>   
+    <div id="app">
+        <header>         
+            <h1></h1>            
+            <div>
+                <a href="index.html">
+                    Home|</a>
+                <a href="About.html">
+                    About|</a>
+                <a href="Contact.html">
+                    Contact|</a>  
+                <a href="rules.html">
+                    Rules|</a>    
+                <a href="game_info.html">
+                    Games</a>   
+                    
+                <div id="boton">
+                    <p>Oficina Virtual</p>
+                </div>
+            </div>      
+        </header>   
                <img id="fotofrente" src="../img/hockey_3.jpg" alt=>
 
             <div id="Textfront">
@@ -108,7 +100,15 @@
 
         
     </div>
+
+
+    <!-- Local JS -->
+    <script src="./js/index.js"></script>
+
+    <!-- Mount APP -->
+    <script>
+        app.mount('#app')
+    </script>
     
 </body>
 </html>
--

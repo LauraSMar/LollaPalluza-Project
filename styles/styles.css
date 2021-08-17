@@ -1,0 +1,14 @@
+:root{
+    --color-magenta: #F23DB3;
+    --color-green: #03A688;
+    --color-yellow: #F2E205;
+    --color-gold: #F2CB05;
+    --color-red: #F23838;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
