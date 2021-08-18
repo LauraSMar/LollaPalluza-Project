@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c1c03bc-f812-45d2-ba3c-aa6bd14bf6e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/build/classes/java/main/LollapallozaProject/Lollapalloza/Models/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/build/classes/java/main/LollapallozaProject/Lollapalloza/Models/Event.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/build/classes/java/main/LollapallozaProject/Lollapalloza/Models/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/build/classes/java/main/LollapallozaProject/Lollapalloza/Models/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollapalloza/src/main/java/LollapallozaProject/Lollapalloza/LollapallozaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lollapalloza/src/main/java/LollapallozaProject/Lollapalloza/LollapallozaApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="8c1c03bc-f812-45d2-ba3c-aa6bd14bf6e2" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
