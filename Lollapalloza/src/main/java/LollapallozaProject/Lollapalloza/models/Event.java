@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,18 +18,22 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long Id;
-    private LocalDateTime date;
+    private LocalDate date;
+    private LocalDateTime start;
+    private LocalDateTime end;
 
-    @OneToMany (fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticketId")
-    Set<Ticket> tickets = new HashSet<>();
 
     @OneToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "campusId")
     private Campus campus;
 
-    public Event(LocalDateTime date) {
+
+
+    public Event(LocalDate date, LocalDateTime start, LocalDateTime end,Campus campus) {
         this.date = date;
+        this.start=start;
+        this.end=end;
+
 
 
     }

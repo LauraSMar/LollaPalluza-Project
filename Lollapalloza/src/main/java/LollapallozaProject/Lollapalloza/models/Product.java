@@ -12,11 +12,27 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 public class Product {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long Id;
+    private Category category;
+    private String description;
+    private Integer stock;
+    private Size size;
+    private double price;
 
-    @OneToMany(mappedBy = "product")
-    private Set<Detail> details = new HashSet<>();
+    @OneToOne(fetch =FetchType.EAGER )
+    @JoinColumn(name = "productId")
+    private Detail detail;
+
+    public Product(Category category,String description,Integer stock,Integer payment,double price, Detail detail){
+        this.category=category;
+        this.description=description;
+        this.stock=stock;
+        this.price=price;
+
+
+
+    }
 }

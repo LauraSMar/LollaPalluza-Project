@@ -24,14 +24,14 @@ public class Campus {
         private Integer capacity;
 
 
+
         @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "ticketId")
-        private Ticket ticket;
+        @JoinColumn(name = "eventId")
+        private Event event;
 
         public Campus(String location, Integer capacity, Ticket ticket) {
-            this.location = location;
-            this.capacity = capacity;
-
+                this.location=location;
+                this.capacity=capacity;
 
         }
 }

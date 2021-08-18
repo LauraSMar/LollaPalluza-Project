@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -17,17 +19,21 @@ public class Ticket {
         @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
         @GenericGenerator(name = "native", strategy = "native")
         private Long Id;
-        private Integer daysExt;
-        private Integer payment;
+        private Category category;
+        private String description;
         private double price;
 
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name="eventId")
-        private Event event;
+        @OneToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "ticketId")
+        private Detail detail;
 
-        public Ticket(Integer daysExt,Integer payment,double price, Event event){
-            this.daysExt=daysExt;
-            this.payment=payment;
+        @OneToMany(fetch = FetchType.EAGER)
+        @JoinColumn(name="eventId")
+        private Set<Event> events =new HashSet<>();
+
+        public Ticket(Category category,String description,double price, Detail detail){
+            this.category=category;
+            this.description=description;
             this.price=price;
 
 
