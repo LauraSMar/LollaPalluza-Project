@@ -1,7 +1,7 @@
 package LollapallozaProject.Lollapalloza.configurations;
 
 
-import LollapallozaProject.Lollapalloza.Repositories.UserRepository;
+import LollapallozaProject.Lollapalloza.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter{
     public void init(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(email -> {
 
-            LollapallozaProject.Lollapalloza.Models.User user1 = userRepository.findByEmail(email);
+            LollapallozaProject.Lollapalloza.models.User user1 = userRepository.findByEmail(email);
             if (user1 != null) {
                 // verificar en el controller que no se pueda crear un usuario con este mail
                 if (user1.getEmail().endsWith("@admin")){

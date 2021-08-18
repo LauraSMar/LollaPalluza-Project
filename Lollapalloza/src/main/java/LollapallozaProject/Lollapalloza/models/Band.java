@@ -1,16 +1,13 @@
-package LollapallozaProject.Lollapalloza.Models;
+package LollapallozaProject.Lollapalloza.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
-    @Data
+@Data
     @NoArgsConstructor
     @Entity
     public class Band {
@@ -32,6 +29,7 @@ import java.util.List;
             this.name=name;
             this.persons=persons;
             this.gender=gender;
+
 
 
         }

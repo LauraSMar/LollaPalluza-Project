@@ -1,9 +1,8 @@
-package LollapallozaProject.Lollapalloza.Models;
+package LollapallozaProject.Lollapalloza.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import javax.persistence.*;
 import java.util.HashSet;

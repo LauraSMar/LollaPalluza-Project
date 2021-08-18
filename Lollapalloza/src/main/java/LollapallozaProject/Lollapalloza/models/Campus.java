@@ -1,4 +1,4 @@
-package LollapallozaProject.Lollapalloza.Models;
+package LollapallozaProject.Lollapalloza.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

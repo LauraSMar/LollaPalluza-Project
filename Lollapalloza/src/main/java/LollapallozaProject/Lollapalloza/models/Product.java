@@ -1,8 +1,7 @@
-package LollapallozaProject.Lollapalloza.Models;
+package LollapallozaProject.Lollapalloza.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.implementation.bind.annotation.Empty;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

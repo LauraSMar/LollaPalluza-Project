@@ -1,6 +1,6 @@
-package LollapallozaProject.Lollapalloza.Repositories;
+package LollapallozaProject.Lollapalloza.repositories;
 
-import LollapallozaProject.Lollapalloza.Models.Invoice;
+import LollapallozaProject.Lollapalloza.models.Invoice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
