@@ -1,9 +1,19 @@
 :root{
+<<<<<<< Updated upstream
     --color-magenta: #F23DB3;
     --color-green: #03A688;
     --color-yellow: #F2E205;
     --color-gold: #F2CB05;
     --color-red: #F23838;
+=======
+  --color-magenta: #F23DB3;
+  --color-green: #03A688;
+  --color-yellow: #F2E205;
+  --color-gold: #F2CB05;
+  --color-red: #F23838;
+  --color-grey: #484847;
+
+>>>>>>> Stashed changes
 
 }
 
