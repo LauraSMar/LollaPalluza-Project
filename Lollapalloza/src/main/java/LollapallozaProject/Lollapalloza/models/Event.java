@@ -7,6 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 @Data
@@ -19,22 +20,20 @@ public class Event {
     @GenericGenerator(name = "native", strategy = "native")
     private Long Id;
     private LocalDate date;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalTime start;
+    private LocalTime end;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ticked_Id")
+    private Ticket ticket;
 
     @OneToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "campusId")
     private Campus campus;
 
-
-
-    public Event(LocalDate date, LocalDateTime start, LocalDateTime end,Campus campus) {
+    public Event(LocalDate date, LocalTime start, LocalTime end,Campus campus) {
         this.date = date;
         this.start=start;
         this.end=end;
-
-
-
     }
 }

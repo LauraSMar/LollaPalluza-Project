@@ -22,8 +22,7 @@ public class Product {
     private Size size;
     private double price;
 
-    @OneToOne(fetch =FetchType.EAGER )
-    @JoinColumn(name = "productId")
+    @OneToOne(mappedBy = "product")
     private Detail detail;
 
     public Product(Category category,String description,Integer stock,Integer payment,double price, Detail detail){
@@ -31,8 +30,5 @@ public class Product {
         this.description=description;
         this.stock=stock;
         this.price=price;
-
-
-
     }
 }

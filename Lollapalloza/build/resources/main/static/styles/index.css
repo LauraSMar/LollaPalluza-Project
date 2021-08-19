@@ -1,0 +1,256 @@
+/* Header */
+
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fullsize-video-bg {
+  height: 100%;
+  overflow: hidden;
+}
+.fullsize-video-bg .inner {
+  display: table;
+  width: 100%;
+  max-width: 24em;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position:relative;
+  z-index: 2;
+  text-shadow: 0 1px 5px rgba(0,0,0,.5);
+}
+.fullsize-video-bg .inner > div {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 2em;
+}
+
+/* Navbar */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(225,225,225,0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.nav ul {
+  list-style: none;
+  text-align: center;
+  white-space: nowrap;
+  padding-right: 32px;
+}
+
+.nav ul li {
+  display: inline-block;
+}
+.nav ul li a {
+  font-family: soleil, sans-serif;
+  font-weight: 100;
+  font-size: 25px;
+  color: white;
+  padding: 19px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bolder;
+  text-shadow: 2px 2px #000;
+
+}
+.nav ul li a:hover {
+  background: rgba(255,255,255, 0.2);
+  text-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+.first {
+  margin-right: -0.17em;
+  border-right: none !important;
+}
+.last {
+  margin-left: -0.17em;
+  border-left: none !important;
+}
+
+/* End Navbar */
+
+.logo-vid{
+  width: 50%;
+  height: auto;
+}
+.logo-img{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20vh;
+  position: absolute;
+}
+/* Header End */
+
+/* Carousel Bands */
+.carouselBands{
+  display: flex;
+  justify-content: center;
+}
+.bandsItems{
+  height: 80vh;
+  width: 80vw;
+  background-color: rgba(255,255,255,0.26);
+  border-radius: 5px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+.bandsItems>div{
+  min-width: 350px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.56);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bandsItems>div:hover{
+  box-shadow: none;
+  cursor: pointer;
+}
+.carouselLana{
+  background-image: url("../img/carousel-lana-del-rey.jpg");    
+}
+.carouselBeriso{
+  background-image: url("../img/carousel-la-beriso.jpg");
+}
+.carouselMotleyCrue{
+  background-image: url("../img/carousel-motley-crue.jpg");
+}
+.carouselSteveAoki{
+  background-image: url("../img/carousel-steve-aoki.jpg");
+}
+.carouselNtvg{
+  background-image: url("../img/carousel-ntvg.png");
+}
+.carouselTpilots{
+  background-image: url("../img/carousel-21-pilots.jpg");
+}
+.carouselLondra{
+  background-image: url("../img/carousel-paulo-londra.jpg");
+}
+.carouselRedHot{
+  background-image: url("../img/carousel-red-hot.jpg");
+}
+.carouselDuki{
+  background-image: url("../img/carousel-duki.png");
+}
+.carouselImagineDragons{
+  background-image: url("../img/carousel-imagine-dragons.png");
+}
+.carouselMartinGarrix{
+  background-image: url("../img/carousel-martin-garrix.jpg");
+}
+.carouselTheWeeknd{
+  background-image: url("../img/carousel-the-weeknd.jpg");
+}
+.carouselEdSheeran{
+  background-image: url("../img/carousel-ed-sheeran.jpg");
+}
+.carouselKeane{
+  background-image: url("../img/carousel-keane.jpg");
+}
+.carouselGuns{
+  background-image: url("../img/carousel-guns.png");
+}
+.carouselMetallica{
+  background-image: url("../img/carousel-metallica.png");
+}
+
+/* End Carousel */
+
+
+/* lineUp Section*/
+#lineUp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/lolla.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#firstD, #secondD, #thirdD, #fourthD{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1vw;
+}
+
+#casaR, #lunaP{
+  width: 50vw;
+  height: 45vh;
+  background:linear-gradient(90deg,#F23DB3,#F2E205);
+  box-shadow: 3px 3px 5px black;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  border: 2px solid black;
+}
+
+#hipodromo, #velez{
+  width: 50vw;
+  height: 45vh;
+  background:linear-gradient(90deg, #F2CB05, #F23838);
+  box-shadow: 3px 3px 5px black;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  border: 2px solid black;
+}
+
+.theDate{
+  width: 20vw;
+  height: 25vh;
+  background:linear-gradient(90deg,#F23838,#F23DB3 );
+  box-shadow: 3px 3px 5px black;
+  border-radius: 10px;
+  text-align: center;
+  margin: 2vw;
+  color: white;
+  font-weight: bold;
+  border: 2px solid black;
+  font-size: 2.5rem;
+
+}
+
+.theDate p{
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px var(--color-grey);
+}
+
+.theDays{
+  margin-top: 3vh;
+  margin-bottom: 4vh;
+  text-shadow: 2px 2px black;
+  font-size: 2.8rem;
+}
+
+.location{
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-weight: bold;
+  font-size: 2.8rem;
+  text-shadow: 3px 3px black;
+}
+
+.theBands{
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 2px 2px var(--color-grey);
+}
