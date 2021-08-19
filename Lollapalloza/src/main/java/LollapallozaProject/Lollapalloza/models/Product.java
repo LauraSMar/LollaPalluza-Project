@@ -16,19 +16,18 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long Id;
+
     private Category category;
     private String description;
     private Integer stock;
-    private Size size;
     private double price;
+    private Set<String> imgs = new HashSet<>();
 
-    @OneToOne(mappedBy = "product")
-    private Detail detail;
-
-    public Product(Category category,String description,Integer stock,Integer payment,double price, Detail detail){
-        this.category=category;
-        this.description=description;
-        this.stock=stock;
-        this.price=price;
+    public Product(Category category, String description, Integer stock, double price, Set<String> imgs) {
+        this.category = category;
+        this.description = description;
+        this.stock = stock;
+        this.price = price;
+        this.imgs = imgs;
     }
 }
