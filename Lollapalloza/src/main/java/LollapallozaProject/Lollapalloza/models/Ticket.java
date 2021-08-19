@@ -5,7 +5,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -23,6 +25,10 @@ public class Ticket {
         private String description;
         private double price;
 
+        @ElementCollection
+        @Column(name="days")
+        private List<Integer> days = new ArrayList<>();
+
         @OneToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "ticketId")
         private Detail detail;
@@ -31,10 +37,12 @@ public class Ticket {
         @JoinColumn(name="eventId")
         private Set<Event> events =new HashSet<>();
 
-        public Ticket(Category category,String description,double price, Detail detail){
+        public Ticket(Category category,String description,double price, List<Integer> days, Detail detail,Event event){
             this.category=category;
             this.description=description;
             this.price=price;
+            this.days=days;
+
 
 
 

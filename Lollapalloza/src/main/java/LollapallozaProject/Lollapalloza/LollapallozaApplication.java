@@ -26,7 +26,7 @@ public class LollapallozaApplication {
 	@Bean
 	public CommandLineRunner initData(UserRepository userRepository){
 		return (args) ->{
-			User testUser = new User("nombre", "apellido", "1231212", "ejemplo@email",passwordEncoder.encode("contraseña"));
+			User testUser = new User("Lola","Perez","12341234","lola@gmail.com",passwordEncoder.encode("1234"));
 			userRepository.save(testUser);
 		};
 	}

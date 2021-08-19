@@ -22,7 +22,10 @@ class WebAuthorization extends WebSecurityConfigurerAdapter{
     
     @Override
     protected void configure( HttpSecurity http) throws Exception {
-       // http.authorizeRequests()
+    http.authorizeRequests()
+            .antMatchers(HttpMethod.POST, "/api/users").permitAll();
+
+
 
         http.formLogin().usernameParameter("email").passwordParameter("password").loginPage("/api/login");
 

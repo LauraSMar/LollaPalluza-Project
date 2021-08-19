@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long Id;
+    private LocalDate date;
     private String cuit;
     private String address;
     private String business_name;
@@ -30,7 +32,8 @@ public class Invoice {
     @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
     private Set<Detail> details = new HashSet<>();
 
-    public Invoice(String cuit,String address,String business_name,double total, String payment, double discount, User user, Detail detail) {
+    public Invoice(LocalDate date,String cuit,String address,String business_name,double total, String payment, double discount, User user, Detail detail) {
+        this.date=date;
         this.cuit=cuit;
         this.address=address;
         this.business_name=business_name;
