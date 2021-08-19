@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -35,17 +36,16 @@ public class LollapallozaApplication {
 			User testUser = new User("Lola","Perez","12341234","lola@gmail.com",passwordEncoder.encode("1234"));
 			userRepository.save(testUser);
 
-			productRepositiry.save(new Product(Category.PRO, "REMERA UNISEX LOLLA MODE ON ROSA", 10, 1050, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-mujer-lolla-rosa_a11-08db4434d187a0018f15210474730620-640-0.jpg","https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-mujer-lolla-rosa_b11-0c676825b898fab37915210474739432-640-0.jpg")));
-			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM LOLLA AZUL", 10, 1100, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-hombre-slim-lolla-azul_a11-c8b46abd750ec1237815210466322555-640-0.jpg", "https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-hombre-slim-lolla-azul_b11-da77cf33e4b3dd576c15210466332882-640-0.jpg")));
-			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM ROCK BLANCO", 5, 800, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-hombre-slim-rock-blanco_a31-67c04170b9980aef7c15210466704854-640-0.jpg", "https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-hombre-slim-lolla-azul_b11-da77cf33e4b3dd576c15210466332882-640-0.jpg")));
-			productRepositiry.save(new Product(Category.PRO, "REMERA TEEN SMILE NEGRO", 4, 950, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-teen-smile_a1-941a21d66198993d8c15210482046255-640-0.jpg", "https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-teen-smile_b1-021688db136c02e0d015210482076575-640-0.jpg")));
-			productRepositiry.save(new Product(Category.PRO, "MUSCULOSA MUJER LOLLA BOLT BLANCO", 8, 750,Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/remera-m-lolla-bolt1-d29ca89e587793e48d15538610193905-640-0.png")));
-			productRepositiry.save(new Product(Category.PRO, "REMERA UNISEX LOLLA FULL BOLT", 15, 1350, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/lolla-2118321-2519d31283a1f5ebe415538615237885-640-0.png")));
-			productRepositiry.save(new Product(Category.PRO, "Remera Lolla Music", 15, 820, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo135671-c35bab1e9a71720ecd15959872334113-640-0.jpg", "https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo135681-1c675f07d475a77cf515959872334950-640-0.jpg")));
-			productRepositiry.save(new Product(Category.PRO, "Remera Lolla Band", 20, 550, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo135291-cd90a76a58b259cf1215959873728285-640-0.jpg", "https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo135301-0a7761cd8fa77e01b515959873728674-640-0.jpg")));
-			productRepositiry.save(new Product(Category.PRO, "Buzo Lolla Holo Niños", 20, 3750, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo1358611-8f966341225749b03b15960408639273-640-0.jpg", "https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo1358911-e3ae790ba4fec9628915960408642418-640-0.jpg")));
-			productRepositiry.save(new Product(Category.PRO, "Campera Lolla Mix Negra", 11, 4500, Set.of("https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo135751-d69de559e62e762b1a15960303656441-640-0.jpg", "https://d2r9epyceweg5n.cloudfront.net/stores/698/172/products/sesion-sin-titulo135771-4771b81039582454aa15960303657034-640-0.jpg")));
-
+			productRepositiry.save(new Product(Category.PRO, "REMERA UNISEX LOLLA MODE ON ROSA", 10, 1050));
+			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM LOLLA AZUL", 10, 1100));
+			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM ROCK BLANCO", 5, 800));
+			productRepositiry.save(new Product(Category.PRO, "REMERA TEEN SMILE NEGRO", 4, 9502));
+			productRepositiry.save(new Product(Category.PRO, "MUSCULOSA MUJER LOLLA BOLT BLANCO", 8, 750));
+			productRepositiry.save(new Product(Category.PRO, "REMERA UNISEX LOLLA FULL BOLT", 15, 1350));
+			productRepositiry.save(new Product(Category.PRO, "Remera Lolla Music", 15, 820));
+			productRepositiry.save(new Product(Category.PRO, "Remera Lolla Band", 20, 550));
+			productRepositiry.save(new Product(Category.PRO, "Buzo Lolla Holo Niños", 20, 3750));
+			productRepositiry.save(new Product(Category.PRO, "Campera Lolla Mix Negra", 11, 4500));
 
 			Campus campus1 = new Campus("Plaza de Mayo", 6000);
 			Campus campus2 = new Campus("Hipodromo de Palermo", 16500);

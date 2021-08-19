@@ -21,13 +21,13 @@ public class Product {
     private String description;
     private Integer stock;
     private double price;
-    private Set<String> imgs = new HashSet<>();
+    //private String img;
 
-    public Product(Category category, String description, Integer stock, double price, Set<String> imgs) {
+    public Product(Category category, String description, Integer stock, double price) {
         this.category = category;
         this.description = description;
         this.stock = stock;
         this.price = price;
-        this.imgs = imgs;
+        //this.img = img;
     }
 }

@@ -1,5 +1,5 @@
-/* Header */
 
+/* Header */
 video {
   display: block;
   width: 100%;
@@ -27,58 +27,6 @@ video {
   padding: 0 2em;
 }
 
-/* Navbar */
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 64px;
-  background: rgba(255,255,255,0.3);
-  border-bottom: 1px solid rgba(225,225,225,0.5);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.nav ul {
-  list-style: none;
-  text-align: center;
-  white-space: nowrap;
-  padding-right: 32px;
-}
-
-.nav ul li {
-  display: inline-block;
-}
-.nav ul li a {
-  font-family: soleil, sans-serif;
-  font-weight: 100;
-  font-size: 25px;
-  color: white;
-  padding: 19px 16px;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: bolder;
-  text-shadow: 2px 2px #000;
-
-}
-.nav ul li a:hover {
-  background: rgba(255,255,255, 0.2);
-  text-shadow: 0 1px 5px rgba(0,0,0,0.15);
-}
-.first {
-  margin-right: -0.17em;
-  border-right: none !important;
-}
-.last {
-  margin-left: -0.17em;
-  border-left: none !important;
-}
-
-/* End Navbar */
-
 .logo-vid{
   width: 50%;
   height: auto;
@@ -98,7 +46,7 @@ video {
   justify-content: center;
 }
 .bandsItems{
-  height: 80vh;
+  min-height: 80vh;
   width: 80vw;
   background-color: rgba(255,255,255,0.26);
   border-radius: 5px;
@@ -237,7 +185,7 @@ video {
 .theDays{
   margin-top: 3vh;
   margin-bottom: 4vh;
-  text-shadow: 2px 2px black;
+  text-shadow: 2px 2px  black;
   font-size: 2.8rem;
 }
 
@@ -246,11 +194,151 @@ video {
   margin-bottom: 3vh;
   font-weight: bold;
   font-size: 2.8rem;
-  text-shadow: 3px 3px black;
+  text-shadow: 3px 3px  black;
 }
 
 .theBands{
   font-weight: bold;
   font-size: 2rem;
-  text-shadow: 2px 2px var(--color-grey);
+  text-shadow: 2px 2px  var(--color-grey);
+}
+
+
+/*MEDIA QUERIES DEL LINEUP PARA TLF MEDIO*/
+
+@media (max-width: 500px){
+  #firstD, #secondD, #thirdD, #fourthD{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
+    margin-bottom: 4vh;
+  }
+
+  #casaR, #lunaP, #velez, #hipodromo, .theDate{
+    min-width: 82vw;
+    padding: 5px;
+  }
+  #casaR, #lunaP, #velez, #hipodromo{
+    max-height: 60vh;
+  }
+  #casaR, #lunaP{
+    background:linear-gradient(180deg,#F23DB3,#F2E205);
+  }
+  #hipodromo, #velez{
+    background:linear-gradient(180deg, #F2CB05, #F23838);
+  }
+  .theDate{
+    background:linear-gradient(180deg,#F23838,#F23DB3 );
+    font-size: 1.8rem;
+    height: 20vh;
+  }
+  .location{
+    font-size: 1.7rem;
+  }
+  .theBands{
+    font-size: 1.1rem;
+  }
+  .theDays{
+    margin-top: 0;
+    margin-bottom: 1vh;
+  }
+};
+
+/*MEDIA QUERIES DEL LINEUP PARA TLF GRANDE Y TABLETS PEQUEÑAS*/
+@media (max-width: 770px){
+  #firstD, #secondD, #thirdD, #fourthD{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
+    margin-bottom: 4vh;
+  }
+
+  #casaR, #lunaP, #velez, #hipodromo{
+    min-width: 65vw;
+    padding: 5px;
+    min-height: 38vh;
+  }
+
+  #casaR, #lunaP{
+    background:linear-gradient(180deg,#F23DB3,#F2E205);
+  }
+
+  #hipodromo, #velez{
+    background:linear-gradient(180deg, #F2CB05, #F23838);
+  }
+
+  .theDate{
+    background:linear-gradient(180deg,#F23838,#F23DB3 );
+    font-size: 2rem;
+    min-height: 20vh;
+    min-width: 30vw;
+  }
+
+  .location{
+    font-size: 2.2rem;
+  }
+
+  .theBands{
+    font-size: 1.4rem;
+  }
+
+  .theDays{
+    margin-bottom: 2vh;
+  }
+};
+
+/*MEDIA QUERIES DEL LINEUP PARA TABLETS*/
+@media (max-width: 1100px){
+  #firstD, #secondD, #thirdD, #fourthD{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
+    margin-bottom: 4vh;
+  }
+
+  #casaR, #lunaP, #velez, #hipodromo, .theDate{
+    padding: 5px;
+  }
+
+  #casaR, #lunaP, #velez, #hipodromo{
+    max-height: 30vh;
+    max-width: 60vw;
+  }
+  #casaR, #lunaP{
+    background:linear-gradient(180deg,#F23DB3,#F2E205);
+  }
+  #hipodromo, #velez{
+    background:linear-gradient(180deg, #F2CB05, #F23838);
+  }
+  .theDate{
+    background:linear-gradient(180deg,#F23838,#F23DB3 );
+    font-size: 2rem;
+    max-height: 15vh;
+    max-width: 20vw;
+  }
+  .location{
+    font-size: 2.4rem;
+  }
+  .theBands{
+    font-size: 1.6rem;
+  }
+  .theDays{
+    margin-bottom: 2vh;
+  }
+}
+/* Media Query Carousel */
+@media only screen and (max-width: 1000px) {
+  .bandsItems{
+    width: 100vw;
+    padding: 5px;
+    gap: 5px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 30vh 30vh 30vh 30vh;
+  }  
 }
