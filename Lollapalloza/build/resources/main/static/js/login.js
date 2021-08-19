@@ -27,7 +27,7 @@ const app = Vue.createApp({
                 .then(() => {
                     this.isUser = !this.isUser
                     axios.post('/api/login', "email=" + this.postEmail + "&password=" + this.postPassword, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
-                        .then(() => window.location.href = "/accounts.html")
+                        .then(() => window.location.href = "/index.html")
 
                 })
                 .catch(err => swal('Datos Incorrectos ' + err))

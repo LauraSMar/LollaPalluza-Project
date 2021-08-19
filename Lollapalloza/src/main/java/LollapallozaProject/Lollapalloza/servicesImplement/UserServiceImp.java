@@ -15,8 +15,6 @@ public class UserServiceImp implements UserService {
     @Autowired
     UserRepository userRepository;
 
-
-
     @Override
     public boolean SaveUser(User user) {
         userRepository.save(user);
@@ -25,8 +23,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public List<User> getUsers() {
-       List<User> listUser=userRepository.findAll();
-       return listUser;
+        return userRepository.findAll();
     }
 
     @Override

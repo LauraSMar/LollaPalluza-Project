@@ -10,12 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-
-
 public class Campus {
-
-
-
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
         @GenericGenerator(name = "native", strategy = "native")
@@ -23,16 +18,12 @@ public class Campus {
         private String location;
         private Integer capacity;
 
-
-
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "eventId")
+        @OneToOne(mappedBy = "campus")
         private Event event;
 
-        public Campus(String location, Integer capacity, Ticket ticket) {
+        public Campus(String location, Integer capacity) {
                 this.location=location;
                 this.capacity=capacity;
-
         }
 }
 

@@ -14,13 +14,11 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 public class Ticket {
-
-
-
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
         @GenericGenerator(name = "native", strategy = "native")
         private Long Id;
+
         private Category category;
         private String description;
         private double price;
@@ -29,23 +27,17 @@ public class Ticket {
         @Column(name="days")
         private List<Integer> days = new ArrayList<>();
 
-        @OneToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "ticketId")
+        @OneToOne(mappedBy = "ticket")
         private Detail detail;
 
-        @OneToMany(fetch = FetchType.EAGER)
-        @JoinColumn(name="eventId")
-        private Set<Event> events =new HashSet<>();
+        @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
+        private Set<Event> events = new HashSet<>();
 
-        public Ticket(Category category,String description,double price, List<Integer> days, Detail detail,Event event){
+        public Ticket(Category category,String description,double price, List<Integer> days, Detail detail){
             this.category=category;
             this.description=description;
             this.price=price;
             this.days=days;
-
-
-
-
         }
 
     }
