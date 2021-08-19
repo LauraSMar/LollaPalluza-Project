@@ -35,5 +35,6 @@ public class Event {
         this.date = date;
         this.start=start;
         this.end=end;
+        this.campus = campus;
     }
 }

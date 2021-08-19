@@ -1,7 +1,12 @@
 package LollapallozaProject.Lollapalloza;
 
 import LollapallozaProject.Lollapalloza.models.*;
+
 import LollapallozaProject.Lollapalloza.repositories.ProductRepositiry;
+
+import LollapallozaProject.Lollapalloza.repositories.CampusRespository;
+import LollapallozaProject.Lollapalloza.repositories.EventRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,7 +35,7 @@ public class LollapallozaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(UserRepository userRepository, ProductRepositiry productRepositiry){
+	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository,ProductRepositiry productRepositiry, CampusRespository campusRespository){
 		return (args) ->{
 			User testUser = new User("Lola","Perez","12341234","lola@gmail.com",passwordEncoder.encode("1234"));
 			userRepository.save(testUser);
@@ -51,6 +56,10 @@ public class LollapallozaApplication {
 			Campus campus2 = new Campus("Hipodromo de Palermo", 16500);
 			Campus campus3 = new Campus("Velez Alfield", 49500);
 			Campus campus4 = new Campus("Luna Park", 9200);
+			campusRespository.save(campus1);
+			campusRespository.save(campus2);
+			campusRespository.save(campus3);
+			campusRespository.save(campus4);
 
 			LocalDate date1 = LocalDate.of(2021, 11, 27);
 			LocalDate date2 = LocalDate.of(2021, 11, 28);
@@ -61,8 +70,12 @@ public class LollapallozaApplication {
 			Event event2 = new Event(date2, LocalTime.of(18, 0), LocalTime.of(23, 30), campus2);
 			Event event3 = new Event(date3, LocalTime.of(18, 0), LocalTime.of(23, 30), campus3);
 			Event event4 = new Event(date4, LocalTime.of(18, 0), LocalTime.of(23, 30), campus4);
+			eventRepository.save(event1);
+			eventRepository.save(event2);
+			eventRepository.save(event3);
+			eventRepository.save(event4);
 
-
+			Ticket ticket1 = new Ticket("hola");
 
 		};
 	}
