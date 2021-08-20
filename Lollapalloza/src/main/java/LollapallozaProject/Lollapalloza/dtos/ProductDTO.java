@@ -17,7 +17,7 @@ public class ProductDTO {
     private String description;
     private Integer stock;
     private double price;
-    //private String img;
+    private String img;
 
     public ProductDTO(Product product) {
         this.id= product.getId();
@@ -25,6 +25,6 @@ public class ProductDTO {
         this.description = product.getDescription();
         this.stock = product.getStock();
         this.price = product.getPrice();
-        //this.img = product.getImg();
+        this.img = product.getImg();
     }
 }

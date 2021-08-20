@@ -23,7 +23,7 @@ public class Ticket {
        private String description;
      //   private double price;
 
-/*        @ElementCollection
+        /*@ElementCollection
         @Column(name="days")
         private List<Integer> days = new ArrayList<>();*/
 
@@ -33,11 +33,12 @@ public class Ticket {
         @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
         private Set<Event> events = new HashSet<>();
 
-        public Ticket(String description){
+        public Ticket(String description, Detail detail,Set<Event> events){
           //  this.category=category;
             this.description=description;
          //   this.price=price;
             this.detail = detail;
+            this.events = events;
         }
 
 

@@ -17,8 +17,9 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
+
     private LocalDate date;
-    private String cuit;
+    //private String cuit;
     private String address;
     private String businessName;
     private double total;
@@ -32,15 +33,13 @@ public class Invoice {
     @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
     private Set<Detail> details = new HashSet<>();
 
-    public Invoice(LocalDate date,String cuit,String address,String businessName,double total, String payment, double discount, User user, Detail detail) {
+    public Invoice(LocalDate date,String address,String businessName,double total, String payment, double discount, User user) {
         this.date=date;
-        this.cuit=cuit;
         this.address=address;
         this.businessName=businessName;
         this.total=total;
         this.discount=discount;
         this.payment=payment;
-
     }
 
 }

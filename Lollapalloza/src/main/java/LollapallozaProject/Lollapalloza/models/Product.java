@@ -21,13 +21,13 @@ public class Product {
     private String description;
     private Integer stock;
     private double price;
-    //private String img;
+    private String img;
 
-    public Product(Category category, String description, Integer stock, double price) {
+    public Product(Category category, String description, Integer stock, double price, String img) {
         this.category = category;
         this.description = description;
         this.stock = stock;
         this.price = price;
-        //this.img = img;
+        this.img = img;
     }
 }
