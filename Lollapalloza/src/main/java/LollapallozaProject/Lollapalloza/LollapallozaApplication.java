@@ -38,7 +38,7 @@ public class LollapallozaApplication {
 			userRepository.save(testUser);
 
 			productRepositiry.save(new Product(Category.PRO, "REMERA UNISEX LOLLA MODE ON ROSA", 10, 1050, "https://tinyurl.com/ygo3kkzt"));
-			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM LOLLA AZUL", 10, 1100, "https://tinyurl.com/yhp4p6h4" ));
+			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM LOLLA AZUL", 10, 1100, "https://tinyurl.com/yhp4p6h4"));
 			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM ROCK BLANCO", 5, 800, "https://tinyurl.com/yjz8984w"));
 			productRepositiry.save(new Product(Category.PRO, "REMERA TEEN SMILE NEGRO", 4, 9502, "https://tinyurl.com/yhkbgayn"));
 			productRepositiry.save(new Product(Category.PRO, "MUSCULOSA MUJER LOLLA BOLT BLANCO", 8, 750, "https://tinyurl.com/yk4tcrw6"));
@@ -68,18 +68,14 @@ public class LollapallozaApplication {
 
 			//creacion de factura
 
-			Invoice invoice1 = new Invoice(LocalDate.now(), "CALLE FALSA 123", "Lolapalloza", 1000, "debito", 0, testUser);
+			Invoice invoice1 = new Invoice(LocalDate.now(), "CALLE FALSA 123", "name User", 1000, "debito", 0, testUser);
 			invoiceRepository.save(invoice1);
 
-			Detail detail1 = new Detail(Category.TKT, 1, "entrada", 1000, invoice1);
+			Detail detail1 = new Detail(Category.TKT, 1, "Entrada para los eventos 1 y 2", 900, 1000, invoice1);
 			detailRepository.save(detail1);
 
-			Ticket ticket1 = new Ticket("Entrada para los eventos 1 y 2", detail1, Set.of(event1, event2));
+			Ticket ticket1 = new Ticket("Entrada para los eventos 1 y 2", 1000,Set.of(event1, event2));
 			ticketRepository.save(ticket1);
-
-
-
-
 
 		};
 	}

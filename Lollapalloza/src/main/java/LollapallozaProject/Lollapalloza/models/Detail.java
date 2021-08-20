@@ -19,25 +19,22 @@ public class Detail {
     private Integer quantity;
     private String description;
     private double subtotal;
+    private double priceUnitary;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "invoiceId")
     private Invoice invoice;
-
-    @OneToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name = "productId")
-    private Product product;
-
-    @OneToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticketId")
-    private Ticket ticket;
-
-    public Detail(Category category, Integer quantity, String description, double subtotal, Invoice invoice) {
+    public Detail(Category category, Integer quantity, String description, double subtotal, double priceUnitary, Invoice invoice) {
         this.category = category;
         this.quantity = quantity;
         this.description = description;
         this.subtotal = subtotal;
         this.invoice = invoice;
+        this.priceUnitary = priceUnitary;
     }
+
+
+
+
 
 }

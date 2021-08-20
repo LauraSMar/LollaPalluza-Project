@@ -14,32 +14,33 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 public class Ticket {
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-        @GenericGenerator(name = "native", strategy = "native")
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long id;
 
-     //   private Category category;
-       private String description;
-     //   private double price;
+    private Category category;
+    private String description;
+    private double price;
 
         /*@ElementCollection
         @Column(name="days")
         private List<Integer> days = new ArrayList<>();*/
 
-        @OneToOne(mappedBy = "ticket")
-        private Detail detail;
+        /*@OneToOne(mappedBy = "ticket")
+        private Detail detail;*/
 
-        @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
-        private Set<Event> events = new HashSet<>();
+    @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
+    private Set<Event> events = new HashSet<>();
 
-        public Ticket(String description, Detail detail,Set<Event> events){
-          //  this.category=category;
-            this.description=description;
-         //   this.price=price;
-            this.detail = detail;
-            this.events = events;
-        }
-
-
+    public Ticket(String description, double price, Set<Event> events){
+        this.description=description;
+        this.events = events;
+        this.price = getPriceT();
     }
+
+    public double getPriceT() {
+        return 500 * this.getEvents().size();
+    }
+
+}
