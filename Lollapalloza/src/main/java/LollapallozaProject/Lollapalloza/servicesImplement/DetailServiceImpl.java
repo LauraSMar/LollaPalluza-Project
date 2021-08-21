@@ -13,7 +13,7 @@ import java.util.Set;
 public class DetailServiceImpl implements DetailService {
     @Override
     public boolean createDetailP(Product product, Integer quantity, String description) {
-        double subtotal= product.getPrice()* quantity;
+        double subtotal= product.getPrice() * quantity;
         Detail detail =new Detail(Category.PRO,quantity,description,subtotal, product.getPrice());
 
         return false;

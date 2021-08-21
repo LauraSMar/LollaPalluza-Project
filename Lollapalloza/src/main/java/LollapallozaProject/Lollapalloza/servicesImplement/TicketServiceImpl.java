@@ -31,16 +31,17 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public ResponseEntity createTicket(TicketDto ticketDto) {
-
+    public ResponseEntity<?> createTicket(TicketDto ticketDto) {
 
             Set<Event> eventList = ticketDto.getIdEvents().stream().map(e->eventRepository.findById(e).get()).collect(Collectors.toSet());
             String description="Ticket para  ";
+
             for (Event e: eventList) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL");
                 description.concat(e.getDate().format(formatter));
-                e.setAvailable(e.getAvailable()- ticketDto.getQuantity());
+                e.setAvailable(e.getAvailable() - ticketDto.getQuantity());
             }
+
             Ticket ticket=new Ticket(description,eventList);
             return new ResponseEntity<>(HttpStatus.CREATED);
     }
