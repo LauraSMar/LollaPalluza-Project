@@ -22,6 +22,7 @@ public class Event {
     private LocalDate date;
     private LocalTime start;
     private LocalTime end;
+    private Integer available;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ticked_Id")
@@ -36,5 +37,6 @@ public class Event {
         this.start=start;
         this.end=end;
         this.campus = campus;
+        this.available=campus.getCapacity();
     }
 }

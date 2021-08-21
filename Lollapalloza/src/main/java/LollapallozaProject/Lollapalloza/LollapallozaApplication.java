@@ -32,21 +32,21 @@ public class LollapallozaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository, ProductRepositiry productRepositiry, CampusRespository campusRespository, InvoiceRepository invoiceRepository, DetailRepository detailRepository, TicketRepository ticketRepository){
+	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository, ProductRepository productRepository, CampusRespository campusRespository, InvoiceRepository invoiceRepository, DetailRepository detailRepository, TicketRepository ticketRepository){
 		return (args) ->{
 			User testUser = new User("Lola","Perez","12341234","lola@gmail.com",passwordEncoder.encode("1234"));
 			userRepository.save(testUser);
 
-			productRepositiry.save(new Product(Category.PRO, "REMERA UNISEX LOLLA MODE ON ROSA", 10, 1050, "https://tinyurl.com/ygo3kkzt"));
-			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM LOLLA AZUL", 10, 1100, "https://tinyurl.com/yhp4p6h4"));
-			productRepositiry.save(new Product(Category.PRO, "REMERA H SLIM ROCK BLANCO", 5, 800, "https://tinyurl.com/yjz8984w"));
-			productRepositiry.save(new Product(Category.PRO, "REMERA TEEN SMILE NEGRO", 4, 9502, "https://tinyurl.com/yhkbgayn"));
-			productRepositiry.save(new Product(Category.PRO, "MUSCULOSA MUJER LOLLA BOLT BLANCO", 8, 750, "https://tinyurl.com/yk4tcrw6"));
-			productRepositiry.save(new Product(Category.PRO, "REMERA UNISEX LOLLA FULL BOLT", 15, 1350, "https://tinyurl.com/yhjathkz"));
-			productRepositiry.save(new Product(Category.PRO, "Remera Lolla Music", 15, 820, "https://tinyurl.com/yhqxgg3k"));
-			productRepositiry.save(new Product(Category.PRO, "Remera Lolla Band", 20, 550, "https://tinyurl.com/ye2m9vc8"));
-			productRepositiry.save(new Product(Category.PRO, "Buzo Lolla Holo Niños", 20, 3750, "https://tinyurl.com/yewq475a"));
-			productRepositiry.save(new Product(Category.PRO, "Campera Lolla Mix Negra", 11, 4500, "https://tinyurl.com/ydl2druo"));
+			productRepository.save(new Product(Category.PRO, "REMERA UNISEX LOLLA MODE ON ROSA", 10, 1050, "https://tinyurl.com/ygo3kkzt"));
+			productRepository.save(new Product(Category.PRO, "REMERA H SLIM LOLLA AZUL", 10, 1100, "https://tinyurl.com/yhp4p6h4"));
+			productRepository.save(new Product(Category.PRO, "REMERA H SLIM ROCK BLANCO", 5, 800, "https://tinyurl.com/yjz8984w"));
+			productRepository.save(new Product(Category.PRO, "REMERA TEEN SMILE NEGRO", 4, 9502, "https://tinyurl.com/yhkbgayn"));
+			productRepository.save(new Product(Category.PRO, "MUSCULOSA MUJER LOLLA BOLT BLANCO", 8, 750, "https://tinyurl.com/yk4tcrw6"));
+			productRepository.save(new Product(Category.PRO, "REMERA UNISEX LOLLA FULL BOLT", 15, 1350, "https://tinyurl.com/yhjathkz"));
+			productRepository.save(new Product(Category.PRO, "Remera Lolla Music", 15, 820, "https://tinyurl.com/yhqxgg3k"));
+			productRepository.save(new Product(Category.PRO, "Remera Lolla Band", 20, 550, "https://tinyurl.com/ye2m9vc8"));
+			productRepository.save(new Product(Category.PRO, "Buzo Lolla Holo Niños", 20, 3750, "https://tinyurl.com/yewq475a"));
+			productRepository.save(new Product(Category.PRO, "Campera Lolla Mix Negra", 11, 4500, "https://tinyurl.com/ydl2druo"));
 
 			Campus campus1 = new Campus("Plaza de Mayo", 6000);
 			Campus campus2 = new Campus("Hipodromo de Palermo", 16500);
@@ -68,13 +68,13 @@ public class LollapallozaApplication {
 
 			//creacion de factura
 
-			Invoice invoice1 = new Invoice(LocalDate.now(), "CALLE FALSA 123", "name User", 1000, "debito", 0, testUser);
+			Invoice invoice1 = new Invoice(LocalDate.now(),  "name User", 1000, "debito", 0, testUser);
 			invoiceRepository.save(invoice1);
-
+/*
 			Detail detail1 = new Detail(Category.TKT, 1, "Entrada para los eventos 1 y 2", 900, 1000, invoice1);
-			detailRepository.save(detail1);
+			detailRepository.save(detail1);*/
 
-			Ticket ticket1 = new Ticket("Entrada para los eventos 1 y 2", 1000,Set.of(event1, event2));
+			Ticket ticket1 = new Ticket("Entrada para los eventos 1 y 2",Set.of(event1, event2));
 			ticketRepository.save(ticket1);
 
 		};

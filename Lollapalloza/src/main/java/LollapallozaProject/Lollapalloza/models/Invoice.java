@@ -19,8 +19,6 @@ public class Invoice {
     private Long id;
 
     private LocalDate date;
-    //private String cuit;
-    private String address;
     private String businessName;
     private double total;
     private double discount;
@@ -33,10 +31,9 @@ public class Invoice {
     @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
     private Set<Detail> details = new HashSet<>();
 
-    public Invoice(LocalDate date,String address,String businessName,double total, String payment, double discount, User user) {
+    public Invoice(LocalDate date,String businessName,double total, String payment, double discount, User user) {
         this.date=date;
-        this.address=address;
-        this.businessName=businessName;
+        this.businessName= businessName;
         this.total=total;
         this.discount=discount;
         this.payment=payment;

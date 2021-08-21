@@ -33,4 +33,14 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+    public void setInvoice(Set<Invoice> invoices) {
+        this.invoices =invoices;
+    }
+
+
+    public void addInvoice(Invoice invoice) {
+        invoice.setUser(this);
+        invoices.add(invoice);
+    }
 }
