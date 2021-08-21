@@ -23,7 +23,8 @@ public class Detail {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "invoiceId")
     private Invoice invoice;
-    public Detail(Category category, Integer quantity, String description, double subtotal, double priceUnitary) {
+
+    public Detail(Category category, Integer quantity, String description, double subtotal, double priceUnitary, Invoice invoice) {
         this.category = category;
         this.quantity = quantity;
         this.description = description;

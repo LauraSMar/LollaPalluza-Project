@@ -33,11 +33,7 @@ public class LollapallozaApplication {
 	}
 
 	@Bean
-<<<<<<< Updated upstream
-	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository, ProductRepository productRepository, CampusRespository campusRespository, InvoiceRepository invoiceRepository, DetailRepository detailRepository, TicketRepository ticketRepository){
-=======
-	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository, ProductRepositiry productRepositiry, CampusRespository campusRespository, InvoiceRepository invoiceRepository, DetailRepository detailRepository, TicketRepository ticketRepository, BandRepository bandRepository){
->>>>>>> Stashed changes
+	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository, ProductRepository productRepository, CampusRespository campusRespository, InvoiceRepository invoiceRepository, DetailRepository detailRepository, TicketRepository ticketRepository, BandRepository bandRepository){
 		return (args) ->{
 			User testUser = new User("Lola","Perez","12341234","lola@gmail.com",passwordEncoder.encode("1234"));
 			userRepository.save(testUser);
@@ -93,15 +89,11 @@ public class LollapallozaApplication {
 
 			Invoice invoice1 = new Invoice(LocalDate.now(),  "name User", 1000, "debito", 0, testUser);
 			invoiceRepository.save(invoice1);
-/*
-			Detail detail1 = new Detail(Category.TKT, 1, "Entrada para los eventos 1 y 2", 900, 1000, invoice1);
-			detailRepository.save(detail1);*/
 
-<<<<<<< Updated upstream
+			Detail detail1 = new Detail(Category.TKT, 1, "Entrada para los eventos 1 y 2", 900, 1000, invoice1);
+			detailRepository.save(detail1);
+
 			Ticket ticket1 = new Ticket("Entrada para los eventos 1 y 2",Set.of(event1, event2));
-=======
-			Ticket ticket1 = new Ticket("Entrada para los eventos 1 y 2", 1000);
->>>>>>> Stashed changes
 			ticketRepository.save(ticket1);
 
 		};
