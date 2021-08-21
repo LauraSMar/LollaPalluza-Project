@@ -25,9 +25,12 @@ public class Ticket {
     @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
     private Set<Event> events = new HashSet<>();
 
+<<<<<<< Updated upstream
     public Ticket(String description, Set<Event> events){
+=======
+    public Ticket(String description, double price){
+>>>>>>> Stashed changes
         this.description=description;
-        this.events = events;
         this.price = getPriceT();
     }
 

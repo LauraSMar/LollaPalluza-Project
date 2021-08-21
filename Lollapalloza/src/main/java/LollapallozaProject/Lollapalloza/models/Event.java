@@ -8,7 +8,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 @Data
 @NoArgsConstructor
@@ -32,10 +34,10 @@ public class Event {
     @JoinColumn(name = "campusId")
     private Campus campus;
 
-    public Event(LocalDate date, LocalTime start, LocalTime end,Campus campus) {
+    public Event(LocalDate date, LocalTime start, LocalTime end, Campus campus) {
         this.date = date;
-        this.start=start;
-        this.end=end;
+        this.start = start;
+        this.end = end;
         this.campus = campus;
         this.available=campus.getCapacity();
     }
