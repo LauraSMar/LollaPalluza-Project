@@ -1,4 +1,3 @@
-
 /* Header */
 video {
   display: block;
@@ -16,9 +15,9 @@ video {
   height: 100%;
   margin: 0 auto;
   padding: 0;
-  position:relative;
+  position: relative;
   z-index: 2;
-  text-shadow: 0 1px 5px rgba(0,0,0,.5);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 .fullsize-video-bg .inner > div {
   text-align: center;
@@ -27,11 +26,11 @@ video {
   padding: 0 2em;
 }
 
-.logo-vid{
+.logo-vid {
   width: 50%;
   height: auto;
 }
-.logo-img{
+.logo-img {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,15 +39,31 @@ video {
 }
 /* Header End */
 
+.divBandas {
+  height: 10vh;
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(2%, rgba(202,247,238,1)), color-stop(13%, rgba(127,232,211,1)), color-stop(25%, rgba(68,199,171,1)), color-stop(32%, rgba(38,179,148,1)), color-stop(38%, rgba(3,166,136,1)), color-stop(46%, rgba(5,153,123,1)), color-stop(53%, rgba(23,143,119,1)), color-stop(86%, rgba(2,99,80,1)), color-stop(93%, rgba(16,92,75,1)), color-stop(100%, rgba(16,92,75,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#105c4b', GradientType=0 );
+  color: white;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.26);
+  text-align: center;
+  padding-top: 2vh;
+}
+
 /* Carousel Bands */
-.carouselBands{
+.carouselBands {
   display: flex;
   justify-content: center;
 }
-.bandsItems{
+.bandsItems {
   min-height: 80vh;
   width: 80vw;
-  background-color: rgba(255,255,255,0.26);
+  background-color: rgba(255, 255, 255, 0.26);
   border-radius: 5px;
   padding: 1.5rem;
   display: grid;
@@ -56,72 +71,87 @@ video {
   grid-template-rows: auto auto;
   gap: 1rem;
 }
-.bandsItems>div{
+.bandsItems > div {
   min-width: 350px;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.56);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.56);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.bandsItems>div:hover{
+.bandsItems > div:hover {
   box-shadow: none;
   cursor: pointer;
 }
-.carouselLana{
-  background-image: url("../img/carousel-lana-del-rey.jpg");    
+.carouselLana {
+  background-image: url("../img/carousel-lana-del-rey.jpg");
 }
-.carouselBeriso{
+.carouselBeriso {
   background-image: url("../img/carousel-la-beriso.jpg");
 }
-.carouselMotleyCrue{
+.carouselMotleyCrue {
   background-image: url("../img/carousel-motley-crue.jpg");
 }
-.carouselSteveAoki{
+.carouselSteveAoki {
   background-image: url("../img/carousel-steve-aoki.jpg");
 }
-.carouselNtvg{
+.carouselNtvg {
   background-image: url("../img/carousel-ntvg.png");
 }
-.carouselTpilots{
+.carouselTpilots {
   background-image: url("../img/carousel-21-pilots.jpg");
 }
-.carouselLondra{
+.carouselLondra {
   background-image: url("../img/carousel-paulo-londra.jpg");
 }
-.carouselRedHot{
+.carouselRedHot {
   background-image: url("../img/carousel-red-hot.jpg");
 }
-.carouselDuki{
+.carouselDuki {
   background-image: url("../img/carousel-duki.png");
 }
-.carouselImagineDragons{
+.carouselImagineDragons {
   background-image: url("../img/carousel-imagine-dragons.png");
 }
-.carouselMartinGarrix{
+.carouselMartinGarrix {
   background-image: url("../img/carousel-martin-garrix.jpg");
 }
-.carouselTheWeeknd{
+.carouselTheWeeknd {
   background-image: url("../img/carousel-the-weeknd.jpg");
 }
-.carouselEdSheeran{
+.carouselEdSheeran {
   background-image: url("../img/carousel-ed-sheeran.jpg");
 }
-.carouselKeane{
+.carouselKeane {
   background-image: url("../img/carousel-keane.jpg");
 }
-.carouselGuns{
+.carouselGuns {
   background-image: url("../img/carousel-guns.png");
 }
-.carouselMetallica{
+.carouselMetallica {
   background-image: url("../img/carousel-metallica.png");
 }
 
 /* End Carousel */
 
+.divInfo {
+  height: 10vh;
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(2%, rgba(202,247,238,1)), color-stop(13%, rgba(127,232,211,1)), color-stop(25%, rgba(68,199,171,1)), color-stop(32%, rgba(38,179,148,1)), color-stop(38%, rgba(3,166,136,1)), color-stop(46%, rgba(5,153,123,1)), color-stop(53%, rgba(23,143,119,1)), color-stop(86%, rgba(2,99,80,1)), color-stop(93%, rgba(16,92,75,1)), color-stop(100%, rgba(16,92,75,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(202,247,238,1) 2%, rgba(127,232,211,1) 13%, rgba(68,199,171,1) 25%, rgba(38,179,148,1) 32%, rgba(3,166,136,1) 38%, rgba(5,153,123,1) 46%, rgba(23,143,119,1) 53%, rgba(2,99,80,1) 86%, rgba(16,92,75,1) 93%, rgba(16,92,75,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#105c4b', GradientType=0 );
+  color: white;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.26);
+  text-align: center;
+  padding-top: 2vh;
+}
 
 /* lineUp Section*/
-#lineUp{
+#lineUp {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,17 +162,21 @@ video {
   background-position: center;
 }
 
-#firstD, #secondD, #thirdD, #fourthD{
+#firstD,
+#secondD,
+#thirdD,
+#fourthD {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 1vw;
 }
 
-#casaR, #lunaP{
+#casaR,
+#lunaP {
   width: 50vw;
   height: 45vh;
-  background:linear-gradient(90deg,#F23DB3,#F2E205);
+  background: linear-gradient(90deg, #f23db3, #f2e205);
   box-shadow: 3px 3px 5px black;
   border-radius: 10px;
   text-align: center;
@@ -150,10 +184,11 @@ video {
   border: 2px solid black;
 }
 
-#hipodromo, #velez{
+#hipodromo,
+#velez {
   width: 50vw;
   height: 45vh;
-  background:linear-gradient(90deg, #F2CB05, #F23838);
+  background: linear-gradient(90deg, #f2cb05, #f23838);
   box-shadow: 3px 3px 5px black;
   border-radius: 10px;
   text-align: center;
@@ -161,10 +196,10 @@ video {
   border: 2px solid black;
 }
 
-.theDate{
+.theDate {
   width: 20vw;
   height: 25vh;
-  background:linear-gradient(90deg,#F23838,#F23DB3 );
+  background: linear-gradient(90deg, #f23838, #f23db3);
   box-shadow: 3px 3px 5px black;
   border-radius: 10px;
   text-align: center;
@@ -173,41 +208,42 @@ video {
   font-weight: bold;
   border: 2px solid black;
   font-size: 2.5rem;
-
 }
 
-.theDate p{
+.theDate p {
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px var(--color-grey);
 }
 
-.theDays{
+.theDays {
   margin-top: 3vh;
   margin-bottom: 4vh;
-  text-shadow: 2px 2px  black;
+  text-shadow: 2px 2px black;
   font-size: 2.8rem;
 }
 
-.location{
+.location {
   margin-top: 3vh;
   margin-bottom: 3vh;
   font-weight: bold;
   font-size: 2.8rem;
-  text-shadow: 3px 3px  black;
+  text-shadow: 3px 3px black;
 }
 
-.theBands{
+.theBands {
   font-weight: bold;
   font-size: 2rem;
-  text-shadow: 2px 2px  var(--color-grey);
+  text-shadow: 2px 2px var(--color-grey);
 }
-
 
 /*MEDIA QUERIES DEL LINEUP PARA TLF MEDIO*/
 
-@media (max-width: 500px){
-  #firstD, #secondD, #thirdD, #fourthD{
+@media (max-width: 500px) {
+  #firstD,
+  #secondD,
+  #thirdD,
+  #fourthD {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -216,39 +252,50 @@ video {
     margin-bottom: 4vh;
   }
 
-  #casaR, #lunaP, #velez, #hipodromo, .theDate{
-    min-width: 82vw;
+  #casaR,#lunaP,#velez,#hipodromo,.theDate {
+    width: 82vw;
     padding: 5px;
   }
-  #casaR, #lunaP, #velez, #hipodromo{
+  #casaR,
+  #lunaP,
+  #velez,
+  #hipodromo {
     max-height: 60vh;
   }
-  #casaR, #lunaP{
-    background:linear-gradient(180deg,#F23DB3,#F2E205);
+  #casaR,
+  #lunaP {
+    background: linear-gradient(180deg, #f23db3, #f2e205);
   }
-  #hipodromo, #velez{
-    background:linear-gradient(180deg, #F2CB05, #F23838);
+  #hipodromo,
+  #velez {
+    background: linear-gradient(180deg, #f2cb05, #f23838);
   }
-  .theDate{
-    background:linear-gradient(180deg,#F23838,#F23DB3 );
+  .theDate {
+    background: linear-gradient(180deg, #f23838, #f23db3);
     font-size: 1.8rem;
     height: 20vh;
   }
-  .location{
+  .theDate{
+    order: -1;
+  }
+  .location {
     font-size: 1.7rem;
   }
-  .theBands{
+  .theBands {
     font-size: 1.1rem;
   }
-  .theDays{
+  .theDays {
     margin-top: 0;
     margin-bottom: 1vh;
   }
-};
+}
 
 /*MEDIA QUERIES DEL LINEUP PARA TLF GRANDE Y TABLETS PEQUEÑAS*/
-@media (max-width: 770px){
-  #firstD, #secondD, #thirdD, #fourthD{
+@media (min-width: 500px) and (max-width: 770px) {
+  #firstD,
+  #secondD,
+  #thirdD,
+  #fourthD {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -257,43 +304,52 @@ video {
     margin-bottom: 4vh;
   }
 
-  #casaR, #lunaP, #velez, #hipodromo{
+  #casaR,
+  #lunaP,
+  #velez,
+  #hipodromo {
     min-width: 65vw;
     padding: 5px;
     min-height: 38vh;
   }
 
-  #casaR, #lunaP{
-    background:linear-gradient(180deg,#F23DB3,#F2E205);
+  #casaR,
+  #lunaP {
+    background: linear-gradient(180deg, #f23db3, #f2e205);
   }
 
-  #hipodromo, #velez{
-    background:linear-gradient(180deg, #F2CB05, #F23838);
+  #hipodromo,
+  #velez {
+    background: linear-gradient(180deg, #f2cb05, #f23838);
   }
 
-  .theDate{
-    background:linear-gradient(180deg,#F23838,#F23DB3 );
+  .theDate {
+    background: linear-gradient(180deg, #f23838, #f23db3);
     font-size: 2rem;
     min-height: 20vh;
-    min-width: 30vw;
+    min-width: 65vw;
+    order: -1;
   }
 
-  .location{
+  .location {
     font-size: 2.2rem;
   }
 
-  .theBands{
+  .theBands {
     font-size: 1.4rem;
   }
 
-  .theDays{
+  .theDays {
     margin-bottom: 2vh;
   }
-};
+}
 
 /*MEDIA QUERIES DEL LINEUP PARA TABLETS*/
-@media (max-width: 1100px){
-  #firstD, #secondD, #thirdD, #fourthD{
+@media (min-width: 770px) and (max-width: 1100px) {
+  #firstD,
+  #secondD,
+  #thirdD,
+  #fourthD {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,44 +357,53 @@ video {
     margin-bottom: 4vh;
   }
 
-  #casaR, #lunaP, #velez, #hipodromo, .theDate{
+  #casaR,
+  #lunaP,
+  #velez,
+  #hipodromo,
+  .theDate {
     padding: 5px;
   }
 
-  #casaR, #lunaP, #velez, #hipodromo{
-    max-height: 30vh;
-    max-width: 60vw;
+  #casaR,
+  #lunaP,
+  #velez,
+  #hipodromo {
+    min-height: 30vh;
+    min-width: 60vw;
   }
-  #casaR, #lunaP{
-    background:linear-gradient(180deg,#F23DB3,#F2E205);
+  #casaR,
+  #lunaP {
+    background: linear-gradient(180deg, #f23db3, #f2e205);
   }
-  #hipodromo, #velez{
-    background:linear-gradient(180deg, #F2CB05, #F23838);
+  #hipodromo,
+  #velez {
+    background: linear-gradient(180deg, #f2cb05, #f23838);
   }
-  .theDate{
-    background:linear-gradient(180deg,#F23838,#F23DB3 );
+  .theDate {
+    background: linear-gradient(180deg, #f23838, #f23db3);
     font-size: 2rem;
-    max-height: 15vh;
-    max-width: 20vw;
+    min-height: 15vh;
+    min-width: 20vw;
   }
-  .location{
+  .location {
     font-size: 2.4rem;
   }
-  .theBands{
+  .theBands {
     font-size: 1.6rem;
   }
-  .theDays{
+  .theDays {
     margin-bottom: 2vh;
   }
 }
 /* Media Query Carousel */
-@media only screen and (max-width: 1000px) {
-  .bandsItems{
+@media (min-width: 100px) and (max-width: 1000px) {
+  .bandsItems {
     width: 100vw;
     padding: 5px;
     gap: 5px;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 30vh 30vh 30vh 30vh;
-  }  
-}
+  }
+};

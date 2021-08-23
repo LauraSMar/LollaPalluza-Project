@@ -1,14 +1,11 @@
 const app = Vue.createApp({
-    data() {
-        return {
+  data() {
+    return {
+      activeNavbar: false,
+      activeMenu: false,
+    };
+  },
+  methods: {},
 
-        }
-    },
-    methods: {
-        
-    },
-
-    computed: {
-    
-    },
-})
+  computed: {},
+});
