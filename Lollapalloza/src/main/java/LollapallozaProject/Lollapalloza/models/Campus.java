@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Data
@@ -20,6 +22,9 @@ public class Campus {
 
         @OneToOne(mappedBy = "campus")
         private Event event;
+
+        @OneToMany(mappedBy = "campus", fetch = FetchType.EAGER)
+        private Set<Band> bands = new HashSet<>();
 
         public Campus(String location, Integer capacity) {
                 this.location=location;

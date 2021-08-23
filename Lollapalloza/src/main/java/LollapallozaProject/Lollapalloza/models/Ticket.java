@@ -18,29 +18,21 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
-
-    private Category category;
     private String description;
     private double price;
-
-        /*@ElementCollection
-        @Column(name="days")
-        private List<Integer> days = new ArrayList<>();*/
-
-        /*@OneToOne(mappedBy = "ticket")
-        private Detail detail;*/
 
     @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
     private Set<Event> events = new HashSet<>();
 
-    public Ticket(String description, double price, Set<Event> events){
-        this.description=description;
-        this.events = events;
-        this.price = getPriceT();
-    }
+    public Ticket(String description, Set<Event> events) {
+            this.description = description;
+            this.events = events;
+            this.price = this.getPriceT();
+        }
 
     public double getPriceT() {
         return 500 * this.getEvents().size();
     }
-
 }
+
+
