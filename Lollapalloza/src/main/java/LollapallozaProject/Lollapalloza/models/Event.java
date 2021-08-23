@@ -39,6 +39,6 @@ public class Event {
         this.start = start;
         this.end = end;
         this.campus = campus;
-        this.available=campus.getCapacity();
+        this.available = campus.getCapacity();
     }
 }

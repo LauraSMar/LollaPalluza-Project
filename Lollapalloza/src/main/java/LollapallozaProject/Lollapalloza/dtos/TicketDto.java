@@ -21,11 +21,8 @@ public class TicketDto {
 
 
 
-    public TicketDto(Long id, Set<Long> idEvents, Integer quantity) {
+    public TicketDto(Long id, Set<Long> idEvents) {
         this.id = id;
         this.idEvents = idEvents;
-        this.quantity=quantity;
-
-
     }
 }

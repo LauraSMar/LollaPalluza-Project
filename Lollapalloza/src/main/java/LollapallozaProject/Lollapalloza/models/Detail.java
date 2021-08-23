@@ -14,6 +14,7 @@ public class Detail {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long Id;
+
     private Category category;
     private Integer quantity;
     private String description;
@@ -29,12 +30,8 @@ public class Detail {
         this.quantity = quantity;
         this.description = description;
         this.subtotal = subtotal;
-        //this.invoice = invoice;
         this.priceUnitary = priceUnitary;
+        this.invoice = invoice;
     }
-
-
-
-
 
 }

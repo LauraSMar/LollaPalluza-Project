@@ -26,25 +26,17 @@ public class TicketServiceImpl implements TicketService {
     EventRepository eventRepository;
 
     @Override
-    public Optional<Ticket> findById(Long idTicket) {
-       return ticketRepository.findById(idTicket);
+    public Ticket createTicket(TicketDto ticketDto) {
+        Set<Event> eventList = ticketDto.getIdEvents().stream().map(e-> eventRepository.findById(e).orElse(null)).collect(Collectors.toSet());
+        String description="Ticket para  ";
+
+        for (Event e: eventList) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL");
+            description.concat(e.getDate().format(formatter));
+            e.setAvailable(e.getAvailable() - 1);
+        }
+        Ticket ticket = new Ticket(description,eventList);
+        ticketRepository.save(ticket);
+        return ticket;
     }
-
-    @Override
-    public ResponseEntity<?> createTicket(TicketDto ticketDto) {
-
-            Set<Event> eventList = ticketDto.getIdEvents().stream().map(e->eventRepository.findById(e).get()).collect(Collectors.toSet());
-            String description="Ticket para  ";
-
-            for (Event e: eventList) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL");
-                description.concat(e.getDate().format(formatter));
-                e.setAvailable(e.getAvailable() - ticketDto.getQuantity());
-            }
-
-            Ticket ticket=new Ticket(description,eventList);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-
 }

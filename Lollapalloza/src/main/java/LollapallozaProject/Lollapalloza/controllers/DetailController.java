@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,49 +36,33 @@ public class DetailController {
     @Autowired
     DetailService detailService;
 
-    @PostMapping(path = "/users/current/payment")
-    public ResponseEntity<?> payCart(Authentication authentication, @RequestBody List<Cartdto> cartProd, @RequestBody Set<TicketDto> carTkt){
+    @PostMapping("/users/current/payment")
+    public ResponseEntity<?> payCart(Authentication authentication, @RequestBody List<Cartdto> cartProd, @RequestBody List<TicketDto> carTkt) {
 
-            User myuser = userService.findByEmail(authentication.getName());
+        User myuser = userService.findByEmail(authentication.getName());
 
-            if(cartProd.size()==0 && carTkt.size()==0){
-                return new ResponseEntity<>("Carrito Vacío", HttpStatus.FORBIDDEN);
-
-            }
-            if(cartProd.size()>0){
-
-                for (Cartdto e : cartProd) {
-                 Optional<Product> productFind=productRepository.findById(e.getIdItem());
-
-                 if(productFind.isPresent() && productFind.get().getStock() >e.getQuantity()){
-
-
-                       int modifStock= productFind.get().getStock()-e.getQuantity();
-                       productFind.get().setStock(modifStock);
-                       detailService.createDetailP(productFind.get(),e.getQuantity(),productFind.get().getDescription());
-                 }
-
-            }
-            if(carTkt.size()>0){
-
-            for (TicketDto e : carTkt) {
-                ticketService.createTicket(e);
-                Ticket ticketFound= ticketService.findById(e.getId()).orElse(null);
-
-                detailService.createDetailT(ticketFound, e.getQuantity(), ticketFound.getDescription());
-
-            }
+        if (cartProd.size() == 0 && carTkt.size() == 0) {
+            return new ResponseEntity<>("Carrito Vacío", HttpStatus.FORBIDDEN);
         }
 
+        Invoice invoice = new Invoice(LocalDate.now(), myuser.getFirstName(), myuser);
 
-
-    }
-
+        if (cartProd.size() > 0) {
+            for (Cartdto e : cartProd) {
+                Product product = productRepository.findById(e.getIdItem()).orElse(null);
+                if (product != null && product.getStock() > e.getQuantity()) {
+                    int modifStock = product.getStock() - e.getQuantity();
+                    product.setStock(modifStock);
+                    detailService.createDetailProduct(product, e.getQuantity(), product.getDescription(), invoice);
+                }
+            }
+        }
+        if (carTkt.size() > 0) {
+            for (TicketDto ticketDto: carTkt) {
+                Ticket ticket = ticketService.createTicket(ticketDto);
+                detailService.createDetailTicket(ticket, ticket.getDescription(), invoice);
+            }
+        }
         return new ResponseEntity<>("Pago ok", HttpStatus.OK);
-
     }
-
-
-
-
 }

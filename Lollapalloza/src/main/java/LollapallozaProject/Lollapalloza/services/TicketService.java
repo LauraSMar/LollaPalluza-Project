@@ -9,7 +9,5 @@ import java.util.Set;
 
 public interface TicketService{
 
-    Optional<Ticket> findById(Long idTicket);
-
-    ResponseEntity createTicket(TicketDto ticketDto);
+    Ticket createTicket(TicketDto ticketDto);
 }
