@@ -35,7 +35,7 @@ public class TicketServiceImpl implements TicketService {
             description.concat(e.getDate().format(formatter));
             e.setAvailable(e.getAvailable() - 1);
         }
-        Ticket ticket = new Ticket(description,eventList);
+        Ticket ticket = new Ticket(description, eventList);
         ticketRepository.save(ticket);
         return ticket;
     }

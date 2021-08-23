@@ -87,7 +87,7 @@ public class LollapallozaApplication {
 
 			//creacion de factura
 
-			Invoice invoice1 = new Invoice(LocalDate.now(),  "hola", testUser);
+			Invoice invoice1 = new Invoice(LocalDate.now(),  "hola",0,0, testUser);
 			invoiceRepository.save(invoice1);
 
 			Detail detail1 = new Detail(Category.TKT, 1, "Entrada para los eventos 1 y 2", 900, 1000, invoice1);

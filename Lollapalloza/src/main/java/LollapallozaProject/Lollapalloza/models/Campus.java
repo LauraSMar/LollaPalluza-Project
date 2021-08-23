@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-@Data
 @NoArgsConstructor
 @Entity
 public class Campus {
@@ -29,6 +28,46 @@ public class Campus {
         public Campus(String location, Integer capacity) {
                 this.location=location;
                 this.capacity=capacity;
+        }
+
+        public Long getId() {
+                return Id;
+        }
+
+        public void setId(Long id) {
+                Id = id;
+        }
+
+        public String getLocation() {
+                return location;
+        }
+
+        public void setLocation(String location) {
+                this.location = location;
+        }
+
+        public Integer getCapacity() {
+                return capacity;
+        }
+
+        public void setCapacity(Integer capacity) {
+                this.capacity = capacity;
+        }
+
+        public Event getEvent() {
+                return event;
+        }
+
+        public void setEvent(Event event) {
+                this.event = event;
+        }
+
+        public Set<Band> getBands() {
+                return bands;
+        }
+
+        public void setBands(Set<Band> bands) {
+                this.bands = bands;
         }
 }
 

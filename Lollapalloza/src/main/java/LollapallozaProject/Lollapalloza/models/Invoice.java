@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Data
 @NoArgsConstructor
 @Entity
 public class Invoice {
@@ -25,6 +24,7 @@ public class Invoice {
     private String businessName;
     private double total;
     private double discount;
+    private String numberInvoice;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -33,31 +33,76 @@ public class Invoice {
     @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
     private Set<Detail> details = new HashSet<>();
 
-    public Invoice(LocalDate date,String businessName, User user) {
-        this.date=date;
-        this.businessName= businessName;
-        this.total= totalCalcu();
-        this.discount= discountCalcu();
+    public Invoice(LocalDate date, String businessName, double total, double discount, User user) {
+        this.date = date;
+        this.businessName = businessName;
+        this.total = total;
+        this.discount = discount;
+        this.numberInvoice = "0";
         this.user = user;
     }
 
-    public double totalCalcu(){
-        double total = 0;
-        for (Detail detail: this.getDetails()) {
-            total += detail.getSubtotal();
-        }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
+
+    public double getTotal() {
         return total;
     }
 
-    public double discountCalcu(){
-        List<Detail> details = this.getDetails().stream().filter(detail -> detail.getCategory().equals(Category.TKT)).collect(Collectors.toList());
-        double discount = 0;
-        for (Detail detail: details) {
-            discount += detail.getPriceUnitary() - detail.getSubtotal();
-        }
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public double getDiscount() {
         return discount;
     }
 
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
 
+    public String getNumberInvoice() {
+        return numberInvoice;
+    }
 
+    public void setNumberInvoice(String numberInvoice) {
+        this.numberInvoice = numberInvoice;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Set<Detail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(Set<Detail> details) {
+        this.details = details;
+    }
 }
