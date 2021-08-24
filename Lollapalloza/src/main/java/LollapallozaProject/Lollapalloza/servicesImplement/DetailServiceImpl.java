@@ -17,12 +17,12 @@ public class DetailServiceImpl implements DetailService {
     DetailRepository detailRepository;
 
     @Override
-    public Detail createDetailProduct(Product product, Integer quantity, String description, Invoice invoice) {
+    public Detail createDetailProduct(Product product, Integer quantity, Invoice invoice) {
         double subtotal= product.getPrice() * quantity;
 
         invoice.setTotal(invoice.getTotal() + subtotal);
 
-        Detail detail = new Detail(Category.PRO, quantity, description, subtotal , product.getPrice(), invoice);
+        Detail detail = new Detail(Category.PRO, quantity, product.getDescription(), subtotal , product.getPrice(), invoice);
 
         detailRepository.save(detail);
 
@@ -31,7 +31,6 @@ public class DetailServiceImpl implements DetailService {
 
     @Override
     public Detail createDetailTicket(Ticket ticket, String description, Invoice invoice) {
-
         double subtotal = 0;
 
         if (ticket.getEvents().size() == 2){

@@ -51,34 +51,34 @@ public class DetailController {
         List<TicketDto> carTkt = cartGlobalDto.getTicketDtos();
         User myuser = userService.findByEmail(authentication.getName());
 
-        if (cartProd.size() == 0 && carTkt.size() == 0) {
+        if (cartProd.size() == 0 && carTkt.size() == 0) {//vericamos que ambos dto que contienen los tiket y product no esten vacios al mismo tiempo.
             return new ResponseEntity<>("Carrito Vacío", HttpStatus.FORBIDDEN);
         }
-        if (myuser == null){
+        if (myuser == null){//verificamos el user este login.
             return new ResponseEntity<>(HttpStatus.NON_AUTHORITATIVE_INFORMATION);
         }
 
         Invoice invoice = new Invoice(LocalDate.now(), myuser.getFirstName() + " " +myuser.getLastName(), 0, 0,"0000", myuser);
-        invoiceRepository.save(invoice);
+        invoiceRepository.save(invoice);//creamos la factura, de manera parcial,para despues setearle los datos.
 
-        if (cartProd.size() > 0) {
+        if (cartProd.size() > 0) {//vericamos si el cartDto tenga productos cargados
             for (Cartdto e : cartProd) {
-                Product product = productRepository.findById(e.getIdItem()).orElse(null);
-                if (product != null && product.getStock() > e.getQuantity()) {
+                Product product = productRepository.findById(e.getIdItem()).orElse(null);//buscamos los productos por id en repository.
+                if (product != null && product.getStock() > e.getQuantity()) {//vericamos si el producto existe y que si la cantidad de producto a compra no sea superior al stock.
                     int modifStock = product.getStock() - e.getQuantity();
-                    product.setStock(modifStock);
-                    detailService.createDetailProduct(product, e.getQuantity(), product.getDescription(), invoice);
+                    product.setStock(modifStock);//actualizamos el stock.
+                    detailService.createDetailProduct(product, e.getQuantity(), invoice);//metodo para crear el detail por cada product.
                 }
             }
         }
-        if (carTkt.size() > 0) {
+        if (carTkt.size() > 0) {//vericamos si el cartTkt tenga tikets cargados.
             for (TicketDto ticketDto: carTkt) {
-                Ticket ticket = ticketService.createTicket(ticketDto);
-                detailService.createDetailTicket(ticket, ticket.getDescription(), invoice);
+                Ticket ticket = ticketService.createTicket(ticketDto);//creamos el tiket.
+                detailService.createDetailTicket(ticket, ticket.getDescription(), invoice);//creamos el detail para cada tiket.
             }
         }
 
-        invoiceService.createNumberInvoice(invoice);
+        invoiceService.createNumberInvoice(invoice);//creamos el number de la factura.
         return new ResponseEntity<>("Pago ok", HttpStatus.OK);
     }
 }

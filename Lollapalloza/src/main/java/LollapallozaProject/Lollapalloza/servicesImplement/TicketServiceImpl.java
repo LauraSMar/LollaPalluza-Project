@@ -32,7 +32,6 @@ public class TicketServiceImpl implements TicketService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd /LL");
 
         for (Event e: eventList) {
-
             String formattedDate =e.getDate().format(formatter);
             description= description + " " +formattedDate;
             e.setAvailable(e.getAvailable() - 1);

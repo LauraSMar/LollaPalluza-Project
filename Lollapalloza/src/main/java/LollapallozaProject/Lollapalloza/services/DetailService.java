@@ -11,7 +11,7 @@ import java.util.Set;
 
 public interface DetailService {
 
-    Detail createDetailProduct(Product product, Integer quantity, String description, Invoice invoice);
+    Detail createDetailProduct(Product product, Integer quantity, Invoice invoice);
 
     Detail createDetailTicket(Ticket ticket,String description, Invoice invoice);
 
