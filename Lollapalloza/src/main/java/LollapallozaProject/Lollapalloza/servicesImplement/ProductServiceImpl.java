@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
        if (productDTO.getCategory() == null || productDTO.getDescription().isEmpty() || productDTO.getImg().isEmpty() ||   productDTO.getPrice() <= 0 || productDTO.getStock() < 0){
            return new ResponseEntity<>("missing data", HttpStatus.FORBIDDEN);
        }
-       Product product = new Product(productDTO.getCategory(), productDTO.getDescription(), productDTO.getStock(), productDTO.getPrice(), productDTO.getImg());
+       Product product = new Product(productDTO.getCategory(), productDTO.getDescription(), productDTO.getStock(), productDTO.getPrice(), productDTO.getImg(),productDTO.getSizeList());
        productRepository.save(product);
        return new ResponseEntity<>("product created", HttpStatus.CREATED);
     }
