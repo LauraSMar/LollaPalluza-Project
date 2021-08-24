@@ -26,6 +26,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Invoice> invoices = new HashSet<>();
 
+    @OneToMany(mappedBy = "user")
+    private Set<Comment> comments = new HashSet<>();
+
     public User(String firstName, String lastName, String documentId, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
