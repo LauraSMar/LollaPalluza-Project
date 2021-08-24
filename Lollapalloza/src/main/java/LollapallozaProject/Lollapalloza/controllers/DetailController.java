@@ -58,7 +58,7 @@ public class DetailController {
             return new ResponseEntity<>(HttpStatus.NON_AUTHORITATIVE_INFORMATION);
         }
 
-        Invoice invoice = new Invoice(LocalDate.now(), myuser.getFirstName() + " " +myuser.getLastName(), 0, 0, myuser);
+        Invoice invoice = new Invoice(LocalDate.now(), myuser.getFirstName() + " " +myuser.getLastName(), 0, 0,"0000", myuser);
         invoiceRepository.save(invoice);
 
         if (cartProd.size() > 0) {

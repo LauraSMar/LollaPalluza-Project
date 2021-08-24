@@ -51,7 +51,7 @@ public class LollapallozaApplication {
 
 			Campus campus1 = new Campus("Casa Rosada", 6000);
 			Campus campus2 = new Campus("Hipodromo de Palermo", 16500);
-			Campus campus3 = new Campus("Velez Alfield", 49500);
+			Campus campus3 = new Campus("Velez Sarsfield", 49500);
 			Campus campus4 = new Campus("Luna Park", 9200);
 
 			campusRespository.saveAll(List.of(campus1, campus2, campus3, campus4));
@@ -87,7 +87,7 @@ public class LollapallozaApplication {
 
 			//creacion de factura
 
-			Invoice invoice1 = new Invoice(LocalDate.now(),  "hola",0,0, testUser);
+			Invoice invoice1 = new Invoice(LocalDate.now(),  "Lola Perez",1500,150,"0001-000000" ,testUser);
 			invoiceRepository.save(invoice1);
 
 			Detail detail1 = new Detail(Category.TKT, 1, "Entrada para los eventos 1 y 2", 900, 1000, invoice1);

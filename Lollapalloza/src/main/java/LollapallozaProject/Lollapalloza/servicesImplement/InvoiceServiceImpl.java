@@ -33,7 +33,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     public void createNumberInvoice(Invoice invoice){
-        invoice.setNumberInvoice(String.format("%06d", invoice.getId()));
+        invoice.setNumberInvoice("0001-" +String.format("%06d", invoice.getId()));
     }
 
 

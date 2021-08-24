@@ -33,7 +33,7 @@ public class Invoice {
     @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER)
     private Set<Detail> details = new HashSet<>();
 
-    public Invoice(LocalDate date, String businessName, double total, double discount, User user) {
+    public Invoice(LocalDate date, String businessName, double total, double discount, String numberInvoice, User user) {
         this.date = date;
         this.businessName = businessName;
         this.total = total;

@@ -40,6 +40,7 @@ public class Event {
         this.end = end;
         this.campus = campus;
         this.available = campus.getCapacity();
+
     }
 
     public Long getId() {
