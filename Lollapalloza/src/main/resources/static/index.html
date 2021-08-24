@@ -31,11 +31,12 @@
         <header>
             <nav class="nav" id="blur">
                 <ul :class="activeNavbar? 'active':''">
-                    <li><a class="first">Inicio</a></li>
+                    <li><a href="index.html" class="first">Inicio</a></li>
                     <li><a class="first">Bandas</a></li>
                     <li><a class="last">Tickets</a></li>
                     <li><a class="last">Tienda</a></li>
-                    <li><a class="last">Login</a></li>
+                    <li><a href="login.html" class="last">Login</a></li>
+                    <li><a href="gallery.html" class="last">Galeria</a></li>
                 </ul>   
                 <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>             
                 <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>                
