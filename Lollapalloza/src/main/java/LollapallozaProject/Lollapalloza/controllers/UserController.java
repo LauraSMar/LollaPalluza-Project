@@ -19,27 +19,23 @@ import java.util.stream.Collectors;
 @CrossOrigin
 public class UserController {
 
-
     @Autowired
     PasswordEncoder passwordEncoder;
+
     @Autowired
     UserService userService;
 
     @RequestMapping("/users")
     public List<UserDto> getUser() {
-     return userService.getUsers().stream().map(UserDto::new).collect(Collectors.toList());
+        return userService.getUsers().stream().map(UserDto::new).collect(Collectors.toList());
     }
 
     @RequestMapping("users/{id}")
-
     public User getUser(@PathVariable Long idUser) {
         return userService.getUser(idUser);
-
-
     }
 
-
-    @RequestMapping(path = "/users", method = RequestMethod.POST)
+    @PostMapping("/users")
     public ResponseEntity<Object> register(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String documentId,@RequestParam String email, @RequestParam String password) {
 
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
@@ -51,20 +47,11 @@ public class UserController {
         userService.SaveUser(new User(firstName,lastName,documentId,email,passwordEncoder.encode(password)));
 
         return new ResponseEntity<>(HttpStatus.CREATED);
-
-
-
     }
 
-
-
-
     @RequestMapping("/users/current")
-    public UserDto getALL(Authentication authentication){
-
+    public UserDto getUserCurrent(Authentication authentication){
         User user=userService.findByEmail((authentication.getName()));
-        UserDto dto=new UserDto(user);
-        return dto;
-
+        return new UserDto(user);
     }
 }
