@@ -14,15 +14,9 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 public class TicketDto {
-
-    private Long id;
     private Set<Long> idEvents =new HashSet<>();
-    private Integer quantity;
 
-
-
-    public TicketDto(Long id, Set<Long> idEvents) {
-        this.id = id;
+    public TicketDto(Set<Long> idEvents) {
         this.idEvents = idEvents;
     }
 }

@@ -28,15 +28,21 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public Ticket createTicket(TicketDto ticketDto) {
         Set<Event> eventList = ticketDto.getIdEvents().stream().map(e-> eventRepository.findById(e).orElse(null)).collect(Collectors.toSet());
-        String description="Ticket para  ";
+        String description="Tkt "+ getRandomNumber(52250000,52750000) + " -";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd /LL");
 
         for (Event e: eventList) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL");
-            description.concat(e.getDate().format(formatter));
+
+            String formattedDate =e.getDate().format(formatter);
+            description= description + " " +formattedDate;
             e.setAvailable(e.getAvailable() - 1);
         }
-        Ticket ticket = new Ticket(description,eventList);
+        Ticket ticket = new Ticket(description, eventList);
         ticketRepository.save(ticket);
         return ticket;
+    }
+
+    public Integer getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }

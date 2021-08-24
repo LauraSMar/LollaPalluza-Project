@@ -24,26 +24,17 @@ public class InvoiceDto {
     private Set<DetailDto> details=new HashSet<>();
 
 
-    public InvoiceDto(Invoice invoice, User user) {
+    public InvoiceDto(Invoice invoice) {
         this.date = invoice.getDate();
-        this.businessName = user.getFullName();
-        this.total = createTotal(invoice.getDetails().stream().map(DetailDto::new).collect(Collectors.toSet()));
-        this.discount = discount;
-        this.payments = payments;
+        this.businessName = invoice.getBusinessName();
+        this.total = invoice.getTotal();
+        this.discount = invoice.getDiscount();
         this.details=invoice.getDetails().stream().map(DetailDto::new).collect(Collectors.toSet());
 
     }
 
-    public InvoiceDto(Invoice invoice) {
-    }
 
 
-    private double createTotal(Set<DetailDto> detailsDto) {
-        double total=0;
-        for (DetailDto e:detailsDto) {
-            total+=e.getSubtotal();
-        }
-        return total;
-    }
+
 
 }
