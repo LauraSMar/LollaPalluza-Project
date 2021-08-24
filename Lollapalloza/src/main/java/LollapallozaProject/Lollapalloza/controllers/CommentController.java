@@ -18,18 +18,34 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
-    @GetMapping("image/{id}/comments")
-    public Set<CommentDto> getComments(@PathVariable Long imageId){
-        return commentService.getCommentsByImageId(imageId);
+    // para tener todos los comments de una imagen con su id
+    @GetMapping("/images/{id}/comments")
+    public Set<CommentDto> getComments(@PathVariable Long id){
+        return commentService.getCommentsByImageId(id);
     }
 
-    @PostMapping("/image/{id}/comments")
-    public ResponseEntity<?> createComment(@PathVariable Long imageId, Authentication authentication,@RequestBody String text){
-        return commentService.createComment(imageId, authentication, text);
+    // para obtener un solo comentario por su id
+    @GetMapping("/comments/{id}")
+    public CommentDto getComment(@PathVariable Long id) {
+        return commentService.getCommentDto(id);
     }
 
-    @PostMapping("comments/{id}")
-    public ResponseEntity<?> editComment(Authentication authentication, @PathVariable Long commentId, @RequestBody String newText){
-        return commentService.editComment(authentication, commentId, newText);
+    // para crear un nuevo comment para esa imagen
+    @PostMapping("/images/{id}/comments")
+    public ResponseEntity<?> createComment(@PathVariable Long id, Authentication authentication,@RequestBody String text){
+        return commentService.createComment(id, authentication, text);
     }
+
+    // para editar un comentario
+    @PostMapping("/comments/{id}")
+    public ResponseEntity<?> editComment(Authentication authentication, @PathVariable Long id, @RequestBody String newText){
+        return commentService.editComment(authentication, id, newText);
+    }
+
+    // para borrar un comment
+    @DeleteMapping("/comments/{id}")
+    public ResponseEntity<?> deleteComment(@PathVariable Long id, Authentication authentication){
+        return commentService.deleteComment(id, authentication);
+    }
+
 }

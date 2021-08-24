@@ -12,7 +12,11 @@ public interface CommentService {
 
     Set<CommentDto> getCommentsByImageId(Long imageId);
 
+    CommentDto getCommentDto(Long id);
+
     ResponseEntity<?> createComment(Long imageId, Authentication authentication, String text);
 
     ResponseEntity<?> editComment(Authentication authentication, Long commentId, String newText);
+
+    ResponseEntity<?> deleteComment(Long id,  Authentication authentication);
 }

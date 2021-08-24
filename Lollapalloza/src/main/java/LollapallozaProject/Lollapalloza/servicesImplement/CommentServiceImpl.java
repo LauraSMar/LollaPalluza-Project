@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -33,10 +34,14 @@ public class CommentServiceImpl implements CommentService {
     public Set<CommentDto> getCommentsByImageId(Long imageId) {
         return commentRepository.findByImageId(imageId).stream().map(CommentDto::new).collect(Collectors.toSet());
     }
+    @Override
+    public CommentDto getCommentDto(Long id) {
+       return this.commentRepository.findById(id).map(CommentDto::new).orElse(null);
+    }
 
     @Override
     public ResponseEntity<?> createComment(Long imageId, Authentication authentication, String text) {
-        if (authentication.getName() == null){
+        if (!authentication.isAuthenticated()){
             return new ResponseEntity<>("authentication required", HttpStatus.FORBIDDEN);
         }
         User user = userRepository.findByEmail(authentication.getName());
@@ -57,7 +62,44 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public ResponseEntity<?> editComment(Authentication authentication, Long commentId, String newText) {
-        return null;
+        if (!authentication.isAuthenticated()){
+            return new ResponseEntity<>("authentication required", HttpStatus.FORBIDDEN);
+        }
+        User user = userRepository.findByEmail(authentication.getName());
+        if (user == null){
+            return new ResponseEntity<>("user does not exist", HttpStatus.FORBIDDEN);
+        }
+        if (newText.isEmpty() || commentId == null){
+            return new ResponseEntity<>("missing data", HttpStatus.FORBIDDEN);
+        }
+        Comment comment = commentRepository.findById(commentId).orElse(null);
+        if (comment == null){
+            return new ResponseEntity<>("comment does not exist", HttpStatus.FORBIDDEN);
+        }
+        comment.setText(newText);
+        comment.setUpdatedAt(LocalDateTime.now());
+        commentRepository.save(comment);
+        return new ResponseEntity<>("comment edited", HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> deleteComment(Long id, Authentication authentication) {
+        if (!authentication.isAuthenticated()){
+            return new ResponseEntity<>("authentication required", HttpStatus.FORBIDDEN);
+        }
+        User user = userRepository.findByEmail(authentication.getName());
+        if (user == null){
+            return new ResponseEntity<>("user does not exist", HttpStatus.FORBIDDEN);
+        }
+        Comment  comment = commentRepository.findById(id).orElse(null);
+        if (comment == null){
+            return new ResponseEntity<>("comment does not exist", HttpStatus.FORBIDDEN);
+        }
+        if (comment.getUser() != user){
+            return new ResponseEntity<>("comment does not belong to user", HttpStatus.FORBIDDEN);
+        }
+        commentRepository.delete(comment);
+        return new ResponseEntity<>("comment deleted", HttpStatus.OK);
     }
 
 

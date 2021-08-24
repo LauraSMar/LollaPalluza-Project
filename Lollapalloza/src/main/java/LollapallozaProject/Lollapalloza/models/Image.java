@@ -1,5 +1,6 @@
 package LollapallozaProject.Lollapalloza.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -9,8 +10,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
-@NoArgsConstructor
+
 @Entity
 public class Image {
 
@@ -25,9 +25,43 @@ public class Image {
     @OneToMany(mappedBy = "image", fetch = FetchType.EAGER)
     private Set<Comment> comments = new HashSet<>();
 
+    public Image(){}
+
     public Image(String url){
         this.url = url;
         this.postedAt = LocalDateTime.now();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public LocalDateTime getPostedAt() {
+        return postedAt;
+    }
+
+    public void setPostedAt(LocalDateTime postedAt) {
+        this.postedAt = postedAt;
+    }
+
+    @JsonIgnore
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
 }
