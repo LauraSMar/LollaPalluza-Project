@@ -51,7 +51,7 @@ public class LollapallozaApplication {
 
 			Campus campus1 = new Campus("Casa Rosada", 6000);
 			Campus campus2 = new Campus("Hipodromo de Palermo", 16500);
-			Campus campus3 = new Campus("Velez Alfield", 49500);
+			Campus campus3 = new Campus("Velez Sarsfield", 49500);
 			Campus campus4 = new Campus("Luna Park", 9200);
 
 			campusRespository.saveAll(List.of(campus1, campus2, campus3, campus4));
