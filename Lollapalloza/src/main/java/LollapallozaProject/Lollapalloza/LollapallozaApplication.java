@@ -33,7 +33,7 @@ public class LollapallozaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository, ProductRepository productRepository, CampusRespository campusRespository, InvoiceRepository invoiceRepository, DetailRepository detailRepository, TicketRepository ticketRepository, BandRepository bandRepository){
+	public CommandLineRunner initData(UserRepository userRepository, EventRepository eventRepository, ProductRepository productRepository, CampusRespository campusRespository, InvoiceRepository invoiceRepository, DetailRepository detailRepository, TicketRepository ticketRepository, BandRepository bandRepository, ImageRepository imageRepository, CommentRepository commentRepository){
 		return (args) ->{
 			User testUser = new User("Lola","Perez","12341234","lola@gmail.com",passwordEncoder.encode("1234"));
 			userRepository.save(testUser);
@@ -149,6 +149,13 @@ public class LollapallozaApplication {
 			Ticket ticket1 = new Ticket("Entrada para los eventos 1 y 2",Set.of(event1, event2));
 			ticketRepository.save(ticket1);
 
+			// ejemplos de imagenes
+
+			Image image1 = new Image("/img/lana.jpg");
+			imageRepository.save(image1);
+
+			Comment comment1 = new Comment("comentario de lola prueba", testUser, image1);
+			commentRepository.save(comment1);
 		};
 	}
 
