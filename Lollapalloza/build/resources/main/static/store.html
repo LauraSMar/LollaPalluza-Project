@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T I E N D A</title>
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./styles/store.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- Bootstrap 5.0 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="./img/logo_block.png" />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app" class="wrapper">
+      <header class="mb-5">
+        <nav class="nav" id="blur" style="background-color: black">
+          <ul :class="activeNavbar? 'active':''">
+            <li><a href="index.html" class="first">Inicio</a></li>
+            <li><a class="first">Bandas</a></li>
+            <li><a class="last">Tickets</a></li>
+            <li><a href="./store.html" class="last">Tienda</a></li>
+            <li><a href="login.html" class="last">Login</a></li>
+            <li><a href="gallery.html" class="last">Galeria</a></li>
+          </ul>
+          <i
+            v-if="activeNavbar"
+            class="fas fa-times"
+            :class="activeNavbar? 'activeMenu':''"
+            @click="activeNavbar = !activeNavbar "
+          ></i>
+          <i
+            v-else
+            class="fas fa-bars"
+            :class="activeNavbar? 'activeMenu':''"
+            @click="activeNavbar = !activeNavbar "
+          ></i>
+        </nav>
+      </header>
+      <div
+        class="
+          d-flex
+          flex-column flex-md-row
+          justify-content-center
+          align-items-center
+          flex-wrap
+          pt-5
+        "
+      >
+        <!-- <h2 class="page-title">Tickets Concept</h2> -->
+        <div class="ticket-card m-4 w-100" v-for="product in products">
+          <div class="cover">
+            <img :src="product.img[0]" alt="" />
+            <div class="info">
+              <p class="location">Stock:</p>
+
+              <p class="date">{{product.stock}}</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="artist">
+              <!-- <h6 class="info">Save Rock and Roll</h6> -->
+              <h4 class="name text-center fs-4">{{product.description}}</h4>
+            </div>
+            <div class="price">
+              <!-- <div class="from">From</div> -->
+              <div class="value">${{product.price}}</div>
+            </div>
+            <!-- <div class="artist">
+          <h6>
+            Fall out Boy comes to Spain to save Rock and Roll.
+            Featuring: Marty Friedman
+          </h6>
+        </div> -->
+            <div class="clearfix"></div>
+          </div>
+          <!-- <div class="collapse">
+        <ul class="list-unstyled">
+          <li>
+            <div class="ticket">
+              <h5>
+                Basic Ticket<br />
+                <small>25 Tickets left</small>
+              </h5>
+            </div>
+            <div class="price">
+              <div class="value"><b>$</b>599</div>
+            </div>
+            <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+          </li>
+          <li>
+            <div class="ticket">
+              <h5>
+                Regular Ticket<br />
+                <small>15 Tickets left</small>
+              </h5>
+            </div>
+            <div class="price">
+              <div class="value"><b>$</b>799</div>
+            </div>
+            <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+          </li>
+          <li>
+            <div class="ticket">
+              <h5>
+                Premium Ticket<br />
+                <small>62 Tickets left</small>
+              </h5>
+            </div>
+            <div class="price">
+              <div class="value"><b>$</b>1,299</div>
+            </div>
+            <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+          </li>
+          <li>
+            <div class="ticket">
+              <h5>
+                VIP Ticket<br />
+                <small>6 Tickets left</small>
+              </h5>
+            </div>
+            <div class="price">
+              <div class="value"><b>$</b>1,799</div>
+            </div>
+            <a href="#" class="btn btn-info btn-sm btn-buy">Buy Now!</a>
+          </li>
+        </ul>
+      </div> -->
+          <div class="footer">
+            <!-- <button class="btn toggle-tickets"><ion-icon name="cart-outline"></ion-icon></button> -->
+            <a href="#"
+              ><button type="button" class="button">
+                <span class="buttonicon" @click="productDetails(product.id)">
+                  <ion-icon size="large" name="cart-outline"></ion-icon>
+                </span></button
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="fixed-button">
+      <div class="d-flex justify-content-evenly">
+        <div>
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Tickets</a></li>
+            <li><a href="#">Bandas</a></li>
+            <li><a href="#">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="d-flex flex-column">
+          <img src="./img/logo-vid.png" alt="" />
+          <div class="rsAccess d-flex justify-content-evenly">
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
+        <span><a href="#">Privacy</a></span>
+        <span><a href="#">Términos y Condiciones</a></span>
+      </div>
+    </footer>
+  </body>
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="./js/store.js"></script>
+</html>

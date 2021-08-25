@@ -1,0 +1,147 @@
+:root{
+  --color-magenta: #F23DB3;
+  --color-green: #03A688;
+  --color-yellow: #F2E205;
+  --color-gold: #F2CB05;
+  --color-red: #F23838;
+  --color-orange: #F24949;
+  --color-grey: #484847;
+
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Navbar */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(225,225,225,0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.nav ul, i {
+  list-style: none;
+  text-align: center;
+  white-space: nowrap;
+  padding-right: 32px;
+}
+
+.nav ul li, i {
+  display: inline-block;
+}
+.nav ul li a, i {
+  font-family: soleil, sans-serif;
+  font-weight: 100;
+  font-size: 1.5em;
+  color: white;
+  padding: 19px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bolder;
+  text-shadow: 2px 2px #000;
+
+}
+.nav ul li a:hover {
+  background: rgba(255,255,255, 0.2);
+  text-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+.nav i{
+  display: none;
+}
+.first {
+  margin-right: -0.17em;
+  border-right: none !important;
+}
+.last {
+  margin-left: -0.17em;
+  border-left: none !important;
+}
+
+/*Querys Navbar*/
+@media only screen and (max-width: 600px){
+  .nav i{
+    align-self: flex-end;
+    display: block;
+    transition: 0.4s ease all;
+    transform: translateX(0);
+  }
+  .nav ul{
+    position: absolute;
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,1);
+    height: 35vh;
+    width: 225px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translateX(100%);
+    transition: 0.4s ease all;
+    z-index: 10;
+  }
+  .nav ul li a {
+    color: white;
+    text-shadow: 2px 2px 2px rgba(255,255,255, 0.47);
+  }
+  .nav ul li a:hover {
+    background: none;
+
+  }
+  .nav .active{
+    transform: translateX(0%);
+  }
+  .nav .activeMenu{
+    transition: 0.4s ease all;
+    transform: translateX(-225px);
+  }
+}
+
+/* End Navbar */
+
+/* Footer */
+footer{
+  padding: 3vh;
+  min-height: 20vh;
+  background-color: black;
+  color: white;  
+  font-size: 0.7rem;
+}
+footer ul li{
+  margin: 5px;
+  list-style-type: none;
+}
+footer a{
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: gray;
+  text-shadow: 2px 2px 2px rgba(255,255,255, 0.28);
+}
+footer .rsAccess i{
+  color: gray;
+}
+
+footer a:hover, i:hover{
+  color: white !important;
+  font-weight: 500;
+  text-shadow: none;
+}
+footer img{
+  width: 20vw;
+  min-width: 200px;
+}

@@ -4,6 +4,7 @@ const app = Vue.createApp({
             email: "",
             password: "",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             commentId: "",
             imageId: "",
             commentText: "",
@@ -21,10 +22,16 @@ const app = Vue.createApp({
         }
     },
 >>>>>>> Stashed changes
+=======
+            notLogged: false,
+        }
+    },
+>>>>>>> Stashed changes
     methods: {
         login() {
             axios.post('/api/login', "email=" + this.email + "&password=" + this.password, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
                 .then(() => {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     location.reload;
                 })
@@ -81,6 +88,8 @@ const app = Vue.createApp({
     }
 });
 =======
+=======
+>>>>>>> Stashed changes
                     if (this.email == "admin@admin.com") {
                         window.location.href = "/admin.html"
                     } else window.location.href = "/index.html"
@@ -88,5 +97,9 @@ const app = Vue.createApp({
                 .catch(() => swal('Wrong mail or password'))
         },
     },
+<<<<<<< Updated upstream
+})
+>>>>>>> Stashed changes
+=======
 })
 >>>>>>> Stashed changes

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lollapalooza Argentina 2021</title>
+    <link rel="icon" href="./img/favicon.ico">
+    <!-- Bootstrap 5.1 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <nav class="nav" id="blur">
+                <ul :class="activeNavbar? 'active':''">
+                    <li><a href="index.html" class="first">Inicio</a></li>
+                    <li><a class="first">Bandas</a></li>
+                    <li><a class="last">Tickets</a></li>
+                    <li><a class="last">Tienda</a></li>
+                    <li><a href="login.html" class="last">Login</a></li>
+                    <li><a href="gallery.html" class="last">Galeria</a></li>
+                </ul>   
+                <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>             
+                <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>                
+            </nav>
+        </header>
+        <!-- Video Section -->
+        <section class="fullsize-video-bg">
+            <div class="logo-img">
+                <img class="logo-vid" src="./img/logo-vid.png" alt="">
+            </div>
+            <div id="video-viewport">
+                <video width="1920" height="1280" autoplay muted loop>
+                    <source src="./video/bg_video.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </section>
+        <div class="divBandas">
+            <h2>Nuestras Bandas Invitadas</h2>
+        </div>
+        <section class="carouselBands">
+            <div id="carouselBandsControl" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="bandsItems">
+                            <div class="carouselLana"></div>
+                            <div class="carouselBeriso"></div>
+                            <div class="carouselMotleyCrue"></div>
+                            <div class="carouselSteveAoki"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="bandsItems">
+                            <div class="carouselNtvg"></div>
+                            <div class="carouselTpilots"></div>
+                            <div class="carouselLondra"></div>
+                            <div class="carouselRedHot"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="bandsItems">
+                            <div class="carouselDuki"></div>
+                            <div class="carouselImagineDragons"></div>
+                            <div class="carouselMartinGarrix"></div>
+                            <div class="carouselTheWeeknd"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="bandsItems">
+                            <div class="carouselEdSheeran"></div>
+                            <div class="carouselKeane"></div>
+                            <div class="carouselGuns"></div>
+                            <div class="carouselMetallica"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselBandsControl"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselBandsControl"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <div class="divInfo">
+            <h2>Calendario Lolla 2021</h2>
+        </div>
+        <div id="lineUp">
+            <div id="firstD">
+                <div class="theDate">
+                    <h3 class="theDays">Dia 1:</h3>
+                    <p>27/11</p>
+                </div>
+                <div id="casaR">
+                    <h2 class="location">Casa Rosada/Plaza de mayo</h2>
+                    <div class="theBands">
+                        <p>Lana del Rey 17:00-18:00</p>
+                        <p>La Beriso 18:30-19:30</p>
+                        <p>Mötley Crüe 20:00-21:30</p>
+                        <p>Steve Aoki 22:00-23:45</p>
+                    </div>
+                </div>
+            </div>
+            <div id="secondD">
+                <div id="hipodromo">
+                    <h2 class="location">Hipodromo de Palermo</h2>
+                    <div class="theBands">
+                        <p>No te va a Gustar 17:00-18:00</p>
+                        <p>Twenty One Pilots 18:30-19:30</p>
+                        <p>Paulo Londra 20:00-21:30</p>
+                        <p>Red Hot Chili Peppers 22:00-23:45</p>
+                    </div>
+                </div>
+                <div class="theDate">
+                    <h3 class="theDays">Dia 2:</h3>
+                    <p>28/11</p>
+                </div>
+            </div>
+            <div id="thirdD">
+                <div class="theDate">
+                    <h3 class="theDays">Dia 3:</h3>
+                    <p>29/11</p>
+                </div>
+                <div id="lunaP">
+                    <h2 class="location">Luna Park</h2>
+                    <div class="theBands">
+                        <p>Duki 17:00-18:00</p>
+                        <p>Imagine Dragons 18:30-19:30</p>
+                        <p>Martin Garrix 20:00-21:30</p>
+                        <p>The Weeknd 22:00-23:45</p>
+                    </div>
+                </div>
+            </div>
+            <div id="fourthD">
+                <div id="velez">
+                    <h2 class="location">Estadio Velez Sarsfield</h2>
+                    <div class="theBands">
+                        <p>Ed Sheeran 17:00-18:00</p>
+                        <p>Keane 18:30-19:30</p>
+                        <p>Guns N' Roses 20:00-21:30</p>
+                        <p>Metallica 22:00-23:45</p>
+                    </div>
+                </div>
+                <div class="theDate">
+                    <h3 class="theDays">Dia 4:</h3>
+                    <p>30/11</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="d-flex justify-content-evenly">
+                <div>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Tickets</a></li>
+                        <li><a href="#">Bandas</a></li>
+                        <li><a href="#">Tienda</a></li>
+                    </ul>
+                </div>
+                <div class="d-flex flex-column">
+                    <img src="./img/logo-vid.png" alt="">
+                    <div class="rsAccess d-flex justify-content-evenly">
+                        <a href=""><i class="fab fa-facebook"></i></a>
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
+                <span><a href="#">Privacy</a></span>
+                <span><a href="#">Términos y Condiciones</a></span>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+
+    <!-- Local JS -->
+    <script src="./js/index.js"></script>
+
+    <!-- Mount APP -->
+    <script>
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
