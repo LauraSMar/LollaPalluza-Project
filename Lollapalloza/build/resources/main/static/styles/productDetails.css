@@ -1,10 +1,38 @@
 .images{
     width: 45vw;
-    height: 70vh;
+    min-width: 350px;
+    min-height: 40vh;
     background-color: salmon;
 }
 .prodDetail{
     width: 45vw;
-    height: 70vh;
+    min-width: 350px;
+    min-height: 40vh;
     background-color: salmon;
+}
+.images-thumbnail{
+    padding: 5px;
+    width: 100px;
+}
+.images-thumbnail:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.activeImg{ /*:class="{activeImg: i === activeImg}"  LINEA 59 HTML */
+    width: 40vw;
+    min-width: 340px;
+    max-width: 600px;
+}
+.size{
+    padding: 5px 10px;
+    border: 1px solid var(--color-magenta);
+    border-radius: 5px;
+    background-color: var(--color-gold);
+}
+.size:hover{
+    cursor: pointer;
+    background-color: var(--color-orange);
+}
+.selectedSize{
+    background-color: var(--color-orange);
 }

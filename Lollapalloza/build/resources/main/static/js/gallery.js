@@ -3,6 +3,8 @@ const app = Vue.createApp({
         return {
             email: "",
             password: "",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             commentId: "",
             imageId: "",
             commentText: "",
@@ -15,10 +17,22 @@ const app = Vue.createApp({
         this.allImages();
         this.allComments(1);
     },
+=======
+            notLogged: false,
+        }
+    },
+>>>>>>> Stashed changes
+=======
+            notLogged: false,
+        }
+    },
+>>>>>>> Stashed changes
     methods: {
         login() {
             axios.post('/api/login', "email=" + this.email + "&password=" + this.password, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
                 .then(() => {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     location.reload;
                 })
                 .catch(() => swal('Email o contraseña incorrectos'))
@@ -73,3 +87,19 @@ const app = Vue.createApp({
         },  
     }
 });
+=======
+=======
+>>>>>>> Stashed changes
+                    if (this.email == "admin@admin.com") {
+                        window.location.href = "/admin.html"
+                    } else window.location.href = "/index.html"
+                })
+                .catch(() => swal('Wrong mail or password'))
+        },
+    },
+<<<<<<< Updated upstream
+})
+>>>>>>> Stashed changes
+=======
+})
+>>>>>>> Stashed changes
