@@ -32,7 +32,7 @@ public class CommentController {
 
     // para crear un nuevo comment para esa imagen
     @PostMapping("/images/{id}/comments")
-    public ResponseEntity<?> createComment(@PathVariable Long id, Authentication authentication,@RequestBody String text){
+    public ResponseEntity<?> createComment(@PathVariable Long id, Authentication authentication,@RequestParam String text){
         return commentService.createComment(id, authentication, text);
     }
 

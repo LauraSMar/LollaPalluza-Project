@@ -11,9 +11,7 @@ const app = Vue.createApp({
     };
   },
   created() {
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    this.params = Object.fromEntries(urlSearchParams.entries());
-    console.log( this.params);
+
 
 
     axios
@@ -22,14 +20,17 @@ const app = Vue.createApp({
         this.totalfact = response.data.invoices;
         console.log(this.totalfact.length);
 
-        for (i = 0; i < this.totalfact.length ; i++) {
+        for (i = 0; i < this.totalfact.length; i++) {
           this.invoice = response.data.invoices[i];
           this.clientName = this.invoice.businessName;
           this.openPdf();
-        }
-       
+          this.showPdf();
 
-      
+
+        };
+
+
+
 
       })
       .catch((error) => console.log(error.response));
@@ -61,15 +62,14 @@ const app = Vue.createApp({
       var dd = {
         header: {
           text: ' Lollapalloza Argentina S.A. Argentina',
-          image: 'logo_block.jpg',
           margin: 30,
         },
         footer: {
           columns: [
             {
-              qr: '30-70963344-5' , foreground: 'red', background: 'yellow',
-              alignment:"left",
-              margin:30,
+              qr: '30-70963344-5', foreground: 'red', background: 'yellow',
+              alignment: "left",
+              margin: 30,
             },
             {
               text: "impreso el " + new Date().toLocaleDateString(),
@@ -79,6 +79,12 @@ const app = Vue.createApp({
           ],
         },
         content: [
+          /*  {
+             image: await this.getBase64ImageFromURL(
+               "http://localhost:8080/img/logo_block.png"
+             ), fit: [100, 100],
+           }, */
+
           {
             layout: "lightHorizontalLines", // optional
             margin: [0, 20],
@@ -134,10 +140,41 @@ const app = Vue.createApp({
 
       pdfMake.createPdf(dd).open();
     },
-  },
-  computed: {
-    hasTransactions() {
-      return this.details.length > 0;
+
+    getBase64ImageFromURL(url) {
+      return new Promise((resolve, reject) => {
+        var img = new Image();
+        img.setAttribute("crossOrigin", "anonymous");
+        img.onload = () => {
+          var canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+          var dataURL = canvas.toDataURL("image/png");
+          resolve(dataURL);
+        };
+        img.onerror = error => {
+          reject(error);
+        };
+        img.src = url;
+      });
     },
-  },
+    async showPdf() {
+      let docDefinition = {
+        content: [
+
+          {
+            image: await this.getBase64ImageFromURL(
+              "http://localhost:8080/img/logo_block.png"
+            ), fit: [100, 100],
+
+          }
+        ]
+      };
+      pdfMake.createPdf(docDefinition).open();
+    }
+
+  }
+
 }).mount("#app");

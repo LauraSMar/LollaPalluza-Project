@@ -247,20 +247,27 @@
     background-color: unset
 }
 
+#editComment{
+    margin-left: 6vw;
+    border: none;
+    background-color:none;
+}
 #post {
     margin: 10px;
-    margin-left: 4vw;
-    padding-top: 2px;
-    padding-bottom: 2px;
     text-align: center;
     background-color: #03A688;
-    border-color: #03A688;
-    color: black;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid #03A688;
     border-radius: 13px;
     width: 50%
 }
+#post, #login, #postComment{
+    font-weight: bolder;
+    color: white;
+    min-width: 80%;
+    height: 7vh;
+    text-align: center;
+}
+
 
 body {
     background-color: black
@@ -341,6 +348,7 @@ color: rgb(212, 208, 208)
     flex-direction: column;
     margin-top: 20px;
     justify-content: center;
+    
 }
 
 .form-group p a {
@@ -368,4 +376,9 @@ border: 1px solid rgba(16, 46, 46, 1);
 background-color: rgba(16, 46, 46, 0.973);
 border-radius: 5px;
 padding: 20px
+}
+
+/*MODAL DE COMENTARIOS*/
+#comentarioAc{
+    color: black;
 }

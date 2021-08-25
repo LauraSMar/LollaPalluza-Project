@@ -39,159 +39,24 @@
             <div class="previousLolla">
                 <section id="carouselOfPics">
                     <div class="container">
-                        <div class="carousel">
-                            <input type="radio" name="slides" v-model="imageId" checked="checked" id="slide-1">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-2">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-3">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-4">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-5">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-6">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-7">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-8">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-9">
-                            <input type="radio" name="slides" v-model="imageId" id="slide-10">
+                        <div class="carousel" >
+                            <input v-for="info in images" type="radio"  :value="info.id" name="imageId" :id="info.id" v-model="imageId">
                             <ul class="carousel__slides">
-                                <li class="carousel__slide">
+                                <li v-for="info in images" class="carousel__slide">
                                     <figure>
                                         <div>
-                                            <img src="./img/lana.jpg" alt="lana-del-rey">
+                                            <img :src="info.url" alt="">
                                         </div>
                                         <figcaption>
-                                            Lana del Rey rompiendola toda en su presentacion
+                                            {{info.description}}
                                             <span class="credit">Photo: Lolla Press&REG;</span>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/friends.jpg" alt="amigos-2019">
-                                        </div>
-                                        <figcaption>
-                                            Viví la experiencia Lollapalooza con tus amigos
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/steve-aoki.jpg" alt="steve-aoki">
-                                        </div>
-                                        <figcaption>
-                                            Steve Aoki en la casa señores!
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/sunset.jpg" alt="lolla-sunset">
-                                        </div>
-                                        <figcaption>
-                                            Atardeceres desde el lolla, otra cosa
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/main2.jpg" alt="mainStage2">
-                                        </div>
-                                        <figcaption>
-                                            Somos todo lo que esta bien!
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/tiesto.jpg" alt="tiesto">
-                                        </div>
-                                        <figcaption>
-                                            Nosotros creemos que este señor lo dió todo y mas, ustedes que piensan?
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/art.jpg" alt="arte-inflable">
-                                        </div>
-                                        <figcaption>
-                                            Si te gusta tanto el arte como a nosotros, estamos seguros que este inflable te encantó
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/gastro.jpg" alt="gastronomia-lolla">
-                                        </div>
-                                        <figcaption>
-                                            El morfi nunca se deja de lado, tenemos las mejores propuestas gastronomicas para vos siempre
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/DVBBS.jpg" alt="DVBBS-2019">
-                                        </div>
-                                        <figcaption>
-                                            DVBBS en escena haciendo de las suyas, los viste?
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/mainStage.jpg" alt="main-2019">
-                                        </div>
-                                        <figcaption>
-                                            Te esperamos este año nuevamente, se parte del lolla!
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
                                         </figcaption>
                                     </figure>
                                 </li>
                             </ul>    
                             <ul class="carousel__thumbnails">
-                                <li>
-                                    <label for="slide-1"><img src="./img/lana.jpg" alt="lana-del-rey"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-2"><img src="./img/friends.jpg" alt="amigos-2019"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-3"><img src="./img/steve-aoki.jpg" alt="steve-aoki"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-4"><img src="./img/sunset.jpg" alt="lolla-sunset"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-5"><img src="./img/main2.jpg" alt="mainStage2"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-6"><img src="./img/tiesto.jpg" alt="tiesto"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-7"><img src="./img/art.jpg" alt="arte-inflable"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-8"><img src="./img/gastro.jpg" alt="gastronomia-lolla"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-9"><img src="./img/DVBBS.jpg" alt="DVBBS"></label>
-                                </li>
-                                <li>
-                                    <label for="slide-10"><img src="./img/mainStage.jpg" alt="mainStage"></label>
+                                <li v-for="info in images">
+                                    <label @click="allComments(info.id)" :for="info.id"><img :src="info.url" alt=""></label>
                                 </li>
                             </ul>
                         </div>
@@ -204,7 +69,7 @@
                             <div class="col-sm-5 col-md-6 col-12 pb-4">
                                 <h1 id="h1-comments">Comentarios</h1>
                                 <div class="comment mt-4 text-justify float-left" v-for="info in comments"> 
-                                    <h4>{{info.userName}}</h4> <span>{{info.createdAt}}</span><div @click="fetch" type="button" class="btn btn-danger" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit"></i></div><p>{{info.text}}</p> 
+                                    <h4>{{info.userName}}</h4> <span>{{formatDate(info.createdAt)}}</span><div @click="showText(info.text)" type="button" class="btn btn-danger" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit"></i></div><p>{{info.text}}</p> 
                                 </div>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -214,7 +79,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="commentText" msg cols="30" rows="5" class="form-control"></textarea>
+                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="commentText"  msg cols="30" rows="5" class="form-control"></textarea>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" id="close" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -229,7 +94,7 @@
                                     <div class="form-group">
                                         <h4>Deja tu comentario</h4> <label for="message">Mensaje</label> <textarea name="msg" id="" v-model="commentText" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
                                     </div>
-                                    <div class="form-group"> <button type="button" @click="postComment" id="postComment" class="btn">Enviar Comentario</button> </div>
+                                    <div class="form-group"> <button type="button" @click="postComment()" id="postComment" class="btn">Enviar Comentario</button> </div>
                                     <div v-if="error">
                                         <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" v-model="email" id="email" class="form-control"> </div>
                                         <div class="form-group"> <label for="password">Contraseña</label> <input type="password" name="password" id="password" v-model="password" class="form-control"> </div>

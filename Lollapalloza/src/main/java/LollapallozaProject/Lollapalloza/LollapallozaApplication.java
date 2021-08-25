@@ -151,11 +151,34 @@ public class LollapallozaApplication {
 
 			// ejemplos de imagenes
 
-			Image image1 = new Image("/img/lana.jpg");
+			Image image1 = new Image("/img/lana.jpg", "Lana del Rey rompiendola toda en su presentacion");
 			imageRepository.save(image1);
+			Image image2 = new Image("/img/friends.jpg", "Viví la experiencia Lollapalooza con tus amigos" );
+			imageRepository.save(image2);
+			Image image3 = new Image("/img/steve-aoki.jpg", "Steve Aoki en la casa señores!");
+			imageRepository.save(image3);
+			Image image4 = new Image("/img/sunset.jpg", "Atardeceres desde el lolla, otra cosa");
+			imageRepository.save(image4);
+			Image image5 = new Image("/img/main2.jpg", "Somos todo lo que esta bien!");
+			imageRepository.save(image5);
+			Image image6 = new Image("/img/tiesto.jpg", "Nosotros creemos que este señor lo dió todo y mas, ustedes que piensan?");
+			imageRepository.save(image6);
+			Image image7 = new Image("/img/art.jpg", "Si te gusta tanto el arte como a nosotros, estamos seguros que este inflable te encantó");
+			imageRepository.save(image7);
+			Image image8 = new Image("/img/gastro.jpg", "El morfi nunca se deja de lado, tenemos las mejores propuestas gastronomicas para vos siempre");
+			imageRepository.save(image8);
+			Image image9 = new Image("/img/DVBBS.jpg", "DVBBS en escena haciendo de las suyas, los viste?");
+			imageRepository.save(image9);
+			Image image10 = new Image("/img/mainStage.jpg", "Te esperamos este año nuevamente, se parte del lolla!");
+			imageRepository.save(image10);
 
 			Comment comment1 = new Comment("comentario de lola prueba", testUser, image1);
 			commentRepository.save(comment1);
+
+			Comment comment2 = new Comment("comentario de lola prueba2", testUser, image2);
+			commentRepository.save(comment2);
+
+
 		};
 	}
 

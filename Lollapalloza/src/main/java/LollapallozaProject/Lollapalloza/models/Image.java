@@ -20,6 +20,7 @@ public class Image {
     private Long id;
 
     private String url;
+    private String description;
     private LocalDateTime postedAt;
 
     @OneToMany(mappedBy = "image", fetch = FetchType.EAGER)
@@ -27,8 +28,9 @@ public class Image {
 
     public Image(){}
 
-    public Image(String url){
+    public Image(String url, String description){
         this.url = url;
+        this.description = description;
         this.postedAt = LocalDateTime.now();
     }
 
@@ -46,6 +48,14 @@ public class Image {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDateTime getPostedAt() {

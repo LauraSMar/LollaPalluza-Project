@@ -8,35 +8,45 @@ const app = Vue.createApp({
             commentText: "",
             error: false,
             comments: [],
+            images: [],
         }
     },
     created(){
-        this.allComments()
+        this.allImages();
+        this.allComments(1);
     },
     methods: {
         login() {
             axios.post('/api/login', "email=" + this.email + "&password=" + this.password, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
                 .then(() => {
-                    if (this.email == "admin@admin.com") {
-                        window.location.href = "/admin.html"
-                    } else window.location.href = "/index.html"
+                    location.reload();
                 })
                 .catch(() => swal('Email o contraseña incorrectos'))
         },
         postComment(){
-            axios.post('/api/images'+this.imageId+'/comments',{
-                text: this.commentText})
+            axios.post('/api/images/'+this.imageId+'/comments',
+                "text="+this.commentText)
                 .then(()=> swal("Comentario enviado exitosamente", {
                     icon: "success",
                   })
-                .then(() => location.reload))
+                .then(() => this.allComments(this.imageId))
+                .then(this.commentText= ""))
                 .catch(() => {swal('Necesitas estar logueado para poder comentar');
                  this.error = !this.error});
         },
-        allComments(){
-            axios.get('/api/images/1/comments')
-            .then(res=> 
-                this.comments = res.data)
+
+        allImages(){
+            axios.get('/api/images')
+            .then(res => {
+                this.images = res.data,
+                this.imageId= res.data.id})
+        },
+
+        allComments(id){
+            axios.get('/api/images/'+id+'/comments')
+            .then(res=> {
+                this.comments = res.data
+            })
         },
 
         fetch(){
@@ -58,5 +68,8 @@ const app = Vue.createApp({
                   })
                 .then(() => location.reload))
         },
+        formatDate: function(date){
+            return new Date(date).toLocaleDateString('en-gb');
+        },  
     }
 });
