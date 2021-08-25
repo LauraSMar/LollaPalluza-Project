@@ -22,18 +22,19 @@
         <header>
             <nav class="nav" id="blur">      
                 <ul>
-                    <li><a class="first">Inicio</a></li>
+                    <li><a href="index.html" class="first">Inicio</a></li>
                     <li><a class="first">Bandas</a></li>
                     <li><a class="last">Tickets</a></li>
                     <li><a class="last">Tienda</a></li>
-                    <li><a class="last">Login</a></li>
+                    <li><a href="login.html" class="last">Login</a></li>
+                    <li><a href="gallery.html" class="last">Galeria</a></li>
                 </ul>
             </nav>
         </header>
-        <main>
-        <!--SECCION DE FOTOS -->
+        <main id="mainGallery">
+            <!--SECCION DE FOTOS -->
             <div class="previousLolla">
-                <section>
+                <section id="carouselOfPics">
                     <div class="container">
                         <div class="carousel">
                             <input type="radio" name="slides" checked="checked" id="slide-1">
@@ -54,7 +55,7 @@
                                         </div>
                                         <figcaption>
                                             Lana del Rey rompiendola toda en su presentacion
-                                            <span class="credit">Photo: Lolla Press&copy;</span>
+                                            <span class="credit">Photo: Lolla Press&REG;</span>
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -65,7 +66,7 @@
                                         </div>
                                         <figcaption>
                                             Viví la experiencia Lollapalooza con tus amigos
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                           
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -76,7 +77,7 @@
                                         </div>
                                         <figcaption>
                                             Steve Aoki en la casa señores!
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                           
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -87,7 +88,7 @@
                                         </div>
                                         <figcaption>
                                             Atardeceres desde el lolla, otra cosa
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                            
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -98,7 +99,7 @@
                                         </div>
                                         <figcaption>
                                             Somos todo lo que esta bien!
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                            
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -109,7 +110,7 @@
                                         </div>
                                         <figcaption>
                                             Nosotros creemos que este señor lo dió todo y mas, ustedes que piensan?
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                            
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -119,8 +120,8 @@
                                             <img src="./img/art.jpg" alt="arte-inflable">
                                         </div>
                                         <figcaption>
-                                            Si te gusta tanto el arte como a nosotros, estamos seguros que este inflable te copó
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                            
+                                            Si te gusta tanto el arte como a nosotros, estamos seguros que este inflable te encantó
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -131,7 +132,7 @@
                                         </div>
                                         <figcaption>
                                             El morfi nunca se deja de lado, tenemos las mejores propuestas gastronomicas para vos siempre
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                            
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -142,7 +143,7 @@
                                         </div>
                                         <figcaption>
                                             DVBBS en escena haciendo de las suyas, los viste?
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                           
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -153,7 +154,7 @@
                                         </div>
                                         <figcaption>
                                             Te esperamos este año nuevamente, se parte del lolla!
-                                            <span class="credit">Photo: Lolla Press&copy;</span>                           
+                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -194,11 +195,11 @@
                     </div>
                 </section>
                 <!-- SECCION DE COMENTARIOS -->
-                <section>
+                <section id="commentsSec">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-5 col-md-6 col-12 pb-4">
-                                <h1 id="h1-comments">Comments</h1>
+                                <h1 id="h1-comments">Comentarios</h1>
                                 <div class="comment mt-4 text-justify float-left"> 
                                     <h4>Jhon Doe</h4> <span>- 20 October, 2018</span> <br>
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
@@ -217,16 +218,19 @@
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
-                                <form id="algin-form">
+                                <form id="align-form">
                                     <div class="form-group">
-                                        <h4>Leave a comment</h4> <label for="message">Message</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                                        <h4>Deja tu comentario</h4> <label for="message">Mensaje</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
+                                        <h6 v-if="notLogged">Necesitas estar logueado para poder comentar</h6>
                                     </div>
-                                    <div class="form-group"> <label for="name">Name</label> <input type="text" name="name" id="fullname" class="form-control"> </div>
-                                    <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" id="email" class="form-control"> </div>
+                                    <div class="form-group"> <button type="button" id="postComment" class="btn">Enviar Comentario</button> </div>
+                                    <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" v-model="email" id="email" class="form-control"> </div>
+                                    <div class="form-group"> <label for="password">Contraseña</label> <input type="password" name="password" id="password" v-model="password" class="form-control"> </div>
                                     <div class="form-group">
-                                        <p class="text-secondary">If you have a <a href="#" class="alert-link">gravatar account</a> your address will be used to display your profile picture.</p>
+                                    <div class="form-group"> <button type="button" id="login" @click="login" class="btn">Iniciar Sesion</button> </div>
+                                        <p class="text-secondary">No tienes una cuenta todavia?</p>
                                     </div>
-                                    <div class="form-group"> <button type="button" id="post" class="btn">Post Comment</button> </div>
+                                    <div class="form-group"> <a href="login.html" type="button" id="post" class="btn">Registrate!</a></div>
                                 </form>
                             </div>
                         </div>
@@ -266,7 +270,7 @@
         crossorigin="anonymous"></script>
 
     <!-- Local JS -->
-    <script src="./js/index.js"></script>
+    <script src="./js/gallery.js"></script>
 
     <!-- Mount APP -->
     <script>

@@ -20,7 +20,7 @@ public class InvoiceDto {
     private double total;
     private double discount;
     private String payments;
-    private UserDto userDto;
+    private String invoiceNumber;
     private Set<DetailDto> details=new HashSet<>();
 
 
@@ -29,6 +29,7 @@ public class InvoiceDto {
         this.businessName = invoice.getBusinessName();
         this.total = invoice.getTotal();
         this.discount = invoice.getDiscount();
+        this.invoiceNumber=invoice.getNumberInvoice();
         this.details=invoice.getDetails().stream().map(DetailDto::new).collect(Collectors.toSet());
 
     }

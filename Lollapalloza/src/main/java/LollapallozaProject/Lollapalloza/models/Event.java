@@ -27,7 +27,6 @@ public class Event {
     private Integer available;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticked_Id")
     private Ticket ticket;
 
     @OneToOne (fetch = FetchType.EAGER)

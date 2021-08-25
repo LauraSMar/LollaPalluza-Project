@@ -38,7 +38,7 @@ public class Invoice {
         this.businessName = businessName;
         this.total = total;
         this.discount = discount;
-        this.numberInvoice = "0";
+        this.numberInvoice = "0001-000000";
         this.user = user;
     }
 

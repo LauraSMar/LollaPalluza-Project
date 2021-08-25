@@ -15,7 +15,7 @@ public class DetailDto {
     private String description;
     private double subtotal;
     private double priceUnitary;
-    private InvoiceDto invoiceDto;
+
 
     public DetailDto(Detail detail){
 
