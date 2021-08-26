@@ -7,6 +7,7 @@
     width: 45vw;
     min-width: 350px;
     min-height: 40vh;
+    padding-left: 2vw;
 }
 .images-thumbnail{
     padding: 5px;
@@ -28,10 +29,12 @@
 }
 .size:hover{
     cursor: pointer;
-    background-color: var(--color-gold);
+    background-color: black;
+    color: white;
 }
 .selectedSize{
-    background-color: var(--color-gold);
+    background-color: black;
+    color: white;
 }
 .quantitySelector{
     padding: 10px;
@@ -50,4 +53,24 @@
     font-weight: 800;
     font-size: 1.5rem;
     user-select: none;
+}
+.quantitySelector .quantityButton:hover{
+    background-color: white;
+    color: black;
+}
+.addToCart{
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    padding: 20px;
+    font-weight: 600;
+}
+.addToCart:hover{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50px;
+    color: black;
+    padding: 20px;
+    font-weight: 600;
 }

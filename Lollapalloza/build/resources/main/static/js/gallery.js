@@ -23,6 +23,7 @@ const app = Vue.createApp({
     methods: {
         login() {
             axios.post('/api/login', "email=" + this.email + "&password=" + this.password, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+<<<<<<< HEAD
                 .then(() => {
                     if (this.email == "admin@admin.com") {
                         window.location.href = "/admin.html"
@@ -34,6 +35,12 @@ const app = Vue.createApp({
         logOut(){
                 axios.post('/api/logout').then(response => window.location.href="/index.html")
                 },    
+=======
+                .then(()=> swal({icon: "success"}))
+                .then(this.email = "", this.password = "")
+                .catch(() => swal('Email o contraseña incorrectos'))
+        },
+>>>>>>> f6580258aca9babfd6b2683038c5e1d3c5edd831
 
         //COMENTARIOS//
         postComment(){

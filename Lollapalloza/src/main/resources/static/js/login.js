@@ -19,7 +19,6 @@ const app = Vue.createApp({
                         window.location.href = "/admin.html"
                     } else window.location.href = "/index.html"
                 })
-                
                 .catch(() => swal('Wrong mail or password'))
         },
         register() {

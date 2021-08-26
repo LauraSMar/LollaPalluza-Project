@@ -17,7 +17,11 @@
 
 <body>
     <div id="app" class="wrapper">
+<<<<<<< HEAD
         <header class="mb-5">
+=======
+        <header>
+>>>>>>> f6580258aca9babfd6b2683038c5e1d3c5edd831
             <nav class="nav" id="blur" style="background-color: black">
                 <ul :class="activeNavbar? 'active':''">
                     <li><a href="index.html" class="first">Inicio</a></li>
@@ -31,8 +35,13 @@
                 <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
             </nav>
         </header>
+<<<<<<< HEAD
         <section class="d-flex flex-wrap justify-content-center">
             <div v-for="event in events" class="cards m-4">
+=======
+        <section class="d-flex flex-wrap justify-content-center pt-5">
+            <div v-for="event in events" class="cards m-4 shadow-lg">
+>>>>>>> f6580258aca9babfd6b2683038c5e1d3c5edd831
                 <div class="skewed">
                     <img :src="event.img" alt="">
                 </div>
@@ -44,7 +53,104 @@
                     <p id="desc"></p>
                     <input v-model="check" type="checkbox" :value="event" name="" :id="event.campus"><label class="btn fw-bold fs-4" style="background-color: rgb(239,82,65); box-shadow: 0px 8px 8px rgb(82, 81, 81); color: white;" :for="event.campus">{{event.date}}</label>
                     <!-- <a href="#"><button type="button" @click="selectEvent(event)">{{event.date.split("-").reverse().join("-")}}</button></a> -->
+<<<<<<< HEAD
+=======
                 </div>
+            </div>
+        </section>
+        <section class="d-flex flex-column flex-md-row justify-content-center">
+            <div id="ticket" class="d-none d-md-flex">
+                <div class="background">
+                    <svg class="logosvg left">
+                        <use href="#logosvg">
+                    </svg>
+                    <svg class="logosvg right">
+                        <use href="#logosvg">
+                    </svg>
+                </div>
+                <div class="left">
+                    <div class="header">
+                        <svg class="logosvg">
+                            <use href="#logosvg">
+                        </svg>
+                        <h1>Ticket</h1>
+                    </div>
+                    <h2>Lollapaloza <span class="year-span">2021</span></h1>
+                        <div class="details">
+                            <!-- <div class="day"><span class="day-span">Thu.</span></div> -->
+                            <!-- <div class="date"><span class="fulldate-span">10 august 2021</span></div> -->
+                            <!-- <div class="code"><span class="code-span">MF1</span></div> -->
+                            <div class="access">
+                                <p v-for="e in check" class="me-3 fw-bold " style="text-shadow: 1px 1px 2px black;">
+                                    {{e.campus}}</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="barcode">
+                    <div class="barcode-container"></div>
+                </div>
+                <div class="right">
+                    <!-- <svg class="logosvg">
+                        <use href="#logosvg">
+                    </svg> -->
+                    <!-- <h1>Ticket</h1> -->
+                    <!-- <h2>Summer Music Festival <span class="year-span">2021</span></h1> -->
+                    <div v-for="e in check" class="details">
+                        <!-- <div class="day"><span class="day-span">Thu.</span></div> -->
+                        <div class="date"><span class="fulldate-span fw-bold">{{e.date}}</span></div>
+                        <!-- <div class="code"><span class="code-span">MF1</span></div> -->
+                        <div class="access">Access</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenido d-md-none">
+                <div>
+                    <div class="hqr">
+                        <div class="column left-one"></div>
+                        <div class="column center">
+                            <div id="qrcode">
+                                <img src="./img/logo_block.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column right-one"></div>
+                    </div>
+                </div>
+                <div class="detailsPhone">
+                    <div class="tinfo">
+                        Location
+                    </div>
+                    <div v-for="e in check" class="tdata name">
+                        {{e.campus}}
+                    </div>
+                    <div class="tinfo">
+                        ticket
+                    </div>
+                    <div class="tdata">
+                        Access
+                    </div>
+                    <div class="tinfo">
+                        event
+                    </div>
+                    <div class="tdata">
+                        Lollapalooza 2021
+                    </div>
+
+                </div>
+            </div>
+            <div v-if="check.length > 0" class="d-flex align-items-center ms-3">
+                <div class="quantitySelector">
+                    <button class="quantityButton" @click="quantity++">&plus;</button>
+                    <span>{{quantity}}</span>
+                    <button class="quantityButton" @click="quantity--" :disabled="quantity <= 1">&minus;</button>
+>>>>>>> f6580258aca9babfd6b2683038c5e1d3c5edd831
+                </div>
+                <button type="button" class="button">
+                    <span class="button__text">Add</span>
+                    <span class="button__icon">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </span>
+                </button>
             </div>
         </section>
         <section class="d-flex">
@@ -132,8 +238,17 @@
 
         </section>
 
+<<<<<<< HEAD
     </div>
     <footer class="fixed-button">
+=======
+
+
+
+
+    </div>
+    <footer class="fixed-button mt-5">
+>>>>>>> f6580258aca9babfd6b2683038c5e1d3c5edd831
         <div class="d-flex justify-content-evenly">
             <div>
                 <ul>
