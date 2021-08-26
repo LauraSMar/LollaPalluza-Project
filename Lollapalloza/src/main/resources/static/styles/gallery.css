@@ -1,4 +1,29 @@
 
+/*MEDIA QUERIES DEL CAROUSEL*/
+@media(max-width:568px) {
+    .carousel {
+        margin-left: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    figure{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .carousel_img, .caption_carousel{
+        width: 80vw;
+    }
+    .minImages img{
+        max-height: 15vh;
+        max-width: 15vw;
+    }
+
+}
+
+@media(max-width:768px) {
+    
+    
+}
 
 /*SECCION DE FOTOS Y EL CAROUSEL*/
 #mainGallery{
@@ -247,11 +272,6 @@
     background-color: unset
 }
 
-#editComment{
-    margin-left: 6vw;
-    border: none;
-    background-color:none;
-}
 #post {
     margin: 10px;
     text-align: center;
@@ -309,6 +329,31 @@ padding-right: 30px;
 padding-top: 10px
 }
 
+/*CSS DE COMENTARIOS*/
+
+#noComments{
+    margin-top: 5vh;
+    text-align: justify;
+}
+.theComments{
+    width: 90%;
+    min-height: 20vh;
+}
+#editComment{
+    margin: 0;
+    padding: 0;
+    float: right;
+    position: sticky;
+}
+
+.theText{
+    max-width: 75%;
+    padding: 1vh 1vw;
+    font-weight: bold;
+    font-size: large;
+    text-align: justify;
+}
+
 .comment {
 border: 1px solid #F23838;
 background-color: #F23838;
@@ -343,6 +388,8 @@ label {
 color: rgb(212, 208, 208)
 }
 
+/*CSS DEL FORM PARA LOGUEAR*/
+
 #align-form {
     display: flex;
     flex-direction: column;
@@ -376,6 +423,12 @@ border: 1px solid rgba(16, 46, 46, 1);
 background-color: rgba(16, 46, 46, 0.973);
 border-radius: 5px;
 padding: 20px
+}
+/*INFO DEL LOGIN GALLERY*/
+
+.text-secondary, #mensaje{
+    font-weight: bolder;
+    color: white!important;
 }
 
 /*MODAL DE COMENTARIOS*/

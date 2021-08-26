@@ -17,12 +17,14 @@ public class Comment {
     private Long id;
 
     private String text;
+    private String email;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
     private User user;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="imageId")
@@ -34,6 +36,7 @@ public class Comment {
         this.text = text;
         this.createdAt = LocalDateTime.now();
         this.user = user;
+        this.email= user.getEmail();
         this.image = image;
     }
 
@@ -51,6 +54,14 @@ public class Comment {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public LocalDateTime getCreatedAt() {

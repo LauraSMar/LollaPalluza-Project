@@ -9,6 +9,7 @@ const app = Vue.createApp({
         selectedProduct: "",
         activeImg: 0,
         selectedSize: "",
+        quantity: 0,
       };
     },
     created(){
@@ -27,7 +28,17 @@ const app = Vue.createApp({
       },
       selectSize(i){
         this.selectedSize = i;
-      }
+      },
+      formatBalance(balance) {
+        if (balance == null) {
+            return
+        }
+        let amount = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        })
+        return amount.format(balance)
+      },
     },
   
     computed: {},

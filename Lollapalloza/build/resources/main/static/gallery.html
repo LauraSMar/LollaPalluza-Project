@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lollapalooza Argentina 2021</title>
+    <title>Galeria Lolla Arg</title>
     <link rel="icon" href="./img/favicon.ico">
     <!-- Bootstrap 5.1 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,7 +26,6 @@
             <nav class="nav" id="blur">      
                 <ul>
                     <li><a href="index.html" class="first">Inicio</a></li>
-                    <li><a class="first">Bandas</a></li>
                     <li><a class="last">Tickets</a></li>
                     <li><a class="last">Tienda</a></li>
                     <li><a href="login.html" class="last">Login</a></li>
@@ -45,125 +44,18 @@
                                 <li v-for="info in images" class="carousel__slide">
                                     <figure>
                                         <div>
-                                            <img :src="info.url" alt="">
+                                            <img class="carousel_img" :src="info.url" alt="">
                                         </div>
-                                        <figcaption>
-<<<<<<< Updated upstream
+                                        <figcaption class="caption_carousel">
                                             {{info.description}}
                                             <span class="credit">Photo: Lolla Press&REG;</span>
-=======
-                                            Lana del Rey rompiendola toda en su presentacion
-                                            <span class="credit">Photo: Lolla Press&REG;</span>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/friends.jpg" alt="amigos-2019">
-                                        </div>
-                                        <figcaption>
-                                            Viví la experiencia Lollapalooza con tus amigos
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/steve-aoki.jpg" alt="steve-aoki">
-                                        </div>
-                                        <figcaption>
-                                            Steve Aoki en la casa señores!
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/sunset.jpg" alt="lolla-sunset">
-                                        </div>
-                                        <figcaption>
-                                            Atardeceres desde el lolla, otra cosa
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/main2.jpg" alt="mainStage2">
-                                        </div>
-                                        <figcaption>
-                                            Somos todo lo que esta bien!
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/tiesto.jpg" alt="tiesto">
-                                        </div>
-                                        <figcaption>
-                                            Nosotros creemos que este señor lo dió todo y mas, ustedes que piensan?
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/art.jpg" alt="arte-inflable">
-                                        </div>
-                                        <figcaption>
-                                            Si te gusta tanto el arte como a nosotros, estamos seguros que este inflable te encantó
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/gastro.jpg" alt="gastronomia-lolla">
-                                        </div>
-                                        <figcaption>
-                                            El morfi nunca se deja de lado, tenemos las mejores propuestas gastronomicas para vos siempre
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                            
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/DVBBS.jpg" alt="DVBBS-2019">
-                                        </div>
-                                        <figcaption>
-                                            DVBBS en escena haciendo de las suyas, los viste?
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="./img/mainStage.jpg" alt="main-2019">
-                                        </div>
-                                        <figcaption>
-                                            Te esperamos este año nuevamente, se parte del lolla!
-                                            <span class="credit">Photo: Lolla Press&REG;</span>                           
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                                         </figcaption>
                                     </figure>
                                 </li>
                             </ul>    
                             <ul class="carousel__thumbnails">
                                 <li v-for="info in images">
-                                    <label @click="allComments(info.id)" :for="info.id"><img :src="info.url" alt=""></label>
+                                    <label @click="allComments(info.id)" :for="info.id" class="minImages"><img :src="info.url" alt=""></label>
                                 </li>
                             </ul>
                         </div>
@@ -175,21 +67,12 @@
                         <div class="row">
                             <div class="col-sm-5 col-md-6 col-12 pb-4">
                                 <h1 id="h1-comments">Comentarios</h1>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                                <div class="comment mt-4 text-justify float-left" v-for="info in comments"> 
-                                    <h4>{{info.userName}}</h4> <span>{{formatDate(info.createdAt)}}</span><div @click="fetch" type="button" class="btn btn-danger" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit"></i></div><p>{{info.text}}</p> 
-=======
-=======
->>>>>>> Stashed changes
-                                <div class="comment mt-4 text-justify float-left"> 
-                                    <h4>Jhon Doe</h4> <span>- 20 October, 2018</span> <br>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                                </div>
-                                <div class="text-justify darker mt-4 float-right"> 
-                                    <h4>Rob Simpson</h4> <span>- 20 October, 2018</span> <br>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
->>>>>>> Stashed changes
+                                <h3 v-if="comments.length <= 0" id="noComments">Sin comentarios en esta foto por ahora, podes ser el primero en comentar😎</h3> 
+                                <div class="comment mt-4 text-justify float-left theComments" v-for="info in comments">
+                                    <h4>{{info.userName}} </h4>
+                                     <span> {{formatDate(info.createdAt)}}</span>
+                                    <i @click="showText(info)" type="button" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal" class="fas fa-edit"></i>
+                                    <p class="theText">{{info.text}}<i @click="deleteComment(info.id)" class="far fa-trash-alt"></i></p> 
                                 </div>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -199,11 +82,11 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="commentText" msg cols="30" rows="5" class="form-control"></textarea>
+                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="newText"  msg cols="30" rows="5" class="form-control"></textarea>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" id="close" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" id="save" class="btn btn-success">Guardar cambios</button>
+                                                <button type="button" id="save" @click="editComment" class="btn btn-success" data-bs-dismiss="modal">Guardar cambios</button>
                                             </div>
                                         </div>
                                     </div>
@@ -212,9 +95,7 @@
                             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                                 <form id="align-form">
                                     <div class="form-group">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                                        <h4>Deja tu comentario</h4> <label for="message">Mensaje</label> <textarea name="msg" id="" v-model="commentText" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
+                                        <h4>Dejá tu comentario</h4> <label for="message" id="mensaje">Mensaje</label> <textarea name="msg" id="" v-model="commentText" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
                                     </div>
                                     <div class="form-group"> <button type="button" @click="postComment()" id="postComment" class="btn">Enviar Comentario</button> </div>
                                     <div v-if="error">
@@ -225,30 +106,9 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="text-secondary">No tienes una cuenta todavia?</p>
+                                        <p class="text-secondary">No tenes una cuenta todavia?</p>
                                     </div>
                                     <div class="form-group"> <a href="login.html" type="button" id="post" class="btn">Registrate</a></div>
-=======
-                                        <h4>Deja tu comentario</h4> <label for="message">Mensaje</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
-                                        <h6 v-if="notLogged">Necesitas estar logueado para poder comentar</h6>
-                                    </div>
-=======
-                                        <h4>Deja tu comentario</h4> <label for="message">Mensaje</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
-                                        <h6 v-if="notLogged">Necesitas estar logueado para poder comentar</h6>
-                                    </div>
->>>>>>> Stashed changes
-                                    <div class="form-group"> <button type="button" id="postComment" class="btn">Enviar Comentario</button> </div>
-                                    <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" v-model="email" id="email" class="form-control"> </div>
-                                    <div class="form-group"> <label for="password">Contraseña</label> <input type="password" name="password" id="password" v-model="password" class="form-control"> </div>
-                                    <div class="form-group">
-                                    <div class="form-group"> <button type="button" id="login" @click="login" class="btn">Iniciar Sesion</button> </div>
-                                        <p class="text-secondary">No tienes una cuenta todavia?</p>
-                                    </div>
-                                    <div class="form-group"> <a href="login.html" type="button" id="post" class="btn">Registrate!</a></div>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                                 </form>
                             </div>
                         </div>
@@ -261,18 +121,18 @@
         <div class="d-flex justify-content-evenly">
             <div>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#">Tickets</a></li>
-                    <li><a href="#">Bandas</a></li>
                     <li><a href="#">Tienda</a></li>
+                    <li><a href="gallery.html">Galeria</a></li>
                 </ul>
             </div>
             <div class="d-flex flex-column">
                 <img src="./img/logo-vid.png" alt="">
                 <div class="rsAccess d-flex justify-content-evenly">
-                    <a href=""><i class="fab fa-facebook"></i></a>
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/lollapaloozaar"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/lollapaloozaar"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/lollapaloozaar"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>

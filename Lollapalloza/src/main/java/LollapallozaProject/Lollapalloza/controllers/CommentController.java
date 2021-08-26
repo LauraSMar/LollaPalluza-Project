@@ -38,7 +38,7 @@ public class CommentController {
 
     // para editar un comentario
     @PostMapping("/comments/{id}")
-    public ResponseEntity<?> editComment(Authentication authentication, @PathVariable Long id, @RequestBody String newText){
+    public ResponseEntity<?> editComment(Authentication authentication, @PathVariable Long id, @RequestParam String newText){
         return commentService.editComment(authentication, id, newText);
     }
 

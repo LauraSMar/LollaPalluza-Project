@@ -50,8 +50,8 @@
         </header>
 
         <main class="d-flex justify-content-center flex-wrap gap-3 mt-5">
-            <div class="images">
-                <div class="d-flex flex-row">
+            <div class="images mt-5">
+                <div class="d-flex flex-row justify-content-center">
                     <img v-for="(img, i) in selectedProduct.img"
                     :key="i"
                     :src="img"
@@ -63,18 +63,29 @@
                     <img v-if="selectedProduct" :src="selectedProduct.img[activeImg]" class="activeImg" alt="">
                 </div>
             </div>
-            <div class="d-flex flex-column justify-content-center prodDetail">
+            <div class="d-flex flex-column justify-content-center mt-5 prodDetail ">
                 <h3 class="m-4">{{selectedProduct.description}}</h3>
-                <div class="d-flex align-items-baseline">
-                    <h5 class="m-3">Select Size: </h5>
-                    <div v-for="(size, i) in selectedProduct.sizeList" 
-                    :key="i"
-                    class="size m-3"
-                    :class="{selectedSize: selectedSize === i}"
-                    @click="selectSize(i)"
-                    >{{size}}</div>
+                <div class="d-flex flex-column">
+                    <div class="d-flex align-items-baseline">
+                        <h5 class="m-3">Talle: </h5>
+                        <div v-for="(size, i) in selectedProduct.sizeList" 
+                        :key="i"
+                        class="size m-3"
+                        :class="{selectedSize: selectedSize === i}"
+                        @click="selectSize(i)"
+                        >{{size}}</div>
+                    </div>
+                    <div class="d-flex align-items-baseline ">
+                        <h5 class="m-3">Cantidad: </h5>
+                        <div class="quantitySelector">
+                            <button class="quantityButton" @click="quantity++" :disabled="selectedProduct.stock <= quantity">&plus;</button>
+                            <span>{{quantity}}</span>
+                            <button class="quantityButton" @click="quantity--" :disabled="quantity <= 0">&minus;</button>
+                        </div>
+                    </div>
                 </div>
-                <h5 class="m-3">Precio: {{selectedProduct.price}}</h5>
+                <h5 class="m-3 mt-5">Precio unitario: {{formatBalance(selectedProduct.price)}}</h5>
+                <h5 class="m-3">Total: {{formatBalance(selectedProduct.price * quantity)}}</h5>
             </div>
         </main>
     </div>
