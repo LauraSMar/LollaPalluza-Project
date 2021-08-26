@@ -23,14 +23,8 @@ const app = Vue.createApp({
         for (i = 0; i < this.totalfact.length; i++) {
           this.invoice = response.data.invoices[i];
           this.clientName = this.invoice.businessName;
-          this.openPdf();
           this.showPdf();
-
-
         };
-
-
-
 
       })
       .catch((error) => console.log(error.response));
@@ -41,25 +35,10 @@ const app = Vue.createApp({
   methods: {
 
 
-    dateAndTime(creationdate) {
-      let date = new Date(creationdate);
-      return date.toLocaleString();
-    },
-    formatDate(str) {
-      return new Date(str + " ").toLocaleDateString();
-    },
-    formatARS(balance) {
-      if (balance == null) {
-        return "";
-      }
-      let amount = new Intl.NumberFormat("es-AR", {
-        style: "currency",
-        currency: "ARS",
-      });
-      return amount.format(balance);
-    },
-    openPdf() {
-      var dd = {
+   
+    
+    async showPdf() {
+      let dd = {
         header: {
           text: ' Lollapalloza Argentina S.A. Argentina',
           margin: 30,
@@ -79,12 +58,13 @@ const app = Vue.createApp({
           ],
         },
         content: [
-          /*  {
-             image: await this.getBase64ImageFromURL(
-               "http://localhost:8080/img/logo_block.png"
-             ), fit: [100, 100],
-           }, */
 
+          {
+            image: await this.getBase64ImageFromURL(
+              "http://localhost:8080/img/logo_block.png"
+            ), fit: [100, 100],
+
+          },
           {
             layout: "lightHorizontalLines", // optional
             margin: [0, 20],
@@ -107,9 +87,6 @@ const app = Vue.createApp({
         pageSize: "A4",
         pageMargins: [40, 60, 40, 60],
       };
-
-
-
       this.invoice.details.forEach((h) => {
         let aux = [];
 
@@ -119,11 +96,10 @@ const app = Vue.createApp({
         aux.push(h.priceUnitary);
         aux.push({ text: h.discount, bold: true });
         aux.push(this.formatARS(h.subtotal));
-        dd.content[0].table.body.push(aux);
+        dd.content[1].table.body.push(aux);
 
 
       });
-
       dd.content.unshift({
 
 
@@ -138,9 +114,30 @@ const app = Vue.createApp({
       dd.content.unshift("Total " + this.formatARS(this.invoice.total));
 
 
-      pdfMake.createPdf(dd).open();
-    },
 
+
+
+
+      pdfMake.createPdf(dd).open();
+
+    },
+    dateAndTime(creationdate) {
+      let date = new Date(creationdate);
+      return date.toLocaleString();
+    },
+    formatDate(str) {
+      return new Date(str + " ").toLocaleDateString();
+    },
+    formatARS(balance) {
+      if (balance == null) {
+        return "";
+      }
+      let amount = new Intl.NumberFormat("es-AR", {
+        style: "currency",
+        currency: "ARS",
+      });
+      return amount.format(balance);
+    },
     getBase64ImageFromURL(url) {
       return new Promise((resolve, reject) => {
         var img = new Image();
@@ -160,20 +157,6 @@ const app = Vue.createApp({
         img.src = url;
       });
     },
-    async showPdf() {
-      let docDefinition = {
-        content: [
-
-          {
-            image: await this.getBase64ImageFromURL(
-              "http://localhost:8080/img/logo_block.png"
-            ), fit: [100, 100],
-
-          }
-        ]
-      };
-      pdfMake.createPdf(docDefinition).open();
-    }
 
   }
 

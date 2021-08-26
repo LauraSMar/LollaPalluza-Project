@@ -10,11 +10,14 @@ const app = Vue.createApp({
             comments: [],
             images: [],
             newText: "",
+            userEmail: "",
+            commentUser: "",
         }
     },
     created(){
         this.allImages();
         this.allComments(1);
+        this.user();
     },
     methods: {
         login() {
@@ -45,7 +48,7 @@ const app = Vue.createApp({
                   })
                   .then(() => this.allComments(this.imageId))
                   .then(this.newText= ""))
-                  .catch(() => {swal('Solo puedes editar tus propios comentarios')})
+                  .catch(() => {swal('Algo salió mal')})
         },
         deleteComment(id){
             swal({
@@ -61,13 +64,21 @@ const app = Vue.createApp({
                     icon: "success",
                   }))
                   .then(() => this.allComments(this.imageId))
-                  .catch(() => {swal('Solo puedes eliminar tus propios comentarios')})
+                  .catch(() => {swal('Algo salió mal')})
                 } else {
                   swal("Comentario a salvo");
                 }
               });
         },
         // PETICIONES 
+        user(){
+            axios.get('/api/users/current')
+            .then(res=> {
+                this.userEmail = res.data.email
+                console.log(this.userEmail)
+            })
+        },
+
         allImages(){
             axios.get('/api/images')
             .then(res => {
@@ -81,13 +92,13 @@ const app = Vue.createApp({
             .then(res=> {
                 this.comments = res.data
                 this.comments.sort((a, b) => a.id - b.id)
-                console.log(this.comments)
             })
         },
         // FUNCIONES EXTRA
         showText(info){
             this.newText = info.text
             this.commentId = info.id
+            this.commentUser = info.email
         },
 
         formatDate: function(date){
