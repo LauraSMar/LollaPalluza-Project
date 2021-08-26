@@ -1,10 +1,53 @@
 .images{
     width: 45vw;
-    height: 70vh;
-    background-color: salmon;
+    min-width: 350px;
+    min-height: 40vh;
 }
 .prodDetail{
     width: 45vw;
-    height: 70vh;
-    background-color: salmon;
+    min-width: 350px;
+    min-height: 40vh;
+}
+.images-thumbnail{
+    padding: 5px;
+    width: 100px;
+}
+.images-thumbnail:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.activeImg{ /*:class="{activeImg: i === activeImg}"  LINEA 59 HTML */
+    width: 40vw;
+    min-width: 340px;
+    max-width: 600px;
+}
+.size{
+    padding: 5px 10px;
+    border: 1px solid var(--color-magenta);
+    border-radius: 5px;
+}
+.size:hover{
+    cursor: pointer;
+    background-color: var(--color-gold);
+}
+.selectedSize{
+    background-color: var(--color-gold);
+}
+.quantitySelector{
+    padding: 10px;
+    border: 1px solid var(--color-magenta);
+    border-radius: 40px;
+}
+.quantitySelector>span, button{
+    margin: 0 15px;
+}
+.quantitySelector .quantityButton{
+    border: 1px solid var(--color-grey);
+    padding: 0 7px 5px 7px;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    user-select: none;
 }

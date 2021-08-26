@@ -1,100 +1,83 @@
-body {
-  background-image: linear-gradient(-45deg, #8067b7, #ec87c0);
-  min-height: calc(100vh - 40px);
-  margin: 20px;
-  font-family: "Lato", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Roboto:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
 }
-body widget {
-  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #818181;
 }
-body widget[type="ticket"] {
-  width: 255px;
+
+.cards {
+    width: 250px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #161313;
+    overflow: hidden;
 }
-body widget[type="ticket"] .top > div,
-body widget[type="ticket"] .bottom > div {
-  padding: 0 18px;
+
+.skewed {
+    width: 100%;
+    height: 60%;
+    margin-top: -50px;
+    transform: skewY(8deg);
+    overflow: hidden;
 }
-body widget[type="ticket"] .top > div:first-child,
-body widget[type="ticket"] .bottom > div:first-child {
-  padding-top: 18px;
+
+.skewed img {
+    height: 110%;
+    transform: skewY(-8deg);
+    opacity: 0.6;
 }
-body widget[type="ticket"] .top > div:last-child,
-body widget[type="ticket"] .bottom > div:last-child {
-  padding-bottom: 18px;
+
+.contents {
+    width: 90%;
+    height: 45%;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-body widget[type="ticket"] .top img,
-body widget[type="ticket"] .bottom img {
-  padding: 18px 0;
+
+.contents h2 {
+    font-weight: 300;
 }
-body widget[type="ticket"] .top,
-body widget[type="ticket"] .bottom,
-body widget[type="ticket"] .rip {
-  background-color: #fff;
+
+.contents h2 p {
+    font-size: 15px;
+    color: #2980b9;
 }
-body widget[type="ticket"] .top {
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+
+.contents #desc {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    word-spacing: 3px;
 }
-body widget[type="ticket"] .top .deetz {
-  padding-bottom: 10px !important;
+
+.contents button {
+    color: #818181;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: none;
+    border: 3px solid #818181;
+    transition: all 0.3s ease;
 }
-body widget[type="ticket"] .bottom {
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding: 18px;
-  height: 30px;
-  padding-top: 10px;
-}
-body widget[type="ticket"] .bottom .barcode {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAAABCAYAAABXChlMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAACPSURBVChTXVAJDsMgDOsrVpELiqb+/4c0DgStQ7JMYogNh2gdvg5VfXFCRIZaC6BOtnoNFpvaumNmwb/71Frrm8XvgYkker1/g9WzMOsohaOGNziRs5inDsAn8yEPengTapJ5bmdZ2Yv7VvfPN6AH2NJx7nOWPTf1/78hoqgxhzw3ZqYG1Dr/9ur3y8vMxgNZhcAUnR4xKgAAAABJRU5ErkJggg==);
-  background-repeat: repeat-y;
-  min-width: 58px;
-}
-body widget[type="ticket"] .bottom .buy {
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: #5d9cec;
-  padding: 0 18px;
-  line-height: 30px;
-  border-radius: 15px;
-  color: #fff;
-  text-decoration: none;
-}
-body widget[type="ticket"] .rip {
-  height: 20px;
-  margin: 0 10px;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAACCAYAAAB7Xa1eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAAaSURBVBhXY5g7f97/2XPn/AcCBmSMQ+I/AwB2eyNBlrqzUQAAAABJRU5ErkJggg==);
-  background-size: 4px 2px;
-  background-repeat: repeat-x;
-  background-position: center;
-  position: relative;
-  box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #fff;
-}
-body widget[type="ticket"] .rip:before,
-body widget[type="ticket"] .rip:after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  border: 5px solid transparent;
-  border-top-color: #fff;
-  border-right-color: #fff;
-  border-radius: 100%;
-  pointer-events: none;
-}
-body widget[type="ticket"] .rip:before {
-  left: -10px;
-}
-body widget[type="ticket"] .rip:after {
-  transform: translate(-50%, -50%) rotate(225deg);
-  right: -40px;
-}
-body widget .-bold {
-  font-weight: bold;
+
+.contents button:hover {
+    color: #E2E2E2;
+    border: 3px solid #E2E2E2;
+    cursor: pointer;
 }
