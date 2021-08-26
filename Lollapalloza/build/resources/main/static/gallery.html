@@ -47,7 +47,11 @@
                                             <img class="carousel_img" :src="info.url" alt="">
                                         </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                         <figcaption class="caption_carousel">
+=======
+                                        <figcaption>
+>>>>>>> Stashed changes
 =======
                                         <figcaption>
 >>>>>>> Stashed changes
@@ -72,12 +76,17 @@
                             <div class="col-sm-5 col-md-6 col-12 pb-4">
                                 <h1 id="h1-comments">Comentarios</h1>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                 <h3 v-if="comments.length <= 0" id="noComments">Sin comentarios en esta foto por ahora, podes ser el primero en comentar😎</h3> 
                                 <div class="comment mt-4 text-justify float-left theComments" v-for="info in comments">
                                     <h4>{{info.userName}} </h4>
                                      <span> {{formatDate(info.createdAt)}}</span>
                                     <i @click="showText(info)" type="button" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal" class="fas fa-edit"></i>
                                     <p class="theText">{{info.text}}<i @click="deleteComment(info.id)" class="far fa-trash-alt"></i></p> 
+=======
+                                <div class="comment mt-4 text-justify float-left" v-for="info in comments"> 
+                                    <h4>{{info.userName}}</h4> <span>{{formatDate(info.createdAt)}}</span><div @click="showText(info.text)" type="button" class="btn btn-danger" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit"></i></div><p>{{info.text}}</p> 
+>>>>>>> Stashed changes
 =======
                                 <div class="comment mt-4 text-justify float-left" v-for="info in comments"> 
                                     <h4>{{info.userName}}</h4> <span>{{formatDate(info.createdAt)}}</span><div @click="showText(info.text)" type="button" class="btn btn-danger" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-edit"></i></div><p>{{info.text}}</p> 
@@ -92,7 +101,11 @@
                                             </div>
                                             <div class="modal-body">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                                 <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="newText"  msg cols="30" rows="5" class="form-control"></textarea>
+=======
+                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="commentText"  msg cols="30" rows="5" class="form-control"></textarea>
+>>>>>>> Stashed changes
 =======
                                                 <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="commentText"  msg cols="30" rows="5" class="form-control"></textarea>
 >>>>>>> Stashed changes
@@ -109,8 +122,11 @@
                                 <form id="align-form">
                                     <div class="form-group">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                         <h4>Dejá tu comentario</h4> <label for="message" id="mensaje">Mensaje</label> <textarea name="msg" id="" v-model="commentText" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
 =======
+=======
+>>>>>>> Stashed changes
                                         <h4>Deja tu comentario</h4> <label for="message">Mensaje</label> <textarea name="msg" id="" v-model="commentText" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
 >>>>>>> Stashed changes
                                     </div>

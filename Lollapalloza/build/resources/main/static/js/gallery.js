@@ -20,9 +20,12 @@ const app = Vue.createApp({
         login() {
             axios.post('/api/login', "email=" + this.email + "&password=" + this.password, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 .then(()=> swal({icon: "success"}))
                 .then(this.email = "", this.password = "")
 =======
+=======
+>>>>>>> Stashed changes
                 .then(() => {
                     location.reload();
                 })
@@ -84,6 +87,9 @@ const app = Vue.createApp({
 =======
                 this.images = res.data,
                 this.imageId= res.data.id})
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         },
 
