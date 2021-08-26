@@ -1,50 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <!-- PdfMaker -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facturas</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- Local CSS -->
+    <!-- <link rel="stylesheet" href="./login.css"> -->
+    <style>
+        .download-icon:hover{
+            /* background-color: lime;
+            border-radius: 1em;
+            cursor: pointer; */
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <main class="container">
+            <h2>Mis Facturas</h2>
+            <table class="table table-bordered table-responsive-sm text-center">
+                <thead>
+                    <tr>
+                        <!-- <td>Nombre</td> -->
+                        <td>Fecha y hora</td>
+                        <td>Número</td>
+                        <td>Productos</td>
+                        <td>Descuento</td>
+                        <td>Total</td>
+                        <td>Descargar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="invoice in invoices">
+                        <!-- <td>{{ invoice.businessName }}</td> -->
+                        <td>{{ dateAndTime(invoice.date) }}</td>
+                        <td>{{ invoice.invoiceNumber }}</td>
+                        <td>{{ invoice.details.length }}</td>
+                        <td>{{ formatARS(invoice.discount) }}</td>
+                        <td>{{ formatARS(invoice.total) }}</td>
+                        <td class=""><i class="bi bi-download download-icon btn btn-outline-info" @click="showPdf(invoice)"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-end">
+                <a href="#" @click="downloadAll">descargar todas</a>
+            </div>
+        </main>
+        
+        
+    </div>
+    <!-- PdfMaker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.2/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.2/vfs_fonts.min.js"></script>
 
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@next"></script>
 
-  <!-- Axios -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Local CSS -->
-  <!-- <link rel="stylesheet" href="./login.css"> -->
+    <!-- Local JS -->
+    <script src="./js/ver.js"></script>
 
-  <!-- VueJS -->
-  <script src="https://unpkg.com/vue@next"></script>
-
-</head>
-<body>
-    <div id="app">
-        <h1>Prueba Pdf</h1>
-
-        
-    </div>
- <!-- Bootstrap JS -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
- integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
- crossorigin="anonymous"></script>
-
-<!-- Local JS -->
-<script src="./js/ver.js"></script>
-
-
-<!-- Sweet Alert -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-</body>
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
 </html>
