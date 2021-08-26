@@ -22,9 +22,12 @@ const app = Vue.createApp({
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 .then(()=> swal({icon: "success"}))
                 .then(this.email = "", this.password = "")
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -92,6 +95,9 @@ const app = Vue.createApp({
                 this.imageId= res.data.id})
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
