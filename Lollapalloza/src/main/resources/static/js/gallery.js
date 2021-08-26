@@ -12,6 +12,7 @@ const app = Vue.createApp({
             newText: "",
             userEmail: "",
             commentUser: "",
+            emptyComment: false,
         }
     },
     created(){
@@ -22,14 +23,22 @@ const app = Vue.createApp({
     methods: {
         login() {
             axios.post('/api/login', "email=" + this.email + "&password=" + this.password, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
-                .then(()=> swal({icon: "success"}))
-                .then(this.email = "", this.password = "")
-                .catch(() => swal('Email o contraseña incorrectos'))
-        },
+                .then(() => {
+                    if (this.email == "admin@admin.com") {
+                        window.location.href = "/admin.html"
+                    } else(swal({icon: "success"}))
+                    .then(()=> location.reload())
+                
+                .catch(() => swal('Wrong mail or password'))
+                })},
+        logOut(){
+                axios.post('/api/logout').then(response => window.location.href="/index.html")
+                },    
 
         //COMENTARIOS//
         postComment(){
-            axios.post('/api/images/'+this.imageId+'/comments',
+            if(this.commentText != ""){
+                axios.post('/api/images/'+this.imageId+'/comments',
                 "text="+this.commentText)
                 .then(()=> swal("Comentario enviado exitosamente", {
                     icon: "success",
@@ -37,9 +46,11 @@ const app = Vue.createApp({
                 .then(() => this.allComments(this.imageId))
                 .then(this.commentText= ""))
                 .catch(() => {swal('Necesitas estar logueado para poder comentar');
-                 this.error = !this.error, this.commentText = ""});
+                 this.error = !this.error, this.commentText = ""})}
+            else
+            (this.emptyComment = !this.emptyComment)
         },
-
+    
         editComment(){
             axios.post('/api/comments/'+this.commentId,
                 "newText="+this.newText)

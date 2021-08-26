@@ -81,7 +81,6 @@ video {
 }
 .bandsItems > div:hover {
   box-shadow: none;
-  cursor: pointer;
 }
 .carouselLana {
   background-image: url("../img/carousel-lana-del-rey.jpg");

@@ -5,12 +5,12 @@
 }
 
 .wrapper {
-    width: 100vw;
+    /* width: 1vw; */
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #818181;
 }
 
 .cards {
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #161313;
+    background-color: rgb(0, 174, 156);
     overflow: hidden;
 }
 
@@ -80,4 +80,250 @@
     color: #E2E2E2;
     border: 3px solid #E2E2E2;
     cursor: pointer;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap");
+
+/* default logosvg color*/
+
+.logosvg {
+    fill: black;
+    stroke: black;
+}
+
+#ticket {
+    color: white;
+    display: flex;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-family: "Acme", sans-serif;
+    /* background-image: linear-gradient( to bottom right, rgba(255, 150, 0, 0.5), rgba(10, 10, 150, 0.5)), url("https://www.transparenttextures.com/patterns/cream-paper.png"); */
+    position: relative;
+    box-shadow: 0 0 0.5em black, 0 0 0.5em black;
+    background-image: url("https://wallpapercave.com/wp/wp2056338.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#ticket>*:not(.background) {
+    filter: drop-shadow(0.05em 0.05em black);
+}
+
+#ticket .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.15;
+    filter: drop-shadow(0.25em 0.25em black);
+}
+
+#ticket .background .logosvg {
+    fill: var(--color);
+    stroke: var(--color);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#ticket .background .logosvg.left {
+    --color: rgb(194, 171, 95);
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%) scale(3);
+}
+
+#ticket .background .logosvg.right {
+    --color: rgb(100, 13, 24);
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%) scale(3);
+}
+
+#ticket .left {
+    padding: 1.5em 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#ticket .left .header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+#ticket .left .header .logosvg {
+    height: 4em;
+    width: 4em;
+    fill: white;
+    stroke: white;
+}
+
+#ticket .left .header h1 {
+    font-size: 4em;
+    line-height: 1em;
+}
+
+#ticket .left h2 {
+    font-size: 1.5em;
+}
+
+#ticket .left .details {
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    /* border: 0.05em solid white; */
+}
+
+#ticket .left .details>div {
+    /* border: 0.05em solid white; */
+    padding: 0.2em 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ticket .left .details .code {
+    grid-row: 1/3;
+    grid-column: 3/4;
+    font-size: 2.5em;
+    border: 0.025em solid white;
+}
+
+#ticket .left .details .access {
+    /* grid-column: 1/3; */
+    font-size: 1em;
+    text-align: center;
+    width: 400px;
+}
+
+#ticket .barcode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4em;
+    border-right: 0.05em dashed rgb(223, 223, 223);
+}
+
+#ticket .barcode-container {
+    transform: rotate(-90deg);
+    position: relative;
+    line-height: 1em;
+}
+
+#ticket .barcode-container::after {
+    content: attr(title);
+    font-family: "Libre Barcode 128", cursive;
+    font-size: 3em;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#ticket .barcode-container::before {
+    content: attr(title);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#ticket .right {
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5em;
+}
+
+#ticket .right .logosvg {
+    fill: white;
+    stroke: white;
+    height: 3em;
+    width: 3em;
+}
+
+#ticket .right h1 {
+    font-size: 1.5em;
+}
+
+#ticket .right h2 {
+    font-size: 1em;
+    word-wrap: all;
+    max-width: 8em;
+}
+
+#ticket .right .details {
+    font-size: 0.8em;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    border: 0.05em solid white;
+}
+
+#ticket .right .details>div {
+    padding: 0.05em 0.5em;
+    font-size: 1.2em;
+}
+
+#ticket .right .details>div:nth-child(odd) {
+    border-right: 0.05em solid white;
+}
+
+#ticket .right .details>div:nth-child(-n+2) {
+    border-bottom: 0.05em solid white;
+    font-size: 0.8em;
+}
+
+
+/* input[type=checkbox] {
+    display: none;
+} */
+
+label:hover {
+    background-color: white !important;
+    color: black !important;
+    transition: 0.5s;
+}
+
+.button {
+    display: flex;
+    height: 50px;
+    padding: 0;
+    background: #009578;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #008168;
+}
+
+.button:active {
+    background: #006e58;
+}
+
+.button__text,
+.button__icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    color: #fff;
+    height: 100%;
+}
+
+.button__icon {
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.08);
 }
