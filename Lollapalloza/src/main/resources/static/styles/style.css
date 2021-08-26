@@ -73,6 +73,9 @@ body{
   border-left: none !important;
 }
 
+.badge{
+  margin-left: -20px;
+}
 /*Querys Navbar*/
 @media only screen and (max-width: 600px){
   .nav i{

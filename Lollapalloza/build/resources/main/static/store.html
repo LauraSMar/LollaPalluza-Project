@@ -22,12 +22,12 @@
         <header class="mb-5">
             <nav class="nav" id="blur" style="background-color: black">
                 <ul :class="activeNavbar? 'active':''">
-                    <li><a href="index.html" class="first">Inicio</a></li>
-                    <li><a class="first">Bandas</a></li>
-                    <li><a href="tickets.html">Tickets</a></li>
+                    <li><a href="./index.html" class="first">Inicio</a></li>
+                    <li><a href="./gallery.html" class="last">Galeria</a></li>
+                    <li><a href="./tickets.html" class="last">Tickets</a></li>
                     <li><a href="./store.html" class="last">Tienda</a></li>
-                    <li><a href="login.html" class="last">Login</a></li>
-                    <li><a href="gallery.html" class="last">Galeria</a></li>
+                    <li><a href="./login.html" class="last">Login</a></li>
+                    <li  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><a href="#" id="cart"><i class="fa fa-shopping-cart" ></i> Cart <span class="badge">3</span></a></li>
                 </ul>
                 <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
                 <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
