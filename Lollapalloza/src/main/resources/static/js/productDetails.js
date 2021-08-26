@@ -9,7 +9,7 @@ const app = Vue.createApp({
         selectedProduct: "",
         activeImg: 0,
         selectedSize: "",
-        quantity: 0,
+        quantity: 1,
       };
     },
     created(){

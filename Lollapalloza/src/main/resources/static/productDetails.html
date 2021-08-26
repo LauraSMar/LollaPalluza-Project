@@ -35,12 +35,12 @@
         <header>
             <nav class="nav" id="blur">
                 <ul :class="activeNavbar? 'active':''">
-                    <li><a class="first">Inicio</a></li>
-                    <li><a class="first">Bandas</a></li>
-                    <li><a class="last">Tickets</a></li>
-                    <li><a class="last">Tienda</a></li>
-                    <li><a class="last">Login</a></li>
-                    <li><i class="fas fa-bags-shopping"></i></i></li>
+                    <li><a href="./index.html" class="first">Inicio</a></li>
+                    <li><a href="#" class="last">Tickets</a></li>
+                    <li><a href="./gallery.html" class="last">Galeria</a></li>
+                    <li><a href="./store.html" class="last">Tienda</a></li>
+                    <li><a href="./login.html" class="last">Login</a></li>
+                    <li><i class="fas fa-bags-shopping"></i></li>
                 </ul>
                 <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''"
                     @click="activeNavbar = !activeNavbar "></i>
@@ -78,14 +78,17 @@
                     <div class="d-flex align-items-baseline ">
                         <h5 class="m-3">Cantidad: </h5>
                         <div class="quantitySelector">
-                            <button class="quantityButton" @click="quantity++" :disabled="selectedProduct.stock <= quantity">&plus;</button>
+                            <button class="quantityButton" @click="quantity--" :disabled="quantity <= 1">&minus;</button>
                             <span>{{quantity}}</span>
-                            <button class="quantityButton" @click="quantity--" :disabled="quantity <= 0">&minus;</button>
+                            <button class="quantityButton" @click="quantity++" :disabled="selectedProduct.stock <= quantity">&plus;</button>
                         </div>
                     </div>
                 </div>
                 <h5 class="m-3 mt-5">Precio unitario: {{formatBalance(selectedProduct.price)}}</h5>
                 <h5 class="m-3">Total: {{formatBalance(selectedProduct.price * quantity)}}</h5>
+                <div class="d-flex justify-content-center">
+                    <button class="addToCart">Agregar al Carrito</button>
+                </div>
             </div>
         </main>
     </div>
