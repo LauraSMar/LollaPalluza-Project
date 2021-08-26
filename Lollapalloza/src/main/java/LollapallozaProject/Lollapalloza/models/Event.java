@@ -25,6 +25,7 @@ public class Event {
     private LocalTime start;
     private LocalTime end;
     private Integer available;
+    private String img;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Ticket ticket;
@@ -33,12 +34,13 @@ public class Event {
     @JoinColumn(name = "campusId")
     private Campus campus;
 
-    public Event(LocalDate date, LocalTime start, LocalTime end, Campus campus) {
+    public Event(LocalDate date, LocalTime start, LocalTime end, Campus campus, String img) {
         this.date = date;
         this.start = start;
         this.end = end;
         this.campus = campus;
         this.available = campus.getCapacity();
+        this.img = img;
 
     }
 
@@ -96,5 +98,13 @@ public class Event {
 
     public void setCampus(Campus campus) {
         this.campus = campus;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

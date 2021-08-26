@@ -132,10 +132,10 @@ public class LollapallozaApplication {
 			LocalDate date3 = LocalDate.of(2021, 11, 29);
 			LocalDate date4 = LocalDate.of(2021, 11, 30);
 
-			Event event1 = new Event(date1, LocalTime.of(18, 0), LocalTime.of(23, 30), campus1);
-			Event event2 = new Event(date2, LocalTime.of(18, 0), LocalTime.of(23, 30), campus2);
-			Event event3 = new Event(date3, LocalTime.of(18, 0), LocalTime.of(23, 30), campus3);
-			Event event4 = new Event(date4, LocalTime.of(18, 0), LocalTime.of(23, 30), campus4);
+			Event event1 = new Event(date1, LocalTime.of(18, 0), LocalTime.of(23, 30), campus1, "https://tinyurl.com/2fnpsn67");
+			Event event2 = new Event(date2, LocalTime.of(18, 0), LocalTime.of(23, 30), campus2, "https://tinyurl.com/n2tumusb");
+			Event event3 = new Event(date3, LocalTime.of(18, 0), LocalTime.of(23, 30), campus3, "https://tinyurl.com/az25sufe");
+			Event event4 = new Event(date4, LocalTime.of(18, 0), LocalTime.of(23, 30), campus4, "https://tinyurl.com/y62x3cwc");
 			eventRepository.saveAll(List.of(event1, event2, event3, event4));
 
 			//creacion de factura

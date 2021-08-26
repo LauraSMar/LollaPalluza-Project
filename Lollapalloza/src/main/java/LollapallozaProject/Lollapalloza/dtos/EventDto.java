@@ -15,7 +15,7 @@ public class EventDto {
         private LocalDate date;
         private LocalTime start;
         private LocalTime end;
-
+        private String img;
         private String campus;
         // lugares disponibles
         private Integer available;
@@ -26,6 +26,7 @@ public class EventDto {
             this.start= event.getStart();
             this.end= event.getEnd();
             this.campus= event.getCampus().getLocation();
+            this.img = event.getImg();
             this.available = event.getCampus().getCapacity();
         }
 

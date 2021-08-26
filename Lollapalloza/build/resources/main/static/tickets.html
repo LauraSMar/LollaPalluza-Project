@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,40 +9,26 @@
     <!-- Local CSS -->
     <link rel="stylesheet" href="./styles/tickets.css" />
     <!-- Bootstrap 5.0 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<body>
     <div id="app" class="wrapper">
-      <widget type="ticket" class="--flex-column">
-        <div class="top --flex-column">
-          <div class="bandname -bold">Ghost Mice</div>
-          <div class="tourname">Home Tour</div>
-          <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/concert.png"
-            alt=""
-          />
-          <div class="deetz --flex-row-j!sb">
-            <div class="event --flex-column">
-              <div class="date">3rd March 2017</div>
-              <div class="location -bold">Bloomington, Indiana</div>
+        <section class="d-flex flex-wrap justify-content-center">
+            <div v-for="event in events" class="cards m-4">
+                <div class="skewed">
+                    <img src="https://images.unsplash.com/photo-1508255139162-e1f7b7288ab7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="">
+                </div>
+
+                <div class="contents">
+                    <h2>{{event.campus}}
+                        <p>Italy</p>
+                    </h2>
+                    <p id="desc"></p>
+                    <a href="#"><button>{{event.date.split("-").reverse().join("-")}}</button></a>
+                </div>
             </div>
-            <div class="price --flex-column">
-              <div class="label">Price</div>
-              <div class="cost -bold">$30</div>
-            </div>
-          </div>
-        </div>
-        <div class="rip"></div>
-        <div class="bottom --flex-row-j!sb">
-          <div class="barcode"></div>
-          <a class="buy" href="#">BUY TICKET</a>
-        </div>
-      </widget>
+        </section>
     </div>
 
     <!-- Axios -->
@@ -50,5 +37,6 @@
     <script src="https://unpkg.com/vue@next"></script>
     <!-- Local JS -->
     <script src="./js/tickets.js"></script>
-  </body>
+</body>
+
 </html>
