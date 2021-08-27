@@ -106,6 +106,13 @@
                     data-bs-target="#exampleModal2">Comentarios</a></li>
                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Users</a>
                 </li>
+                <li><a
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  href="#exampleModalToggle"
+                  role="button"
+                  >Eventos</a
+                ></li>
 
               </ul>
             </div>
@@ -188,7 +195,138 @@
     </div>
     </div>
     </div>
-    
+          <!-- modal eventos -->
+          <div
+          class="modal fade"
+          id="exampleModalToggle"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Eventos</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div v-for="event in events">
+                      <div class="card text-center col">
+                        <div class="card-header">
+                          {{ dateFormat(event.date) }}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">{{ event.campus }}</li>
+                          <!-- <li class="list-group-item">id: {{ event.id }}</li> -->
+                          <li class="list-group-item">
+                            entradas disponibles: {{ event.available }}
+                          </li>
+                          <li class="list-group-item">
+                            comienzo: {{ event.start }}
+                          </li>
+                          <li class="list-group-item">final: {{ event.end }}</li>
+                          <li class="list-group-item">
+                            <button
+                              class="btn btn-outline-primary"
+                              data-bs-target="#exampleModalToggle2"
+                              data-bs-toggle="modal"
+                              data-bs-dismiss="modal"
+                              @click="editar(event)"
+                            >
+                              editar
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <!-- <button
+                  class="btn btn-primary"
+                  data-bs-target="#exampleModalToggle2"
+                  data-bs-toggle="modal"
+                  data-bs-dismiss="modal"
+                >
+                  Open second modal
+                </button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal formulario -->
+        <div
+          class="modal fade"
+          id="exampleModalToggle2"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel2"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2">
+                  Editar evento
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <input
+                  type="text"
+                  name="campus"
+                  id=""
+                  v-model="selectedEvent.campus"
+                  class="form-control mt-1 "
+                  readonly
+                />
+                <input
+                  type="date"
+                  name="date"
+                  id=""
+                  v-model="selectedEvent.date"
+                  class="form-control mt-1"
+                />
+                <input
+                  type="time"
+                  name="time"
+                  id=""
+                  v-model="selectedEvent.start"
+                  class="form-control mt-1"
+                />
+                <input
+                  type="time"
+                  name="time"
+                  id=""
+                  v-model="selectedEvent.end"
+                  class="form-control mt-1"
+                />
+  
+                <button
+                  class="btn btn-primary mt-1"
+                  data-bs-target="#exampleModalToggle"
+                  data-bs-toggle="modal"
+                  data-bs-dismiss="modal"
+                  @click="updateEvent"
+                >
+                  Guardar Cambios
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
     
     </div>
 
@@ -338,7 +476,7 @@
 
     <!-- Footer -->
     <div class="container-fluid">
-      <footer style="background-color:rgb(46, 130, 179);text-align: center;">
+      <footer style="background-color:rgb(46, 130, 179);text-align: center;" class="p-2">
         <h6> © Copyright 2021 | Follow us! <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
             <path
