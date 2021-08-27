@@ -9,8 +9,7 @@
     <link rel="icon" href="./img/favicon.ico">
 
     <!-- Bootstrap 5.1 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <!-- CSS Local -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -22,8 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@next"></script>
@@ -31,7 +29,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="wrapper">
         <header>
             <nav class="nav" id="blur">
                 <ul :class="activeNavbar? 'active':''">
@@ -41,22 +39,15 @@
                     <li><a href="./login.html" class="last">Login</a></li>
                     <li><a href="./gallery.html" class="last">Galeria</a></li>
                 </ul>
-                <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''"
-                    @click="activeNavbar = !activeNavbar "></i>
-                <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''"
-                    @click="activeNavbar = !activeNavbar "></i>
+                <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
+                <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
             </nav>
         </header>
 
         <main class="d-flex justify-content-center flex-wrap gap-3 mt-5">
             <div class="images mt-5">
                 <div class="d-flex flex-row justify-content-center">
-                    <img v-for="(img, i) in selectedProduct.img"
-                    :key="i"
-                    :src="img"
-                    class="images-thumbnail"                    
-                    @click="selectImg(i)"
-                    alt="">
+                    <img v-for="(img, i) in selectedProduct.img" :key="i" :src="img" class="images-thumbnail" @click="selectImg(i)" alt="">
                 </div>
                 <div class="d-flex justify-content-center mt-4">
                     <img v-if="selectedProduct" :src="selectedProduct.img[activeImg]" class="activeImg" alt="">
@@ -67,12 +58,7 @@
                 <div class="d-flex flex-column">
                     <div class="d-flex align-items-baseline">
                         <h5 class="m-3">Talle: </h5>
-                        <div v-for="(size, i) in selectedProduct.sizeList" 
-                        :key="i"
-                        class="size m-3"
-                        :class="{selectedSize: selectedSize === i}"
-                        @click="selectSize(i)"
-                        >{{size}}</div>
+                        <div v-for="(size, i) in selectedProduct.sizeList" :key="i" class="size m-3" :class="{selectedSize: selectedSize === i}" @click="selectSize(i)">{{size}}</div>
                     </div>
                     <div class="d-flex align-items-baseline ">
                         <h5 class="m-3">Cantidad: </h5>
@@ -90,40 +76,69 @@
                 </div>
             </div>
         </main>
-        <footer>
-            <div class="d-flex justify-content-evenly">
-                <div>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#">Tickets</a></li>
-                        <li><a href="#">Tienda</a></li>
-                        <li><a href="gallery.html">Galeria</a></li>
-                    </ul>
-                </div>
-                <div class="d-flex flex-column">
-                    <img src="./img/logo-vid.png" alt="">
-                    <div class="rsAccess d-flex justify-content-evenly">
-                        <a href="https://www.facebook.com/lollapaloozaar"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/lollapaloozaar"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/lollapaloozaar/"><i class="fab fa-instagram"></i></a>
-                    </div>
+
+    </div>
+    <footer>
+        <div class="d-flex justify-content-evenly">
+            <div>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Tickets</a></li>
+                    <li><a href="#">Tienda</a></li>
+                    <li><a href="gallery.html">Galeria</a></li>
+                </ul>
+            </div>
+            <div class="d-flex flex-column">
+                <img src="./img/logo-vid.png" alt="">
+                <div class="rsAccess d-flex justify-content-evenly">
+                    <a href="https://www.facebook.com/lollapaloozaar"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/lollapaloozaar"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/lollapaloozaar/"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
-                <span><a href="#">Privacy</a></span>
-                <span><a href="#">Términos y Condiciones</a></span>
-            </div>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         </footer>
 
 
     </div>
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+        </div>
+        <div class="d-flex justify-content-center">
+            <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
+            <span><a href="#">Privacy</a></span>
+            <span><a href="#">Términos y Condiciones</a></span>
+        </div>
+    </footer>
+
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
