@@ -13,6 +13,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     .carousel_img, .caption_carousel{
         width: 80vw!important;
     }
@@ -31,6 +32,8 @@
         max-height: 100%!important;
         max-width: 100%!important;
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -351,6 +354,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #register{
     align-items: center;
     justify-content: center;
@@ -365,12 +369,17 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 #post,
 #login,
 #postComment {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -500,10 +509,13 @@ label {
     justify-content: center;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 }
 textarea {
     overflow: auto;
     resize: none;
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -554,6 +566,7 @@ form {
     text-align: center;
     margin-top: 2vh;
 }
+
 
 
 
