@@ -27,7 +27,7 @@ const app = Vue.createApp({
         if (JSON.parse(sessionStorage.getItem("cart"))) {
             this.cart = JSON.parse(sessionStorage.getItem("cart"))
         } else {
-            sessionStorage.setItem("eze", JSON.stringify(this.cart))
+            sessionStorage.setItem("cart", JSON.stringify(this.cart))
         }    
     },
     methods: {
@@ -37,12 +37,8 @@ const app = Vue.createApp({
 
         },
         addToCart(){
-            let ticketId = this.check.map(e => e.id)
-            let ticketToCart = {
-                idEvents: ticketId
-            }
-            for(let i = 0; i < this.quantity; i++){
-                this.cart.ticketDtos.push(ticketToCart)
+            for(let i= 0; i < this.quantity; i++){
+                this.cart.ticketDtos.push(...this.check)
                 sessionStorage.setItem("cart", JSON.stringify(this.cart))
             }
             this.check = []
