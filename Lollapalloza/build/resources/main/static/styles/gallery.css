@@ -11,6 +11,7 @@
         flex-wrap: wrap;
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     .carousel_img, .caption_carousel{
         width: 80vw!important;
     }
@@ -29,6 +30,8 @@
         max-height: 100%!important;
         max-width: 100%!important;
 =======
+=======
+>>>>>>> Stashed changes
     .carousel_img,
     .caption_carousel {
         width: 80vw;
@@ -343,6 +346,7 @@
     width: 50%
 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #register{
     align-items: center;
     justify-content: center;
@@ -353,10 +357,15 @@
 }
 #post, #login, #postComment{
 =======
+=======
+>>>>>>> Stashed changes
 
 #post,
 #login,
 #postComment {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     font-weight: bolder;
     color: white;
@@ -480,10 +489,13 @@ label {
     flex-direction: column;
     margin-top: 20px;
     justify-content: center;
+<<<<<<< Updated upstream
 }
 textarea {
     overflow: auto;
     resize: none;
+=======
+>>>>>>> Stashed changes
 }
 
 .form-group p a {
@@ -530,6 +542,7 @@ form {
     text-align: center;
     margin-top: 2vh;
 }
+
 
 
 /*MODAL DE COMENTARIOS*/
