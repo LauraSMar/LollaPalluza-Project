@@ -24,6 +24,10 @@
         max-width: 100%!important;
         max-height: 100%!important;
     }
+    .carousel__thumbnails label{
+        max-width: 25vw;
+        max-height: 25vh;
+    }
     .carousel__thumbnails label > img{
         max-height: 100%!important;
         max-width: 100%!important;
