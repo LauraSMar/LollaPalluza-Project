@@ -25,6 +25,9 @@ const app = Vue.createApp({
 
       events: [],
       selectedEvent: {},
+
+      comments:[],
+      idcomment:"",
     };
   },
   created() {
@@ -36,9 +39,17 @@ const app = Vue.createApp({
 
     axios.get("http://localhost:8080/api/users").then((res) => {
       this.users = res.data;
-      console.log(this.users);
+     // console.log(this.users);
     });
     this.getEvents();
+
+    axios.get("http://localhost:8080/api/comments/all").then((res) => {
+      this.comments = res.data;
+      console.log(this.comments);
+    });
+    //this.getEvents();
+
+
   },
   methods: {
     add() {
@@ -215,7 +226,7 @@ const app = Vue.createApp({
     Eliminar(idUser) {
       Swal.fire({
         title: "Seguro?",
-        text: "Vas a borrar a " + this.emailF.email + "ahora! ",
+        text: "Vas a borrar este usuario ahora! ",
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -243,6 +254,42 @@ const app = Vue.createApp({
               });
           }
         }
+      });
+    },
+    //metodos para comentarios
+    eliminarComm(idcomment) {
+      console.log(idcomment);
+      Swal.fire({
+        title: "Seguro?",
+        text: "Vas a borrar este comentario ahora! ",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, Chau!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+        
+            axios
+            
+              .delete("/api/comments/" + idcomment)
+              .then((res) => {
+                console.log("Borrando...");
+
+                Swal.fire("Comentario borrado!.", "success");
+                location.reload();
+              })
+
+              .catch((error) => {
+                console.log(error);
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Algo salió mal",
+                });
+              });
+          }
+        
       });
     },
 
