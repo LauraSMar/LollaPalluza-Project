@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* "2345294874657837", 233 */
+
+.wrapper {
+  min-height: 100vh;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
+
+.nav-pills .nav-link {
+  color: #555;
+}
+
+.nav-pills .nav-link.active {
+  color: white;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.paymentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addToCart {
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50px;
+  color: white;
+  padding: 20px;
+  font-weight: 600;
+}
+
+.addToCart:hover {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50px;
+  color: black;
+  padding: 20px;
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="radio"][id^="cb"] {
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+}
+
+label img {
+  height: 100px;
+  width: 100px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label {
+  border-color: #ddd;
+}
+
+:checked + label img {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px #333;
+  z-index: -1;
+}
+
+.bank {
+  padding-top: 10vh;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 15%;
+}
+
+/*  Banks */
+
+.radbox {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.radbox,
+.rad-text,
+label {
+  content: "";
+  display: inline-flex;
+  width: 200px;
+  margin-right: 5px;
+  height: 90px;
+  background-color: fff;
+  justify-content: center;
+  align-items: center;
+}
+
+.bs2 {
+  background-image: url("/logo_kevin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(100%);
+}
+
+.mindhubank {
+  background-image: url("/logo_lucia.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(100%);
+}
+
+.humanbank {
+  background-image: url("/logo_laura.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(100%);
+}
+
+.bankrypt {
+  background-image: url("/logo_eze.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(100%);
+}
+
+.jdbank {
+  background-image: url("/logo_pablo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(100%);
+}
+
+.javalues {
+  background-image: url("/logo_fran.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(100%);
+}
+
+.radbox:checked + label {
+  filter: none;
+}
+.radbox:hover {
+  filter: none;
+}
