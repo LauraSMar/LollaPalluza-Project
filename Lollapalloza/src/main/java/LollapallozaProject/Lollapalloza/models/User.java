@@ -22,6 +22,7 @@ public class User {
     private String documentId;
     private String email;
     private String password;
+    private boolean deleted;
 
     @OneToMany(mappedBy = "user")
     private Set<Invoice> invoices = new HashSet<>();
@@ -35,5 +36,6 @@ public class User {
         this.documentId = documentId;
         this.email = email;
         this.password = password;
+        this.deleted=false;
     }
 }
