@@ -65,7 +65,7 @@
                 <section id="commentsSec">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                            <div class="col-sm-5 col-md-6 col-12 pb-4" id="boxThecomments">
                                 <h1 id="h1-comments">Comentarios</h1>
                                 <h3 v-if="comments.length <= 0" id="noComments">Sin comentarios en esta foto por ahora, podes ser el primero en comentar😎</h3> 
                                 <div class="comment mt-4 text-justify float-left theComments" v-for="info in comments">
@@ -106,10 +106,10 @@
                                             <div class="form-group"> <button type="button" id="login" @click="login" class="btn">Iniciar Sesion</button> </div>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div v-if='userEmail == "" '>
                                         <p id="noAcc" class="text-secondary">No tenes una cuenta todavia?</p>
+                                        <div class="form-group" id="register"> <a href="login.html" type="button" id="post" class="btn">Registrate</a></div>
                                     </div>
-                                    <div class="form-group" id="register"> <a href="login.html" type="button" id="post" class="btn">Registrate</a></div>
                                 </form>
                             </div>
                         </div>

@@ -36,6 +36,7 @@ const app = Vue.createApp({
                 },    
 
         //COMENTARIOS//
+
         postComment(){
             if(this.commentText != ""){
                 axios.post('/api/images/'+this.imageId+'/comments',

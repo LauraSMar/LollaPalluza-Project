@@ -10,9 +10,12 @@
     <!-- Local CSS -->
     <link rel="stylesheet" href="./styles/payCard.css" />
     <link rel="stylesheet" href="./styles/style.css" />
-    <!-- Bootstrap 5.0 -->
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Bootstrap 5.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 </head>
 
@@ -20,23 +23,22 @@
     <div id="app" class="wrapper">
         <header>
             <nav class="nav" id="blur" style="background-color: black">
-                <div>
-                    <img src="./logo_block.jpg" alt="">
-                </div>
+                <!-- <div class="d-flex ">
+                    <img src="./img/logo_block.png" height="60" alt="">
+                </div> -->
                 <ul :class="activeNavbar? 'active':''">
                     <li><a href="index.html" class="first">Inicio</a></li>
-                    <li><a class="first">Bandas</a></li>
                     <li><a href="tickets.html">Tickets</a></li>
                     <li><a href="./store.html" class="last">Tienda</a></li>
                     <li><a href="login.html" class="last">Login</a></li>
                     <li><a href="gallery.html" class="last">Galeria</a></li>
                 </ul>
                 <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
-                <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
+                <i v-else class="fas fa-bars bg-ligth" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
             </nav>
         </header>
-        <section class="bank d-flex justify-content-center">
-            <select v-model="urlSelect" class="form-select w-50 w-md-25" aria-label="Default select example" aria-placeholder="Select">
+        <section class="bank">
+            <!-- <select v-model="urlSelect" class="form-select w-50 w-md-25" aria-label="Default select example" aria-placeholder="Select">
                 <option disabled value>Seleccione su banco</option>
                 <option value="https://bs2banking.herokuapp.com/api/clients/pay">Banco Bs2</option>
                 <option value="2">JD Bank</option>
@@ -44,7 +46,23 @@
                 <option value="https://homebanking.herokuapp.com/api/payment">MindHubBank</option>
                 <option value="123">Bankrypt</option>
                 <option value="https://humanbankhomebanking.herokuapp.com/web/index.html ">HumanBank</option>
-            </select>
+            </select> -->
+            <div class="input-group radio-boxes d-flex justify-content-center">
+                <div class="form-group-banks">
+                    <input type="radio" value="http://localhost:8686/api/clients/pay" id="bs2" name="payment_mode" class="radbox" v-model="urlSelect" />
+                    <label for="bs2" class="radbox bs2"> </label>
+                    <input type="radio" value="" id="mindhubank" name="payment_mode" class="radbox" class="radbox" v-model="urlSelect" />
+                    <label for="mindhubank" class="radbox mindhubank"> </label>
+                    <input type="radio" value="" id="humanbank" name="payment_mode" class="radbox" v-model="urlSelect" />
+                    <label for="humanbank" class="radbox humanbank"> </label>
+                    <input type="radio" value="" id="bankrypt" name="payment_mode" class="radbox" v-model="urlSelect" />
+                    <label for="bankrypt" class="radbox bankrypt"> </label>
+                    <input type="radio" value="http://localhost:8080/api/payment" id="jdbank" name="payment_mode" class="radbox" v-model="urlSelect" />
+                    <label for="jdbank" class="radbox jdbank"> </label>
+                    <input type="radio" value="" id="javalues" name="payment_mode" class="radbox" v-model="urlSelect" />
+                    <label for="javalues" class="radbox javalues"> </label>
+                </div>
+            </div>
         </section>
         {{urlSelect}}
         <section class="paymentForm">
@@ -96,25 +114,24 @@
         <div class="d-flex justify-content-evenly">
             <div>
                 <ul>
-                    <li><a class="fs-5" href="#">Inicio</a></li>
-                    <li><a class="fs-5" href="#">Tickets</a></li>
-                    <li><a class="fs-5" href="#">Bandas</a></li>
-                    <li><a class="fs-5" href="#">Tienda</a></li>
+                    <li><a class="fs-5" href="./index.html">Inicio</a></li>
+                    <li><a class="fs-5" href="./tickets.html">Tickets</a></li>
+                    <li><a class="fs-5" href="./store.html">Tienda</a></li>
                 </ul>
             </div>
             <div class="d-flex flex-column">
                 <img src="./img/logo-vid.png" alt="" />
                 <div class="rsAccess d-flex justify-content-evenly">
-                    <a href=""><i class="fab fa-facebook"></i></a>
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/lollapaloozaar"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/lollapaloozaar"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/lollapaloozaar/"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
         <div class="d-flex justify-content-center">
-            <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
-            <span><a href="#">Privacy</a></span>
-            <span><a href="#">Términos y Condiciones</a></span>
+            <span>&copy; Lollapalooza, LLC</span>
+            <span><a href="https://www.lollapaloozaar.com/privacy">Privacy</a></span>
+            <span><a href="https://concerts.livenation.com/h/terms.html">Términos y Condiciones</a></span>
         </div>
     </footer>
 

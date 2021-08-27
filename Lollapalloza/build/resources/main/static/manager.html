@@ -101,6 +101,7 @@
                   role="button"
                   >Eventos</a
                 ></li>
+               
 
               </ul>
             </div>
@@ -131,7 +132,7 @@
               <div class="container justify-content-around">
                 <p>Buscar Usuario por Email</p>
     
-                <!-- Inicio del Buscador -->
+                <!-- Inicio del Buscador por EMAIL del Modal -->
     
                 <div id="search" class="row">
                   <div class="flex-container" justify-content-center>
@@ -291,7 +292,7 @@
                 <input
                   type="time"
                   name="time"
-                  id=""
+
                   v-model="selectedEvent.end"
                   class="form-control mt-1"
                 />
@@ -311,6 +312,104 @@
         </div>
     
     </div>
+
+    <!-- Inicio del Modal de Comments -->
+
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLabel">Ver Comentarios</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              @click="LimpiarForm"></button>
+          </div>
+          <div class="modal-body">
+    
+    
+            <div class=" col- sm-12 ">
+    
+              <div class="container justify-content-around">
+                <!-- <p>Comentarios</p> -->
+    
+                <!-- Inicio del Buscador por EMAIL del Modal -->
+    
+               <!--  <div id="search" class="row">
+                  <div class="flex-container" justify-content-center>
+    
+                    <div class="d-flex">
+    
+                      <input v-model="email" class="texto" id="email" placeholder="Email" @keyup="searchEmail(email)"
+                        width="100%">
+                    </div>
+    
+                  </div>
+                </div>
+                <h6 v-show="emailF.length!=0"> User Activo</h6>
+                <div class="container justify-content-center">
+                
+    
+                  <div v-show="emailF.length!=0" class="row justifiy-content-center"style="background-color: aqua;">
+
+                      <span v-for="user in emailF">{{user.id}} {{user.firstName}} {{user.lastName}} {{user.email}}</span>
+                    
+                  </div>
+               <button v-show="Hascomments">Ver Comentarios</button> -->
+                  
+                  <table v-show="ok" id="datetable1" class="table table-sm">
+                    <thead class="thead-dark">
+                      <tr>
+                        <td style="font-size:14px;text-align: center;background-color: aquamarine;"> Comentarios</td>
+                      </tr>
+                      <tr>
+                        <td>Id</td>
+                        <td>Creada</td>
+                        <td>Detalle</td>
+                        <td>Eliminar</td> 
+                    
+                      </tr>
+                    </thead>
+                    <tbody class="justify-content-center">
+                      <tr v-for="comment in comments">
+                        <td>{{(comment.id)}}</td>
+                        <td> {{(comment.createdAt).slice(0,10)}}</td>
+                        <td>{{comment.text}}</td>
+                       <td><button  class="btn btn-dark" @click="eliminarComm(comment.id)" :value="comment.id" type="submit">[x]</button> </td> 
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div v-show="emailF.length==0" class="row justifiy-content-center"style="background-color: aqua;">
+
+                    <span style="background-color: aqua;">{{emailnF}}</span>
+                  
+                  </div>
+    
+    
+                </div>
+    
+    
+    
+          </div>
+    
+        </div>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary"@click="Eliminar(idComment)">Grabar</button> -->
+      </div>
+    </div>
+    </div>
+    </div>
+
+      <!-- Fin del Modal de Comments -->
+  <!-- Inicio de la Pagina Principal -->
+    
+
+
+
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1>Gestión de Productos</h1>
@@ -377,15 +476,14 @@
                 <label for="UNICO">Unico</label>
 
               </div>
+          </div>
           </fieldset>
-          <button v-if="ok" id="crear" type="submit" value="Crear Nuevo" class="btn btn-light" style="border-color: rgb(24, 26, 26);" @submit.prevent="add">Crear
+          <button v-if="ok" id="crear"class="btn btn-info" type="submit" value="Crear Nuevo" class="btn btn-light" style="border-color: rgb(24, 26, 26);" @submit.prevent="add">Crear
             Nuevo</button>
-          <button v-else type="submit" @submit.prevent="chequearItems" class="btn btn-light" style="border-color: rgb(24, 26, 26);">Actualizar</button>
+          <button v-else type="submit" class="btn btn-warning" @submit.prevent="chequearItems" class="btn btn-light" style="border-color: rgb(24, 26, 26);">Actualizar</button>
 
         </form>
-        <!--  <button  v-show="ok" type="submit" value="Crear Nuevo"  style="border-color: rgb(24, 26, 26);">Crear Nuevo</button>
-        <button :v-show="!ok" type="submit"  @click.prevent="chequearItems">Actualizar</button> -->
-
+      
         <!-- Inicio del Formulario -->
 
         <!-- Fin Formularios -->
