@@ -72,7 +72,7 @@
                                     <h4>{{info.userName}} </h4>
                                      <span> {{formatDate(info.createdAt)}}</span>
                                     <i v-if="info.email == userEmail" @click="showText(info)" type="button" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal" class="fas fa-edit"></i>
-                                    <p class="theText">{{info.text}}<i v-if="info.email == userEmail" @click="deleteComment(info.id)" class="far fa-trash-alt"></i></p> 
+                                    <p class="theText">{{info.text}}<i v-if="info.email == userEmail || userEmail == 'admin@admin.com'" @click="deleteComment(info.id)" class="far fa-trash-alt"></i></p>
                                 </div>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -82,7 +82,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="newText"  msg cols="30" rows="5" class="form-control"></textarea>
+                                                <label id="comentarioAc" for="msg">Comentario actual:</label> <textarea name="msg" id="msg" v-model="newText"  msg cols="30" rows="5" class="form-control"></textarea>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" id="close" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -96,7 +96,7 @@
                             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                                 <form id="align-form">
                                     <div class="form-group">
-                                        <h4>Dejanos tu comentario</h4> <label for="message" id="mensaje">Mensaje</label> <textarea name="msg" id="commentLength" v-model="commentText" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
+                                        <h4>Dejanos tu comentario</h4> <label for="commentLength" id="mensaje">Mensaje</label> <textarea name="msg" id="commentLength" v-model="commentText" msg cols="30" rows="5" class="form-control" style="background-color: black; color: white;"></textarea>
                                     </div>
                                     <div class="form-group" id="sendComment"> <button type="button" v-if="commentText.length <= 240 && commentText.length > 0" @click="postComment()" id="postComment" class="btn">Enviar Comentario</button><p id="comment_limit" v-if="commentText.length >= 240">Superaste el limite de caracteres por comentario(240)</p> </div>
                                     <div v-if="error">

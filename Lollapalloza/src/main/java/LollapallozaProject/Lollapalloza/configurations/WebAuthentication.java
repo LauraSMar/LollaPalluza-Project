@@ -25,8 +25,7 @@ public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter{
 
             LollapallozaProject.Lollapalloza.models.User user1 = userRepository.findByEmail(email);
             if (user1 != null) {
-                // verificar en el controller que no se pueda crear un usuario con este mail
-                if (user1.getEmail().endsWith("@admin")){
+                if (user1.getEmail().equals("admin@admin.com")){
                     return new  org.springframework.security.core.userdetails.User(user1.getEmail(), user1.getPassword(),
                     AuthorityUtils.createAuthorityList("ADMIN"));
                 }

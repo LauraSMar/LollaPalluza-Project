@@ -37,6 +37,10 @@ public class LollapallozaApplication {
 		return (args) ->{
 			User testUser = new User("Lola","Perez","12341234","lola@gmail.com",passwordEncoder.encode("1234"));
 			userRepository.save(testUser);
+			User nuevoUser = new User("Juan","Perez","12341234","juan@gmail.com",passwordEncoder.encode("1234"));
+			userRepository.save(nuevoUser);
+			User adminUser = new User("admin","admin","admin","admin@admin.com",passwordEncoder.encode("admin"));
+			userRepository.save(adminUser);
 
 			List<Size> list1=List.of(Size.S,Size.M,Size.XL);
 			List<Size> list2=List.of(Size.S,Size.M,Size.XL);
