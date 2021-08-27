@@ -1,20 +1,15 @@
-/*MEDIA QUERIES DEL CAROUSEL*/
 
+/*MEDIA QUERIES DEL CAROUSEL*/
 @media(max-width:568px) {
     .carousel {
         margin-left: auto;
         display: flex;
         flex-wrap: wrap;
     }
-    figure {
+    figure{
         display: flex;
         flex-wrap: wrap;
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     .carousel_img, .caption_carousel{
         width: 80vw!important;
     }
@@ -36,41 +31,23 @@
     .carousel__thumbnails label > img{
         max-height: 100%!important;
         max-width: 100%!important;
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-    .carousel_img,
-    .caption_carousel {
-        width: 80vw;
     }
-    .minImages img {
-        max-height: 15vh;
-        max-width: 15vw;
->>>>>>> Stashed changes
-    }
+
 }
 
-@media(max-width:768px) {}
-
+@media(max-width:768px) {
+    
+    
+}
 
 /*SECCION DE FOTOS Y EL CAROUSEL*/
-
-#mainGallery {
+#mainGallery{
     background-image: url(../img/lolla.jpg);
 }
-
-#previousLolla {
+#previousLolla{
     width: 90%;
 }
-
-#carouselOfPics,
-#commentsSec {
+#carouselOfPics, #commentsSec {
     width: 90%;
     margin-left: 5vw;
     align-items: center;
@@ -78,21 +55,18 @@
     background: #f4f4f4;
     padding: 50px 0;
 }
-
 .container {
     max-width: 1044px;
     margin: 0 auto;
-    padding: 30px 30px;
+    padding: 0 20px;
 }
-
 .carousel {
     display: block;
     text-align: left;
     position: relative;
     margin-bottom: 22px;
 }
-
-.carousel>input {
+.carousel > input {
     clip: rect(1px, 1px, 1px, 1px);
     clip-path: inset(50%);
     height: 1px;
@@ -103,83 +77,65 @@
     position: absolute;
 }
 
-.carousel>input:nth-of-type(10):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(10):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -900%;
 }
-
-.carousel>input:nth-of-type(9):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(9):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -800%;
 }
-
-.carousel>input:nth-of-type(8):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(8):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -700%;
 }
-
-.carousel>input:nth-of-type(7):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(7):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -600%;
 }
-
-.carousel>input:nth-of-type(6):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(6):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -500%;
 }
-
-.carousel>input:nth-of-type(5):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(5):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -400%;
 }
-
-.carousel>input:nth-of-type(4):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(4):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -300%;
 }
-
-.carousel>input:nth-of-type(3):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(3):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -200%;
 }
-
-.carousel>input:nth-of-type(2):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(2):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: -100%;
 }
-
-.carousel>input:nth-of-type(1):checked~.carousel__slides .carousel__slide:first-of-type {
+.carousel > input:nth-of-type(1):checked ~ .carousel__slides .carousel__slide:first-of-type {
     margin-left: 0%;
 }
-
-.carousel>input:nth-of-type(1):checked~.carousel__thumbnails li:nth-of-type(1) {
+.carousel > input:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
 }
-
-.carousel>input:nth-of-type(2):checked~.carousel__thumbnails li:nth-of-type(2) {
+.carousel > input:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
 }
-
-.carousel>input:nth-of-type(3):checked~.carousel__thumbnails li:nth-of-type(3) {
+.carousel > input:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
 }
-
-.carousel>input:nth-of-type(4):checked~.carousel__thumbnails li:nth-of-type(4) {
+.carousel > input:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
 }
-
-.carousel>input:nth-of-type(5):checked~.carousel__thumbnails li:nth-of-type(5) {
+.carousel > input:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
 }
-
-.carousel>input:nth-of-type(6):checked~.carousel__thumbnails li:nth-of-type(6) {
+.carousel > input:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
 }
-
-.carousel>input:nth-of-type(7):checked~.carousel__thumbnails li:nth-of-type(7) {
+.carousel > input:nth-of-type(7):checked ~ .carousel__thumbnails li:nth-of-type(7) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
 
-.carousel>input:nth-of-type(8):checked~.carousel__thumbnails li:nth-of-type(8) {
+}.carousel > input:nth-of-type(8):checked ~ .carousel__thumbnails li:nth-of-type(8) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
 
-.carousel>input:nth-of-type(9):checked~.carousel__thumbnails li:nth-of-type(9) {
+}.carousel > input:nth-of-type(9):checked ~ .carousel__thumbnails li:nth-of-type(9) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
 
-.carousel>input:nth-of-type(10):checked~.carousel__thumbnails li:nth-of-type(10) {
+}
+.carousel > input:nth-of-type(10):checked ~ .carousel__thumbnails li:nth-of-type(10) {
     box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
 }
 
@@ -193,7 +149,6 @@
     box-sizing: border-box;
     display: flex;
 }
-
 .carousel__slide {
     position: relative;
     display: block;
@@ -205,25 +160,21 @@
     box-sizing: border-box;
     white-space: normal;
 }
-
 .carousel__slide figure {
     display: flex;
     margin: 0;
 }
-
 .carousel__slide div {
     position: relative;
     width: 100%;
 }
-
 .carousel__slide div:before {
     display: block;
     content: "";
     width: 100%;
     padding-top: 66.6666666667%;
 }
-
-.carousel__slide div>img {
+.carousel__slide div > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -232,13 +183,11 @@
     width: 100%;
     height: 100%;
 }
-
 .carousel__slide img {
     display: block;
     flex: 1 1 auto;
     object-fit: cover;
 }
-
 .carousel__slide figcaption {
     align-self: flex-end;
     padding: 20px 20px 0 20px;
@@ -254,11 +203,9 @@
     display: block;
     font-weight: normal!important;
 }
-
 .carousel__slide.scrollable {
     overflow-y: scroll;
 }
-
 .carousel__thumbnails {
     list-style: none;
     padding: 0;
@@ -266,31 +213,26 @@
     display: flex;
     margin: 0 -10px;
 }
-
-.carousel__slides+.carousel__thumbnails {
+.carousel__slides + .carousel__thumbnails {
     margin-top: 20px;
 }
-
 .carousel__thumbnails li {
     flex: 1 1 auto;
     max-width: calc((100% / 6) - 20px);
     margin: 0 10px;
     transition: all 300ms ease-in-out;
 }
-
 .carousel__thumbnails label {
     display: block;
     position: relative;
 }
-
 .carousel__thumbnails label:before {
     display: block;
     content: "";
     width: 100%;
     padding-top: 100%;
 }
-
-.carousel__thumbnails label>img {
+.carousel__thumbnails label > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -299,18 +241,13 @@
     width: 100%;
     height: 100%;
 }
-
-.carousel__thumbnails label:hover,
-.carousel__thumbnails label:focus {
+.carousel__thumbnails label:hover, .carousel__thumbnails label:focus {
     cursor: pointer;
 }
-
-.carousel__thumbnails label:hover img,
-.carousel__thumbnails label:focus img {
+.carousel__thumbnails label:hover img, .carousel__thumbnails label:focus img {
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
     transition: all 300ms ease-in-out;
 }
-
 .carousel__thumbnails img {
     display: block;
     width: 100%;
@@ -318,8 +255,8 @@
     object-fit: cover;
 }
 
-
 /*SECCION DE COMENTARIOS */
+
 
 @media(min-width:568px) {
     .end {
@@ -358,11 +295,6 @@
     border-radius: 13px;
     width: 50%
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 #register{
     align-items: center;
     justify-content: center;
@@ -372,32 +304,6 @@
     margin-left: 2vw;
 }
 #post, #login, #postComment{
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
-#post,
-#login,
-#postComment {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     font-weight: bolder;
     color: white;
     min-width: 80%;
@@ -405,32 +311,28 @@
     text-align: center;
 }
 
+
 body {
     background-color: black
-}
-
-.nav {
-    background-color: black;
 }
 
 #nav-items li a,
 #profile {
     text-decoration: none;
     color: rgb(224, 219, 219);
-    background-color: black;
+    background-color: black
 }
 
-#h1-comments {
+#h1-comments{
     color: black;
 }
 
 .comments {
-    margin-top: 5%;
-    margin-left: 20px
+margin-top: 5%;
+margin-left: 20px
 }
 
-#postComment,
-#login {
+#postComment, #login{
     margin-top: 1vh;
     margin-bottom: 1vh;
     border-radius: 13px;
@@ -441,36 +343,33 @@ body {
 }
 
 .darker {
-    border: 1px solid #03A688;
-    background-color: #03A688;
-    float: right;
-    border-radius: 5px;
-    padding-left: 40px;
-    padding-right: 30px;
-    padding-top: 10px
+border: 1px solid #03A688;
+background-color: #03A688;
+float: right;
+border-radius: 5px;
+padding-left: 40px;
+padding-right: 30px;
+padding-top: 10px
 }
-
 
 /*CSS DE COMENTARIOS*/
 
-#noComments {
+#noComments{
     margin-top: 5vh;
     text-align: justify;
 }
-
-.theComments {
+.theComments{
     width: 90%;
     min-height: 20vh;
 }
-
-#editComment {
+#editComment{
     margin: 0;
     padding: 0;
     float: right;
     position: sticky;
 }
 
-.theText {
+.theText{
     max-width: 75%;
     padding: 1vh 1vw;
     font-weight: bold;
@@ -479,39 +378,38 @@ body {
 }
 
 .comment {
-    border: 1px solid #F23838;
-    background-color: #F23838;
-    float: left;
-    border-radius: 5px;
-    padding-left: 40px;
-    padding-right: 30px;
-    padding-top: 10px
+border: 1px solid #F23838;
+background-color: #F23838;
+float: left;
+border-radius: 5px;
+padding-left: 40px;
+padding-right: 30px;
+padding-top: 10px
 }
 
 .comment h4,
 .comment span,
 .darker h4,
 .darker span {
-    display: inline
+display: inline
 }
 
 .comment p,
 .comment span,
 .darker p,
 .darker span {
-    color: white;
+color: white;
 }
 
 h1,
 h4 {
-    color: white;
-    font-weight: bold
+color: white;
+font-weight: bold
 }
 
 label {
-    color: rgb(212, 208, 208)
+color: rgb(212, 208, 208)
 }
-
 
 /*CSS DEL FORM PARA LOGUEAR*/
 
@@ -520,56 +418,42 @@ label {
     flex-direction: column;
     margin-top: 20px;
     justify-content: center;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+    
 }
 textarea {
     overflow: auto;
     resize: none;
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
 
 .form-group p a {
-    color: white
+color: white
 }
 
 #checkbx {
-    background-color: black;
+background-color: black;
 }
 
 #darker img {
-    margin-right: 15px;
-    position: static
+margin-right: 15px;
+position: static
 }
 
 .form-group input,
 .form-group textarea {
-    background-color: black;
-    border: 1px solid rgba(16, 46, 46, 1);
-    border-radius: 12px
+background-color: black;
+border: 1px solid rgba(16, 46, 46, 1);
+border-radius: 12px
 }
 
 form {
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
-    border-radius: 5px;
-    padding: 20px
+border: 1px solid rgba(16, 46, 46, 1);
+background-color: rgba(16, 46, 46, 0.973);
+border-radius: 5px;
+padding: 20px
 }
-
-
 /*INFO DEL LOGIN GALLERY*/
 
-.text-secondary,
-#mensaje {
+.text-secondary, #mensaje{
     font-weight: bolder;
     color: white!important;
 }
@@ -583,13 +467,7 @@ form {
     margin-top: 2vh;
 }
 
-
-
-
-
-
 /*MODAL DE COMENTARIOS*/
-
-#comentarioAc {
+#comentarioAc{
     color: black;
 }
