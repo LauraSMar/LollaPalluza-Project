@@ -5,10 +5,8 @@ const app = Vue.createApp({
             numberCard: "",
             date: "",
             date2: "",
-            cvv: 0,
+            cvv: null,
             urlSelect: "",
-            description: "Lollapalooza-market",
-            amount: 3000,
             /* Add To Cart*/
             cart: {
                 cartdtos: [],
@@ -27,16 +25,17 @@ const app = Vue.createApp({
             console.log(this.urlSelect)
             console.log(this.cvv)
 
-            var url = this.urlSelect;
+            var url = 'http://localhost:8080/api/payment';
             var data = {
-                cardNumber: this.numberCard,
-                cvv: this.cvv,
-                description: "Lolapalloza-market",
-                amount: this.amount
+                name: this.name,
+                number: this.numberCard,
+                cvv: parseInt(this.cvv),
+                thruDate: "20" + this.cardVto.replace("/", "-") + "-29",
+                description: "Lollapalooza-market",
+                amount: parseInt(this.cardMonto)
             };
             fetch(url, {
-                    method: 'POST',
-                    mode: 'no-cors', // or 'PUT'
+                    method: 'POST', // or 'PUT'
                     body: JSON.stringify(data), // data can be `string` or {object}!                
                     headers: {
                         'Content-Type': 'application/json'
@@ -45,39 +44,17 @@ const app = Vue.createApp({
                 /* .then(res => console.log(res.json())) */
                 /*.then(response => alert(data.response))*/
                 .then(res => {
-                    console.log("compra realizada")
-                        // if (res.status == 200 || res.status == 202) {
-                        //     return swal('Pago Procesado Correctamente')
-                        // }
-                        // return swal('No se pudo procesar el pago, revise los datos de la tarjeta')
+                    if (res.status == 200 || res.status == 202) {
+                        axios.post("/api/users/current/payment", this.cart)
+                            .then(res => {
+                                swal("Genial", "Compra exitosa ", "success").then(res => location.href = 'http://localhost:8080/index.html');
+                            })
+                    }
+                    return swal('No se pudo procesar el pago, revise los datos de la tarjeta')
                 })
-                .catch(error => console.log(error))
-                // axios({
-                //         method: 'post',
-                //         mode: 'no-cors',
-                //         url: this.urlSelect,
-                //         data: {
-                //             cardNumber: this.numberCard, //string
-                //             cvv: this.cvv, //int
-                //             // thruDate: this.date + "/" + this.date2,
-                //             description: this.description,
-                //             amount: this.amount, //amount
-                //         }
-                //     })
-                //     .then(res => {
-                //         swal("Genial", "Pago procesado con exito", "success")
-                //             // if (res.status == 200) {
-                //             //     axios.post("/api/users/current/payment", this.cart)
-                //             //         .then(res => {
-                //             //             swal("Genial", "Pago procesado con exito", "success")
-                //             //                 .then(res => location.reload());
-                //             //         })
-                //             //         .catch(err => swal("Opss", "Pago no procesado con exito", "error"))
-                //             // }
-                //     })
-                //     .catch(err => {
-                //         swal("Opss", "todo mal", "warning")
-                //     })
+                .catch(error => {
+                    swal("Error", "Error para procesar pago con su banco", "error");
+                })
         }
     },
     computed: {
