@@ -32,4 +32,5 @@ public class ProductDTO {
         this.img = product.getImg();
         this.sizeList=product.getSizeList();
     }
+
 }

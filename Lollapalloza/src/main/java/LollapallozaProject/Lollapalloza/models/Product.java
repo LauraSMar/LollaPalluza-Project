@@ -29,6 +29,7 @@ public class Product {
     @ElementCollection
     @Column(name="sizes")
     private List<Size> sizeList= new ArrayList<>();
+    private boolean deleted=false;
 
     public Product(Category category, String description, Integer stock, double price, Set<String> img, List<Size> sizeList) {
         this.category = category;
@@ -37,5 +38,6 @@ public class Product {
         this.price = price;
         this.img =img;
         this.sizeList=sizeList;
+        this.deleted=false;
     }
 }

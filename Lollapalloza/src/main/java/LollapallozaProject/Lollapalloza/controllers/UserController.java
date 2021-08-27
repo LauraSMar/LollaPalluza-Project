@@ -52,6 +52,10 @@ public class UserController {
     @RequestMapping("/users/current")
     public UserDto getUserCurrent(Authentication authentication){
         User user=userService.findByEmail((authentication.getName()));
+        if(user.isDeleted()){
+            return  new UserDto();
+        }
+
         return new UserDto(user);
     }
 }

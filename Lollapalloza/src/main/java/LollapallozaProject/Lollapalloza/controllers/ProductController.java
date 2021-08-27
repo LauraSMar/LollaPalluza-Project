@@ -21,13 +21,20 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<ProductDTO> getProducts(){
-       return productService.getProductsDtos();
+
+        return productService.checkDelete();
     }
 
     @PostMapping("/products")
     public ResponseEntity<Object> createProduct(@RequestBody ProductDTO productDTO){
         return productService.createProduct(productDTO);
     }
+
+    @PostMapping("/products/updates")
+    public ResponseEntity<Object> updateProduct(@RequestBody ProductDTO productDTO){
+        return productService.updateProduct(productDTO);
+    }
+
 
     @PostMapping("/products/price")
     public ResponseEntity<Object> updatePrice(@RequestParam Long id, @RequestParam double price){
@@ -37,6 +44,12 @@ public class ProductController {
     @PostMapping("/products/stock")
     public ResponseEntity<Object> updateStock(@RequestParam Long id, @RequestParam Integer stock){
         return productService.updateStock(id, stock);
+    }
+
+    @PostMapping ("/products/erase")
+    public ResponseEntity<Object> eraseProduct(@RequestParam Long id){
+       return productService.eraseProduct(id);
+
     }
 
 
