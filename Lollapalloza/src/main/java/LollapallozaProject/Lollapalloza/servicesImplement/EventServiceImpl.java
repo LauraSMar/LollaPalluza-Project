@@ -63,7 +63,7 @@ public class EventServiceImpl implements EventService {
                 Band newBand = new Band(band.getName(), band.getStar(), band.getEnd(), campus);
                 bandRepository.save(newBand);
             }
-            Event event = new Event(dto.getDate(), dto.getStart(), dto.getEnd(), campus);
+            Event event = new Event(dto.getDate(), dto.getStart(), dto.getEnd(), campus, dto.getImg());
             eventRepository.save(event);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (Exception e){

@@ -2,15 +2,15 @@
  @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900');
     @import url('https://fonts.googleapis.com/css?family=Playball');
     * {box-sizing: border-box;}
-    body {background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);}*/
+    body {background-image: linear-gradient(15deg, #71a6c5 0%, #80d0c7 100%);}*/
 
     #search {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;}
-    #search:before {content: 'Busca un Producto'; font-family: 'verdana', sans-serif; position: absolute; top: -70px; left: 50%; color: rgba(0, 0, 0, 0.8); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transform: translateX(-50%); white-space: nowrap; pointer-events: none; color: rgb(20, 19, 19); text-shadow: hoff voff blur #000; }
+    #search:before {content: 'Busca un email'; font-family: 'verdana', sans-serif; position: absolute; top: -70px; left: 50%; color: rgba(0, 0, 0, 0.8); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transform: translateX(-50%); white-space: nowrap; pointer-events: none; color: rgb(20, 19, 19); text-shadow: hoff voff blur #000; }
     #search:after {content: 'Salman Raza'; font-family: 'Playball', cursive; position: absolute; bottom: -90px; left: 50%; color: rgba(0, 0, 0, 0.02); font-size: 150px; line-height: 140px; white-space: nowrap; text-transform: lowercase; transform: translateX(-50%); pointer-events: none; z-index: -1; }
     .srch_wrpr {width: 200px; max-width: 400px; height: 70px; position: relative; z-index: 1; }
     .srch_sb_cnt {width: 50px; height: 70px; background-image: linear-gradient(120deg, #2fabca 0%, #e48bf0 100%); background-color: transparent; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: hidden; transition: all 0.4s ease-in-out 0s; z-index: 0; border-radius: 5px; }
     .sech_txt_inpt {opacity: 0; height: 50px; left: 10px; border-radius: 30px; border: 0; width: 94%; padding: 0 60px 0 15px; background-color: transparent; color: #333; font-size: 15px; transition: all 0.4s ease-in-out 0s; }
-    .sech_txt_inpt:focus {letter-spacing: 2px;text-transform: uppercase;}
+    .sech_txt_inpt:focus {letter-spacing: 2px;text-transform: lowercase;}
     .sech_txt_inpt:focus, .srch_btn:focus {outline: none;}
     .sech_txt_inpt, .srch_btn {position: absolute; z-index: 1; top: 50%; transform: translateY(-50%); }
     .srch_btn {width: 70px; height: 70px; right: 0; background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); background-color: transparent; border:0; transition: all 0.4s ease-in-out 0s; font-size: 26px; cursor: pointer; color: #545454; }

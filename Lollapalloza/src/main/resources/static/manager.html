@@ -81,16 +81,7 @@
           aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" @click="redireccionar(this.clientid)" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" @click="redireccionar2(this.clientid)"
-                href="#">Reportes</a>
-            </li>
-          </ul>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">          
           <div class="d-flex">
             <div class="dropdown">
               <a class="btn btn-outline-primary dropdown-toggle me-2" href="#" role="button" id="dropdownMenuLink"
@@ -149,13 +140,7 @@
     
                       <input v-model="email" class="texto" id="email" placeholder="Email" @keyup="searchEmail(email)"
                         width="100%">
-    
-    
-    
                     </div>
-    
-    
-    
     
                   </div>
                 </div>
@@ -335,20 +320,15 @@
       <br>
       <!-- Inicio del Buscador -->
 
-      <div id="search" class="d-flex">
-        <div class="srch_wrpr">
-          <input type="checkbox" name="" class="checkbox">
-          <div class="srch_sb_cnt">
-            <input v-model="idProd" type="number" @keyup="searchProduct(idProd)" maxlength="4" size="4"
-              class="sech_txt_inpt" placeholder="Aquí el id...">
-            <button class="srch_btn" @click="editarProd(idProd)">
-              <i class="fa fa-search" text="Editar" aria-hidden="true"></i>
-            </button>
-            <br>
-
-          </div>
+      <nav class="navbar navbar-light bg-light" style="width: 25%;border-radius: 5%;">
+        <div class="container-fluid justifiy-content-center">
+          <form class="d-flex col-md-auto">
+            <input class="form-control me-2"v-model="idProd" type="number" @keyup="searchProduct(idProd)" maxlength="4" size="5"  placeholder="id por aquí..." >
+            <button class="btn btn-outline-dark" type="button" @click="editarProd(idProd)">Editar</button>
+          </form>
         </div>
-      </div>
+      </nav>
+      <br>
       <div class="d-flex" style="width:fit-content;justify-content: space-around;">
 
         <p id="found" style="background-color: aqua;">Producto: {{ found }}</p>
@@ -358,7 +338,7 @@
 
       <div class="my-2">
         <!-- Inicio del Formulario -->
-        <form class="form bg-light" id="Abm" @submit.prevent="add()">
+        <form class="form bg-light" id="Abm" >
           <fieldset>
             <legend>Datos basicos</legend>
             <div class="container">
@@ -366,10 +346,8 @@
               <input v-model="description" class="texto" id="description" placeholder="Description" required>
               <label class="label">Stock</label>
               <input v-model="stock" type="number" class="texto" id="stock" placeholder="stock" required>
-
               <label class="label">Precio</label>
               <input v-model="price" type="number" class="texto" id="price" placeholder="price" required>
-
             </div>
           </fieldset>
           <fieldset>
@@ -382,13 +360,10 @@
               <label class="label">Imagen 3</label>
               <input v-model="img3" type="text" class="text form-control" id="img3" placeholder="imagen3" required>
             </div>
-
             <div class="container">
               Selecciona los talles: <br>
               <span id="Size">Size: {{ SizeNames }}</span>
-
               <div v-show="!unico">
-
                 <input v-model="SizeNames" value="S" name="S" type="checkbox" id="size-s" />
                 <label for="size-s">Small</label>
 
@@ -403,9 +378,9 @@
 
               </div>
           </fieldset>
-          <button v-show="ok" id="crear" type="submit" value="Crear Nuevo" class="btn btn-light" style="border-color: rgb(24, 26, 26);">Crear
+          <button v-if="ok" id="crear" type="submit" value="Crear Nuevo" class="btn btn-light" style="border-color: rgb(24, 26, 26);" @submit.prevent="add">Crear
             Nuevo</button>
-          <button :v-show="!ok" type="submit" @click="chequearItems" class="btn btn-light" style="border-color: rgb(24, 26, 26);">Actualizar</button>
+          <button v-else type="submit" @submit.prevent="chequearItems" class="btn btn-light" style="border-color: rgb(24, 26, 26);">Actualizar</button>
 
         </form>
         <!--  <button  v-show="ok" type="submit" value="Crear Nuevo"  style="border-color: rgb(24, 26, 26);">Crear Nuevo</button>

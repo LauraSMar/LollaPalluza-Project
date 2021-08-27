@@ -26,7 +26,7 @@
     body {
       background-image: linear-gradient(to right top, #eba2db, #54b8e0, #e58ede, #19ceee, #f713eb);
       min-height: 250vh;
-      margin: 10px;
+      /* margin: 10px; */
       padding: 10px;
     }
 
@@ -59,7 +59,7 @@
       width: 100%;
       font-size: 15px;
       margin-top: 4em;
-      margin-bottom: 4em;
+      margin-bottom: 2em;
       border-radius: 10px;
     }
   </style>
@@ -70,9 +70,6 @@
 <body>
   <main id="app">
 
-
-
-    </nav>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -85,18 +82,37 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" @click="redireccionar(this.clientid)" href="#">Login</a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" @click="redireccionar2(this.clientid)"
-                href="#">Reportes</a>
+              <a class="nav-link" @click="redireccionar(this.clientid)" href="#">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#" data-toggle="modal" data-target="#exampleModal">Comments</a>
+              <a class="nav-link" @click="redireccionar2(this.clientid)"
+                href="#">Reportes</a>
             </li>
-
           </ul>
           <div class="d-flex">
+            <div class="dropdown">
+              <a class="btn btn-outline-primary dropdown-toggle me-2" href="#" role="button" id="dropdownMenuLink"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                ABM
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal2">Comentarios</a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Users</a>
+                </li>
+                <li><a
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  href="#exampleModalToggle"
+                  role="button"
+                  >Eventos</a
+                ></li>
+
+              </ul>
+            </div>
 
             <button @click="exit" class="btn btn-outline-dark" type="submit">Logout</button>
           </div>
@@ -105,47 +121,244 @@
     </nav>
 
 
+    <!-- Modal Borrar usuarios -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLabel">Users</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              @click="LimpiarForm"></button>
+          </div>
+          <div class="modal-body">
+    
+    
+            <div class=" col- sm-12 ">
+    
+              <div class="container justify-content-around">
+                <p>Buscar Usuario por Email</p>
+    
+                <!-- Inicio del Buscador -->
+    
+                <div id="search" class="row">
+                  <div class="flex-container" justify-content-center>
+    
+                    <div class="d-flex">
+    
+                      <input v-model="email" class="texto" id="email" placeholder="Email" @keyup="searchEmail(email)"
+                        width="100%">
+    
+    
+    
+                    </div>
+    
+    
+    
+    
+                  </div>
+                </div>
+                <h6 v-show="emailF.length!=0"> User Activo</h6>
+                <div class="container justify-content-center">
+                
+    
+                  <div v-show="emailF.length!=0" class="row justifiy-content-center"style="background-color: aqua;">
 
-    <!-- <a class="btn btn-outline-primary" href="#">Sign up</a> -->
+                      <span v-for="user in emailF">{{user.id}} {{user.firstName}} {{user.lastName}} {{user.email}}</span>
+                    
+                  </div>
+
+                  <div v-show="emailF.length==0" class="row justifiy-content-center"style="background-color: aqua;">
+
+                    <span style="background-color: aqua;">{{emailnF}}</span>
+                  
+                  </div>
+    
+    
+                </div>
+    
+    
+    
+          </div>
+    
+        </div>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"@click="Eliminar(idUser)">Eliminar</button>
+      </div>
+    </div>
+    </div>
+    </div>
+          <!-- modal eventos -->
+          <div
+          class="modal fade"
+          id="exampleModalToggle"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Eventos</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div v-for="event in events">
+                      <div class="card text-center col">
+                        <div class="card-header">
+                          {{ dateFormat(event.date) }}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">{{ event.campus }}</li>
+                          <!-- <li class="list-group-item">id: {{ event.id }}</li> -->
+                          <li class="list-group-item">
+                            entradas disponibles: {{ event.available }}
+                          </li>
+                          <li class="list-group-item">
+                            comienzo: {{ event.start }}
+                          </li>
+                          <li class="list-group-item">final: {{ event.end }}</li>
+                          <li class="list-group-item">
+                            <button
+                              class="btn btn-outline-primary"
+                              data-bs-target="#exampleModalToggle2"
+                              data-bs-toggle="modal"
+                              data-bs-dismiss="modal"
+                              @click="editar(event)"
+                            >
+                              editar
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <!-- <button
+                  class="btn btn-primary"
+                  data-bs-target="#exampleModalToggle2"
+                  data-bs-toggle="modal"
+                  data-bs-dismiss="modal"
+                >
+                  Open second modal
+                </button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal formulario -->
+        <div
+          class="modal fade"
+          id="exampleModalToggle2"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel2"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2">
+                  Editar evento
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <input
+                  type="text"
+                  name="campus"
+                  id=""
+                  v-model="selectedEvent.campus"
+                  class="form-control mt-1 "
+                  readonly
+                />
+                <input
+                  type="date"
+                  name="date"
+                  id=""
+                  v-model="selectedEvent.date"
+                  class="form-control mt-1"
+                />
+                <input
+                  type="time"
+                  name="time"
+                  id=""
+                  v-model="selectedEvent.start"
+                  class="form-control mt-1"
+                />
+                <input
+                  type="time"
+                  name="time"
+                  id=""
+                  v-model="selectedEvent.end"
+                  class="form-control mt-1"
+                />
+  
+                <button
+                  class="btn btn-primary mt-1"
+                  data-bs-target="#exampleModalToggle"
+                  data-bs-toggle="modal"
+                  data-bs-dismiss="modal"
+                  @click="updateEvent"
+                >
+                  Guardar Cambios
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
     </div>
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1>Gestión de Productos</h1>
       <br>
 
-      
+
       <br>
-   <!-- Inicio del Buscador -->
+      <!-- Inicio del Buscador -->
 
       <div id="search" class="d-flex">
         <div class="srch_wrpr">
           <input type="checkbox" name="" class="checkbox">
           <div class="srch_sb_cnt">
-            <input v-model="idProd" type="number" @keyup="searchProduct(idProd)" maxlength="4" size="4" class="sech_txt_inpt"
-              placeholder="Aquí el id...">
+            <input v-model="idProd" type="number" @keyup="searchProduct(idProd)" maxlength="4" size="4"
+              class="sech_txt_inpt" placeholder="Aquí el id...">
             <button class="srch_btn" @click="editarProd(idProd)">
               <i class="fa fa-search" text="Editar" aria-hidden="true"></i>
             </button>
             <br>
-      
+
           </div>
         </div>
       </div>
       <div class="d-flex" style="width:fit-content;justify-content: space-around;">
-      
+
         <p id="found" style="background-color: aqua;">Producto: {{ found }}</p>
-      
+
       </div>
-      <!-- Fin del Buscador -->   
+      <!-- Fin del Buscador -->
 
-      <div>
+      <div class="my-2">
         <!-- Inicio del Formulario -->
-        <br>
-        <br>
-        <br>
-
-        <form class="form" id="Abm" @submit.prevent="add()">
+        <form class="form bg-light" id="Abm" @submit.prevent="add()">
           <fieldset>
             <legend>Datos basicos</legend>
             <div class="container">
@@ -163,11 +376,11 @@
             <legend>Datos Complementarios</legend>
             <div class="container">
               <label class="label">Imagen 1</label>
-              <input v-model="img1" type="text" class="text" id="img1" placeholder="imagen1" required>
+              <input v-model="img1" type="text" class="text form-control" id="img1" placeholder="imagen1" required>
               <label class="label">Imagen 2</label>
-              <input v-model="img2" type="text" class="text" id="img2" placeholder="imagen2" required>
+              <input v-model="img2" type="text" class="text form-control" id="img2" placeholder="imagen2" required>
               <label class="label">Imagen 3</label>
-              <input v-model="img3" type="text" class="text" id="img3" placeholder="imagen3" required>
+              <input v-model="img3" type="text" class="text form-control" id="img3" placeholder="imagen3" required>
             </div>
 
             <div class="container">
@@ -176,29 +389,32 @@
 
               <div v-show="!unico">
 
-                <input v-model="SizeNames" value="S" name="S" type="checkbox" />Small
+                <input v-model="SizeNames" value="S" name="S" type="checkbox" id="size-s" />
+                <label for="size-s">Small</label>
 
-                <input v-model="SizeNames" value="M" name="M" type="checkbox" />Medium
+                <input v-model="SizeNames" value="M" name="M" type="checkbox" id="size-m"/>
+                <label for="size-m">Medium</label>
 
-                <input v-model="SizeNames" value="XL" name="XL" type="checkbox" />XL
+                <input v-model="SizeNames" value="XL" name="XL" type="checkbox" id="size-xl" />
+                <label for="size-xl">XL</label>
 
-
-
-                <input v-model="SizeNames" value="UNICO" id="UNICO" name="UNICO" type="checkbox" />Unico
+                <input v-model="SizeNames" value="UNICO" id="UNICO" name="UNICO" type="checkbox"  />
+                <label for="UNICO">Unico</label>
 
               </div>
           </fieldset>
-          <button  v-show="ok" id="crear" type="submit" value="Crear Nuevo"  style="border-color: rgb(24, 26, 26);">Crear Nuevo</button>
-          <button :v-show="!ok" type="submit"  @click="chequearItems">Actualizar</button>
-        
+          <button v-show="ok" id="crear" type="submit" value="Crear Nuevo" class="btn btn-light" style="border-color: rgb(24, 26, 26);">Crear
+            Nuevo</button>
+          <button :v-show="!ok" type="submit" @click="chequearItems" class="btn btn-light" style="border-color: rgb(24, 26, 26);">Actualizar</button>
+
         </form>
-       <!--  <button  v-show="ok" type="submit" value="Crear Nuevo"  style="border-color: rgb(24, 26, 26);">Crear Nuevo</button>
+        <!--  <button  v-show="ok" type="submit" value="Crear Nuevo"  style="border-color: rgb(24, 26, 26);">Crear Nuevo</button>
         <button :v-show="!ok" type="submit"  @click.prevent="chequearItems">Actualizar</button> -->
 
         <!-- Inicio del Formulario -->
 
         <!-- Fin Formularios -->
-        <br>
+        
       </div>
 
 
@@ -255,7 +471,7 @@
 
     <!-- Footer -->
     <div class="container-fluid">
-      <footer style="background-color:rgb(46, 130, 179);text-align: center;">
+      <footer style="background-color:rgb(46, 130, 179);text-align: center;" class="p-2 text-light">
         <h6> © Copyright 2021 | Follow us! <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
             <path
@@ -266,12 +482,7 @@
     </div>
     </div>
 
-
-
-
   </main>
-
-
   <script src="https://unpkg.com/vue@next"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./js/manager.js"></script>
