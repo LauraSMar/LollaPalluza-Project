@@ -175,7 +175,7 @@ body {
 }
 .form {
   width: 500px;
-  background: rgba(255,255,255,.5);
+  background: rgba(255,255,255,.75);
   padding: 1.5rem;
   border-radius: 0.25rem;
   position: relative;
