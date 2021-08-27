@@ -42,7 +42,7 @@
                     <h2>{{event.campus}}
                         <!-- <p>Italy</p> -->
                     </h2>
-                    <p id="desc"></p>
+                    <p id="desc">Disponibles: {{event.available}}</p>
                     <input v-model="check" type="checkbox" :value="event" name="" :id="event.campus">
                     <label class="btn fw-bold fs-4" :for="event.campus">{{event.date}}</label>
                     <!-- <a href="#"><button type="button" @click="selectEvent(event)">{{event.date.split("-").reverse().join("-")}}</button></a> -->

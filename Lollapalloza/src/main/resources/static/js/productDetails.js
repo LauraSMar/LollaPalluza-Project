@@ -5,6 +5,8 @@ const app = Vue.createApp({
       activeNavbar: false,
       activeMenu: false,
 
+      toastCount: 0,
+
       /* Products */
       selectedProduct: "",
       activeImg: 0,
@@ -51,33 +53,31 @@ const app = Vue.createApp({
       })
       return amount.format(balance)
     },
+
     addToCart() {
       let productToCart = {
         "idItem": this.selectedProduct.id,
         "category": this.selectedProduct.category,
         "quantity": this.quantity
       }
-
-      if (this.cart.cartdtos.length == 0){
+      if (this.cart.cartdtos.length == 0) {
         this.cart.cartdtos.push(productToCart)
         sessionStorage.setItem("cart", JSON.stringify(this.cart))
         return
       }
-      
       let arrayAux = this.cart.cartdtos.map(e => e.idItem)
-
-      if (arrayAux.indexOf(productToCart.idItem) == -1){
+      if (arrayAux.indexOf(productToCart.idItem) == -1) {
         console.log(arrayAux)
         this.cart.cartdtos.push(productToCart)
       }
-
       if (arrayAux.indexOf(productToCart.idItem) > -1) {
-          this.cart.cartdtos.map((e) => {
-            if (e.idItem == productToCart.idItem) {
-              e.quantity += productToCart.quantity
-            }
-          })
-      } 
+        this.cart.cartdtos.map((e) => {
+          if (e.idItem == productToCart.idItem) {
+            e.quantity += productToCart.quantity
+          }
+        })
+      }
+
       sessionStorage.setItem("cart", JSON.stringify(this.cart))
       console.log(this.cart.cartdtos)
     }

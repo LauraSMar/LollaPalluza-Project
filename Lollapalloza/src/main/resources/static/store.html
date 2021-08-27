@@ -32,7 +32,8 @@
                         <li><a href="./login.html" class="last">Login</a></li>
                         <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                             <a href="#" id="cart"><i class="fal fa-bags-shopping"></i><span v-if="totalCart != 0"
-                                    class="badge">{{totalCart}}</span></a></li>
+                                    class="badge">{{totalCart}}</span></a>
+                        </li>
                     </ul>
                     <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''"
                         @click="activeNavbar = !activeNavbar "></i>
@@ -42,7 +43,7 @@
             </header>
             <div class="d-flex flex-column flex-md-row justify-content-center align-items-center flex-wrap pt-5">
                 <!-- <h2 class="page-title">Tickets Concept</h2> -->
-                <div class="ticket-card m-4" v-for="product in products">
+                <div class="ticket-card m-5" v-for="product in products">
                     <div class="cover">
                         <img :src="product.img[0]" alt="" />
                         <div class="info">
@@ -63,10 +64,7 @@
                     </div>
                     <div class="footer">
                         <!-- <button class="btn toggle-tickets"><ion-icon name="cart-outline"></ion-icon></button> -->
-                        <a href="#"><button type="button" class="button">
-                                <span class="buttonicon" @click="productDetails(product.id)">
-                                    <ion-icon size="large" name="cart-outline"></ion-icon>
-                                </span></button></a>
+                        <button class="button buttonicon"@click="productDetails(product.id)" ><i class="fal fa-shopping-cart" size="large"></i></button>
                     </div>
                 </div>
             </div>
@@ -101,37 +99,46 @@
         <div class="container offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel">
             <div class="shopping-cart">
-                <div class="shopping-cart-header">
-                    <i class="fal fa-bags-shopping"></i><span class="badge">{{totalCart}}</span>
-                    <div class="shopping-cart-total">
-                        <span class="lighter-text">Total:</span>
-                        <span class="main-color-text">{{formatBalance(totalPrice)}}</span>
+                <div class="shopping-cart-header d-flex flex-row justify-content-between align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <i class="fas fa-times" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                        <i class="fal fa-bags-shopping"></i><span class="badge">{{totalCart}}</span>
+                    </div>
+                    <div class="shopping-cart-total d-flex flex-column justify-content-center align-items-center m-3">
+                        <div class="lighter-text">Total:</div>
+                        <div class="main-color-text">{{formatBalance(totalPrice)}}</div>
                     </div>
                 </div>
                 <!--end shopping-cart-header -->
 
                 <ul class="shopping-cart-items">
                     <li v-for="ticket in cart.ticketDtos" class="clearfix">
-                        <img src="./img/logo_block.png" alt="item1" />
-                        <span class="item-name">Fecha: {{ticketTitle(ticket)}}</span>
-                        <span class="item-price">$849.99</span>
-                        <span class="item-quantity">Quantity: 01</span>
+                        <div class="d-flex flex-row m-1">
+                            <img :src="ticket.img" alt="item1" />
+                            <div class="d-flex flex-column">
+                                <span class="item-name">Fecha: {{ticket.date}}</span>
+                                <span class="item-name">Sede: {{ticket.campus}}</span>
+                                <span class="item-price">Precio: {{formatBalance(calculatePrice)}}</span>
+                                <span class="item-quantity">Cantidad: 1</span>
+                            </div>
+                        </div>
                     </li>
 
-                    <li class="clearfix">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
-                        <span class="item-name">KS Automatic Mechanic...</span>
-                        <span class="item-price">$1,249.99</span>
-                        <span class="item-quantity">Quantity: 01</span>
+                    <li v-for="prod in cart.cartdtos" class="clearfix">
+                        <img :src="getImg(prod.idItem)" alt="item1" />
+                        <span class="item-name">{{getName(prod.idItem)}}</span>
+                        <span class="item-price">{{formatBalance(getPrice(prod.idItem))}}</span>
+                        <span class="item-quantity">Cantidad: {{prod.quantity}}</span>
                     </li>
 
                 </ul>
-
-                <a href="#" class="button">Checkout</a>
+                <div v-if="cart.ticketDtos.length == 2" class="discount">Se aplicó 10% de descuento en tickets</div>
+                <div v-if="cart.ticketDtos.length > 2" class="discount">Se aplicó 20% de descuento en tickets</div>
+                <a href="#" class="purchaseButton">Realizar compra</a>
             </div>
             <!--end shopping-cart -->
         </div>
-
+        
     </div>
     <!-- IonIcons -->
     <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
