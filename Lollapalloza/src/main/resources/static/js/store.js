@@ -12,6 +12,8 @@ const app = Vue.createApp({
             },
             ticketPrice: 3000,
 
+            /*user*/
+            userEmail: "",
 
         }
     },
@@ -26,9 +28,17 @@ const app = Vue.createApp({
         } else {
             sessionStorage.setItem("cart", JSON.stringify(this.cart))
         }
+        this.user();
     },
     methods: {
-
+        deleteTicket(index) {
+            this.cart.ticketDtos.splice(index, 1)
+            sessionStorage.setItem("cart", JSON.stringify(this.cart))
+        },
+        deleteProduct(index) {
+            this.cart.cartdtos.splice(index, 1)
+            sessionStorage.setItem("cart", JSON.stringify(this.cart))
+        },
         productDetails(id) {
             window.location = "./productDetails.html?productId=" + id
         },
@@ -54,20 +64,33 @@ const app = Vue.createApp({
             }
             return this.products.filter(e => e.id == id)[0].description
         },
-        getPrice(id){
+        getPrice(id) {
             if (this.products.length == 0) {
                 return
             }
             return this.products.filter(e => e.id == id)[0].price
-        }
+        },
+        user() {
+            axios.get('/api/users/current')
+                .then(res => {
+                    this.userEmail = res.data.email
+                    console.log(this.userEmail)
+                })
+        },
+        goToPay() {
+            if (this.userEmail != "") {
+                window.location.href = "/payCard.html"
+            } else (swal('Necesitas estar logueado para poder comprar', { icon: "warning" })
+                .then(() => window.location.href = "/login.html"))
+        },
     },
     computed: {
-        calculatePrice(){
+        calculatePrice() {
             let price = 0
-            if (this.cart.ticketDtos.length == 2){
-                price =  this.ticketPrice - ( this.ticketPrice * 0.10 )
-            } else if(this.cart.ticketDtos.length > 2 ){
-                price =  this.ticketPrice - ( this.ticketPrice * 0.20 )
+            if (this.cart.ticketDtos.length == 2) {
+                price = this.ticketPrice - (this.ticketPrice * 0.10)
+            } else if (this.cart.ticketDtos.length > 2) {
+                price = this.ticketPrice - (this.ticketPrice * 0.20)
             }
             return price
         },
@@ -82,15 +105,15 @@ const app = Vue.createApp({
             return prodCounter + tktCounter
         },
         totalPrice() {
-            
+
             if (this.products.length == 0) {
                 return
             }
             let price = 0
-            if (this.cart.ticketDtos.length == 2){
-                price =  this.ticketPrice - ( this.ticketPrice * 0.10 )
-            } else if(this.cart.ticketDtos.length > 2 ){
-                price =  this.ticketPrice - ( this.ticketPrice * 0.20 )
+            if (this.cart.ticketDtos.length == 2) {
+                price = this.ticketPrice - (this.ticketPrice * 0.10)
+            } else if (this.cart.ticketDtos.length > 2) {
+                price = this.ticketPrice - (this.ticketPrice * 0.20)
             }
 
             let ids = this.cart.cartdtos.map(e => e.idItem)

@@ -32,10 +32,10 @@
             <nav class="nav" id="blur">
                 <ul :class="activeNavbar? 'active':''">
                     <li><a href="./index.html" class="first">Inicio</a></li>
+                    <li><a href="./gallery.html" class="last">Galeria</a></li>
                     <li><a href="./tickets.html" class="last">Tickets</a></li>
                     <li><a href="./store.html" class="last">Tienda</a></li>
                     <li><a href="./login.html" class="last">Login</a></li>
-                    <li><a href="./gallery.html" class="last">Galeria</a></li>
                 </ul>   
                 <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>             
                 <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>                
@@ -173,24 +173,18 @@
             <div class="d-flex justify-content-evenly">
                 <div>
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#">Tickets</a></li>
-                        <li><a href="#">Tienda</a></li>
-                        <li><a href="gallery.html">Galeria</a></li>
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./tickets.html">Tickets</a></li>
+                        <li><a href="./store.html">Tienda</a></li>
+                        <li><a href="./gallery.html">Galeria</a></li>
                     </ul>
                 </div>
                 <div class="d-flex flex-column">
                     <img src="./img/logo-vid.png" alt="">
                     <div class="rsAccess d-flex justify-content-evenly">
-<<<<<<< HEAD
                         <a href="https://www.facebook.com/lollapaloozaar" target="_blank"><i class="fab fa-facebook"></i></a>
                         <a href="https://twitter.com/lollapaloozaar" target="_blank"><i class="fab fa-twitter"></i></a>
                         <a href="https://instagram.com/lollapaloozaar" target="_blank"><i class="fab fa-instagram"></i></a>
-=======
-                        <a href="https://www.facebook.com/lollapaloozaar"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/lollapaloozaar"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/lollapaloozaar/"><i class="fab fa-instagram"></i></a>
->>>>>>> f6580258aca9babfd6b2683038c5e1d3c5edd831
                     </div>
                 </div>
             </div>

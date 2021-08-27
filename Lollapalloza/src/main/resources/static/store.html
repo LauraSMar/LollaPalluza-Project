@@ -74,18 +74,18 @@
             <div class="d-flex justify-content-evenly">
                 <div>
                     <ul>
-                        <li><a class="fs-5" href="#">Inicio</a></li>
-                        <li><a class="fs-5" href="#">Tickets</a></li>
-                        <li><a class="fs-5" href="#">Bandas</a></li>
-                        <li><a class="fs-5" href="#">Tienda</a></li>
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./tickets.html">Tickets</a></li>
+                        <li><a href="./store.html">Tienda</a></li>
+                        <li><a href="./gallery.html">Galeria</a></li>
                     </ul>
                 </div>
                 <div class="d-flex flex-column">
-                    <img src="./img/logo-vid.png" alt="" />
+                    <img src="./img/logo-vid.png" alt="">
                     <div class="rsAccess d-flex justify-content-evenly">
-                        <a href=""><i class="fab fa-facebook"></i></a>
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/lollapaloozaar" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/lollapaloozaar" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/lollapaloozaar" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -112,8 +112,11 @@
                 <!--end shopping-cart-header -->
 
                 <ul class="shopping-cart-items">
-                    <li v-for="ticket in cart.ticketDtos" class="clearfix">
+                    <li v-for="(ticket, i) in cart.ticketDtos" class="clearfix">
                         <div class="d-flex flex-row m-1">
+                            <div class="deleteItems">
+                                <i class="far fa-trash-alt" @click="deleteTicket(i)"></i>
+                            </div>
                             <img :src="ticket.img" alt="item1" />
                             <div class="d-flex flex-column">
                                 <span class="item-name">Fecha: {{ticket.date}}</span>
@@ -121,20 +124,27 @@
                                 <span class="item-price">Precio: {{formatBalance(calculatePrice)}}</span>
                                 <span class="item-quantity">Cantidad: 1</span>
                             </div>
+
                         </div>
                     </li>
 
-                    <li v-for="prod in cart.cartdtos" class="clearfix">
-                        <img :src="getImg(prod.idItem)" alt="item1" />
-                        <span class="item-name">{{getName(prod.idItem)}}</span>
-                        <span class="item-price">{{formatBalance(getPrice(prod.idItem))}}</span>
-                        <span class="item-quantity">Cantidad: {{prod.quantity}}</span>
+                    <li v-for="(prod, i) in cart.cartdtos" class="clearfix">
+                        <div class="d-flex flex-row m-1">
+                            <div class="deleteItems">
+                                <i class="far fa-trash-alt" @click="deleteProduct(i)"></i>
+                            </div>
+                            <img :src="getImg(prod.idItem)" alt="item1" />
+                            <div class="d-flex flex-column">
+                                <span class="item-name">{{getName(prod.idItem)}}</span>
+                                <span class="item-price">{{formatBalance(getPrice(prod.idItem))}}</span>
+                                <span class="item-quantity">Cantidad: {{prod.quantity}}</span>
+                            </div>
+                        </div>
                     </li>
-
                 </ul>
                 <div v-if="cart.ticketDtos.length == 2" class="discount">Se aplicó 10% de descuento en tickets</div>
                 <div v-if="cart.ticketDtos.length > 2" class="discount">Se aplicó 20% de descuento en tickets</div>
-                <a href="#" class="purchaseButton">Realizar compra</a>
+                <a href="#" @click="goToPay" class="purchaseButton">Realizar compra</a>
             </div>
             <!--end shopping-cart -->
         </div>
@@ -156,6 +166,9 @@
 
     <!-- Local JS -->
     <script src="./js/store.js"></script>
+
+    <!-- Sweet Alerts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 

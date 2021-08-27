@@ -6,180 +6,256 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tickets</title>
-    
+
     <!-- Local CSS -->
     <link rel="stylesheet" href="./styles/tickets.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/productDetails.css">
 
-    <!-- Bootstrap 5.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/logo_block.png" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 </head>
 
 <body>
-    <div id="app" class="wrapper">
-        <header>
-            <nav class="nav" id="blur" style="background-color: black">
-                <ul :class="activeNavbar? 'active':''">
-                    <li><a href="./index.html" class="first">Inicio</a></li>
-                    <li><a href="./tickets.html" class="last">Tickets</a></li>
-                    <li><a href="./store.html" class="last">Tienda</a></li>
-                    <li><a href="./login.html" class="last">Login</a></li>
-                    <li><a href="./gallery.html" class="last">Galeria</a></li>
-                </ul>
-                <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
-                <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
-            </nav>
-        </header>
-        <section class="d-flex flex-wrap justify-content-center pt-5">
-            <div v-for="event in events" class="cards m-4 shadow-lg">
-                <div class="skewed">
-                    <img :src="event.img" alt="">
-                </div>
+    <div id="app">
+        <div class="wrapper">
+            <header>
+                <nav class="nav" id="blur" style="background-color: black">
+                    <ul :class="activeNavbar? 'active':''">
+                        <li><a href="./index.html" class="first">Inicio</a></li>
+                        <li><a href="./gallery.html" class="last">Galeria</a></li>
+                        <li><a href="./tickets.html" class="last">Tickets</a></li>
+                        <li><a href="./store.html" class="last">Tienda</a></li>
+                        <li><a href="./login.html" class="last">Login</a></li>
+                        <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <a href="#" id="cart"><i class="fal fa-bags-shopping"></i><span v-if="totalCart != 0"
+                                    class="badge">{{totalCart}}</span></a>
+                        </li>
+                    </ul>
+                    <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''"
+                        @click="activeNavbar = !activeNavbar "></i>
+                    <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''"
+                        @click="activeNavbar = !activeNavbar "></i>
+                </nav>
+            </header>
+            <section class="d-flex flex-wrap justify-content-center pt-5">
+                <div v-for="event in events" class="cards m-4 shadow-lg">
+                    <div class="skewed">
+                        <img :src="event.img" alt="">
+                    </div>
 
-                <div class="contents d-flex align-items-center">
-                    <h2>{{event.campus}}
-                        <!-- <p>Italy</p> -->
-                    </h2>
-                    <p id="desc">Disponibles: {{event.available}}</p>
-                    <input v-model="check" type="checkbox" :value="event" name="" :id="event.campus">
-                    <label class="btn fw-bold fs-4" :for="event.campus">{{event.date}}</label>
-                    <!-- <a href="#"><button type="button" @click="selectEvent(event)">{{event.date.split("-").reverse().join("-")}}</button></a> -->
+                    <div class="contents d-flex align-items-center">
+                        <h2>{{event.campus}}
+                            <!-- <p>Italy</p> -->
+                        </h2>
+                        <p id="desc">Disponibles: {{event.available}}</p>
+                        <p id="precioTk">Precio: {{formatBalance(ticketPrice)}}</p>
+                        <input v-model="check" type="checkbox" :value="event" name="" :id="event.campus">
+                        <label class="btn fw-bold fs-4" :for="event.campus">{{event.date}}</label>
+                        <!-- <a href="#"><button type="button" @click="selectEvent(event)">{{event.date.split("-").reverse().join("-")}}</button></a> -->
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="d-flex flex-column flex-md-row justify-content-center">
-            <div id="ticket" class="d-none d-md-flex">
-                <div class="background">
-                    <svg class="logosvg left">
-                        <use href="#logosvg">
-                    </svg>
-                    <svg class="logosvg right">
-                        <use href="#logosvg">
-                    </svg>
-                </div>
-                <div class="left">
-                    <div class="header">
-                        <svg class="logosvg">
+            </section>
+            <section class="d-flex flex-column flex-md-row justify-content-center">
+                <div id="ticket" class="d-none d-md-flex">
+                    <div class="background">
+                        <svg class="logosvg left">
                             <use href="#logosvg">
                         </svg>
-                        <h1>Ticket</h1>
+                        <svg class="logosvg right">
+                            <use href="#logosvg">
+                        </svg>
                     </div>
-                    <h2>Lollapaloza <span class="year-span">2021</span></h1>
-                        <div class="details">
-                            <!-- <div class="day"><span class="day-span">Thu.</span></div> -->
-                            <!-- <div class="date"><span class="fulldate-span">10 august 2021</span></div> -->
-                            <!-- <div class="code"><span class="code-span">MF1</span></div> -->
-                            <div class="access">
-                                <p v-for="e in check" class="me-3 fw-bold " style="text-shadow: 1px 1px 2px black;">
-                                    {{e.campus}}</p>
-                            </div>
+                    <div class="left">
+                        <div class="header">
+                            <svg class="logosvg">
+                                <use href="#logosvg">
+                            </svg>
+                            <h1>Ticket</h1>
                         </div>
-                </div>
-                <div class="barcode">
-                    <div class="barcode-container"></div>
-                </div>
-                <div class="right">
-                    <!-- <svg class="logosvg">
+                        <h2>Lollapalooza <span class="year-span">2021</span></h1>
+                            <div class="details">
+                                <!-- <div class="day"><span class="day-span">Thu.</span></div> -->
+                                <!-- <div class="date"><span class="fulldate-span">10 august 2021</span></div> -->
+                                <!-- <div class="code"><span class="code-span">MF1</span></div> -->
+                                <div class="access">
+                                    <p v-for="e in check" class="me-3 fw-bold " style="text-shadow: 1px 1px 2px black;">
+                                        {{e.campus}}</p>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="barcode">
+                        <div class="barcode-container"></div>
+                    </div>
+                    <div class="right">
+                        <!-- <svg class="logosvg">
                         <use href="#logosvg">
                     </svg> -->
-                    <!-- <h1>Ticket</h1> -->
-                    <!-- <h2>Summer Music Festival <span class="year-span">2021</span></h1> -->
-                    <div v-for="e in check" class="details">
-                        <!-- <div class="day"><span class="day-span">Thu.</span></div> -->
-                        <div class="date"><span class="fulldate-span fw-bold">{{e.date}}</span></div>
-                        <!-- <div class="code"><span class="code-span">MF1</span></div> -->
-                        <div class="access">Access</div>
+                        <!-- <h1>Ticket</h1> -->
+                        <!-- <h2>Summer Music Festival <span class="year-span">2021</span></h1> -->
+                        <div v-for="e in check" class="details">
+                            <!-- <div class="day"><span class="day-span">Thu.</span></div> -->
+                            <div class="date"><span class="fulldate-span fw-bold">{{e.date}}</span></div>
+                            <!-- <div class="code"><span class="code-span">MF1</span></div> -->
+                            <div class="access">Access</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenido d-md-none">
+                    <div>
+                        <div class="hqr">
+                            <div class="column left-one"></div>
+                            <div class="column center">
+                                <div id="qrcode">
+                                    <img src="./img/logo_block.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="column right-one"></div>
+                        </div>
+                    </div>
+                    <div class="detailsPhone">
+                        <div class="tinfo">
+                            Location
+                        </div>
+                        <div v-for="e in check" class="tdata name">
+                            {{e.campus}}
+                        </div>
+                        <div class="tinfo">
+                            ticket
+                        </div>
+                        <div class="tdata">
+                            Access
+                        </div>
+                        <div class="tinfo">
+                            event
+                        </div>
+                        <div class="tdata">
+                            Lollapalooza 2021
+                        </div>
+
+                    </div>
+                </div>
+                <div v-if="check.length > 0" class="d-flex flex-column align-items-center ms-3">
+                    <div class="quantitySelector m-3">
+                        <button class="quantityButton" @click="quantity--" :disabled="quantity <= 1">&minus;</button>
+                        <span>{{quantity}}</span>
+                        <button class="quantityButton" @click="quantity++">&plus;</button>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="addToCart" @click="addToCart">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="fixed-button mt-5">
+            <div class="d-flex justify-content-evenly">
+                <div>
+                    <ul>
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./tickets.html">Tickets</a></li>
+                        <li><a href="./store.html">Tienda</a></li>
+                        <li><a href="./gallery.html">Galeria</a></li>
+                    </ul>
+                </div>
+                <div class="d-flex flex-column">
+                    <img src="./img/logo-vid.png" alt="">
+                    <div class="rsAccess d-flex justify-content-evenly">
+                        <a href="https://www.facebook.com/lollapaloozaar" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/lollapaloozaar" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/lollapaloozaar" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
+            <div class="d-flex justify-content-center">
+                <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
+                <span><a href="#">Privacy</a></span>
+                <span><a href="#">Términos y Condiciones</a></span>
+            </div>
+        </footer>
 
-            <div class="contenido d-md-none">
-                <div>
-                    <div class="hqr">
-                        <div class="column left-one"></div>
-                        <div class="column center">
-                            <div id="qrcode">
-                                <img src="./img/logo_block.jpg" alt="">
+        <!-- Cart Canvas -->
+        <div class="container offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel">
+            <div class="shopping-cart">
+                <div class="shopping-cart-header d-flex flex-row justify-content-between align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <i class="fas fa-times" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                        <i class="fal fa-bags-shopping"></i><span class="badge">{{totalCart}}</span>
+                    </div>
+                    <div class="shopping-cart-total d-flex flex-column justify-content-center align-items-center m-3">
+                        <div class="lighter-text">Total:</div>
+                        <div class="main-color-text">{{formatBalance(totalPrice)}}</div>
+                    </div>
+                </div>
+                <!--end shopping-cart-header -->
+
+                <ul class="shopping-cart-items">
+                    <li v-for="(ticket, i) in cart.ticketDtos" class="clearfix">
+                        <div class="d-flex flex-row m-1">
+                            <div class="deleteItems">
+                                <i class="far fa-trash-alt" @click="deleteTicket(i)"></i>
+                            </div>
+                            <img :src="ticket.img" alt="item1" />
+                            <div class="d-flex flex-column">
+                                <span class="item-name">Fecha: {{ticket.date}}</span>
+                                <span class="item-name">Sede: {{ticket.campus}}</span>
+                                <span class="item-price">Precio: {{formatBalance(calculatePrice)}}</span>
+                                <span class="item-quantity">Cantidad: 1</span>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li v-for="(prod, i) in cart.cartdtos" class="clearfix">
+                        <div class="d-flex flex-row m-1">
+                            <div class="deleteItems">
+                                <i class="far fa-trash-alt" @click="deleteProduct(i)"></i>
+                            </div>
+                            <img :src="getImg(prod.idItem)" alt="item1" />
+                            <div class="d-flex flex-column">
+                                <span class="item-name">{{getName(prod.idItem)}}</span>
+                                <span class="item-price">{{formatBalance(getPrice(prod.idItem))}}</span>
+                                <span class="item-quantity">Cantidad: {{prod.quantity}}</span>
                             </div>
                         </div>
-                        <div class="column right-one"></div>
-                    </div>
-                </div>
-                <div class="detailsPhone">
-                    <div class="tinfo">
-                        Location
-                    </div>
-                    <div v-for="e in check" class="tdata name">
-                        {{e.campus}}
-                    </div>
-                    <div class="tinfo">
-                        ticket
-                    </div>
-                    <div class="tdata">
-                        Access
-                    </div>
-                    <div class="tinfo">
-                        event
-                    </div>
-                    <div class="tdata">
-                        Lollapalooza 2021
-                    </div>
-
-                </div>
-            </div>
-            <div v-if="check.length > 0" class="d-flex flex-column align-items-center ms-3">
-                <div class="quantitySelector m-3">
-                    <button class="quantityButton" @click="quantity--" :disabled="quantity <= 1">&minus;</button>
-                    <span>{{quantity}}</span>
-                    <button class="quantityButton" @click="quantity++">&plus;</button>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button class="addToCart" @click="addToCart">Agregar al Carrito</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-
-
-
-    </div>
-    <footer class="fixed-button mt-5">
-        <div class="d-flex justify-content-evenly">
-            <div>
-                <ul>
-                    <li><a class="fs-5" href="#">Inicio</a></li>
-                    <li><a class="fs-5" href="#">Tickets</a></li>
-                    <li><a class="fs-5" href="#">Bandas</a></li>
-                    <li><a class="fs-5" href="#">Tienda</a></li>
+                    </li>
                 </ul>
-            </div>
-            <div class="d-flex flex-column">
-                <img src="./img/logo-vid.png" alt="" />
-                <div class="rsAccess d-flex justify-content-evenly">
-                    <a href=""><i class="fab fa-facebook"></i></a>
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                </div>
+                <div v-if="cart.ticketDtos.length == 2" class="discount">Se aplicó 10% de descuento en tickets</div>
+                <div v-if="cart.ticketDtos.length > 2" class="discount">Se aplicó 20% de descuento en tickets</div>
+                <a href="#" @click="goToPay" class="purchaseButton">Realizar compra</a>
             </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
-            <span><a href="#">Privacy</a></span>
-            <span><a href="#">Términos y Condiciones</a></span>
-        </div>
-    </footer>
-    <!-- icon -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <!--end shopping-cart -->
+
+    </div>
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
     <!-- Vue3 -->
     <script src="https://unpkg.com/vue@next"></script>
     <!-- Local JS -->
     <script src="./js/tickets.js"></script>
+
+    <!-- Sweet Alerts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

@@ -409,3 +409,11 @@
     display: table;
     clear: both;
 }
+
+.deleteItems>i{
+    color: red;
+}
+.deleteItems>i:hover{
+    color: red !important;
+    text-shadow: none;
+}
