@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,22 @@
     <title>Galeria Lolla Arg</title>
     <link rel="icon" href="./img/favicon.ico">
     <!-- Bootstrap 5.1 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- CSS Local -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/gallery.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <header>
+<<<<<<< Updated upstream
             <nav class="nav" id="blur">     
                 <ul>
                     <li><a href="./index.html" class="first">Inicio</a></li>
@@ -30,6 +31,15 @@
                     <li><a href="./store.html" class="last">Tienda</a></li>
                     <li><a href="./login.html" class="last">Login</a></li>
                     <li><a href="./gallery.html" class="last">Galeria</a></li>
+=======
+            <nav class="nav" id="blur">
+                <ul>
+                    <li><a href="index.html" class="first">Inicio</a></li>
+                    <li><a href="tickets.html" class="last">Tickets</a></li>
+                    <li><a href="store.html" class="last">Tienda</a></li>
+                    <li><a href="login.html" class="last">Login</a></li>
+                    <li><a href="gallery.html" class="last">Galeria</a></li>
+>>>>>>> Stashed changes
                 </ul>
             </nav>
         </header>
@@ -38,8 +48,8 @@
             <div class="previousLolla">
                 <section id="carouselOfPics">
                     <div class="container">
-                        <div class="carousel" >
-                            <input v-for="info in images" type="radio"  :value="info.id" name="imageId" :id="info.id" v-model="imageId">
+                        <div class="carousel">
+                            <input v-for="info in images" type="radio" :value="info.id" name="imageId" :id="info.id" v-model="imageId">
                             <ul class="carousel__slides">
                                 <li v-for="info in images" class="carousel__slide">
                                     <figure>
@@ -52,7 +62,7 @@
                                         </figcaption>
                                     </figure>
                                 </li>
-                            </ul>    
+                            </ul>
                             <ul class="carousel__thumbnails">
                                 <li v-for="info in images">
                                     <label @click="allComments(info.id)" :for="info.id" class="minImages"><img :src="info.url" alt=""></label>
@@ -67,12 +77,12 @@
                         <div class="row">
                             <div class="col-sm-5 col-md-6 col-12 pb-4">
                                 <h1 id="h1-comments">Comentarios</h1>
-                                <h3 v-if="comments.length <= 0" id="noComments">Sin comentarios en esta foto por ahora, podes ser el primero en comentar😎</h3> 
+                                <h3 v-if="comments.length <= 0" id="noComments">Sin comentarios en esta foto por ahora, podes ser el primero en comentar😎</h3>
                                 <div class="comment mt-4 text-justify float-left theComments" v-for="info in comments">
                                     <h4>{{info.userName}} </h4>
-                                     <span> {{formatDate(info.createdAt)}}</span>
+                                    <span> {{formatDate(info.createdAt)}}</span>
                                     <i v-if="info.email == userEmail" @click="showText(info)" type="button" id="editComment" data-bs-toggle="modal" data-bs-target="#exampleModal" class="fas fa-edit"></i>
-                                    <p class="theText">{{info.text}}<i v-if="info.email == userEmail" @click="deleteComment(info.id)" class="far fa-trash-alt"></i></p> 
+                                    <p class="theText">{{info.text}}<i v-if="info.email == userEmail" @click="deleteComment(info.id)" class="far fa-trash-alt"></i></p>
                                 </div>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -82,7 +92,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="newText"  msg cols="30" rows="5" class="form-control"></textarea>
+                                                <label id="comentarioAc" for="message">Comentario actual:</label> <textarea name="msg" id="" v-model="newText" msg cols="30" rows="5" class="form-control"></textarea>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" id="close" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -117,7 +127,7 @@
                 </section>
             </div>
         </main>
-    </div>  
+    </div>
     <footer>
         <div class="d-flex justify-content-evenly">
             <div>
@@ -144,9 +154,7 @@
         </div>
     </footer>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <!-- Vue -->
 
     <script src="https://unpkg.com/vue@next"></script>
@@ -166,4 +174,5 @@
     <!-- Sweet Alerts -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
+
 </html>
