@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pay Card</title>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./styles/payCard.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- Bootstrap 5.0 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <div id="app" class="wrapper">
+        <header>
+            <nav class="nav" id="blur" style="background-color: black">
+                <ul :class="activeNavbar? 'active':''">
+                    <li><a href="index.html" class="first">Inicio</a></li>
+                    <li><a class="first">Bandas</a></li>
+                    <li><a href="tickets.html">Tickets</a></li>
+                    <li><a href="./store.html" class="last">Tienda</a></li>
+                    <li><a href="login.html" class="last">Login</a></li>
+                    <li><a href="gallery.html" class="last">Galeria</a></li>
+                </ul>
+                <i v-if="activeNavbar" class="fas fa-times" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
+                <i v-else class="fas fa-bars" :class="activeNavbar? 'activeMenu':''" @click="activeNavbar = !activeNavbar "></i>
+            </nav>
+        </header>
+        <section class="bank d-flex justify-content-center">
+            <select v-model="urlSelect" class="form-select w-50 w-md-25" aria-label="Default select example" aria-placeholder="Select">
+                <option disabled value>Seleccione su banco</option>
+                <option value="https://bs2banking.herokuapp.com/api/clients/pay">Banco Bs2</option>
+                <option value="2">JD Bank</option>
+                <option value="3">JaValues Bank</option>
+                <option value="https://homebanking.herokuapp.com/api/payment">MindHubBank</option>
+                <option value="123">Bankrypt</option>
+                <option value="https://humanbankhomebanking.herokuapp.com/web/index.html ">HumanBank</option>
+            </select>
+        </section>
+        {{urlSelect}}
+        <section class="paymentForm">
+            <div class="card-header formCard m-4">
+                <div class="tab-content">
+                    <!-- credit card info-->
+                    <div id="credit-card" class="tab-pane fade show active pt-3">
+                        <form role="form" onsubmit="event.preventDefault()">
+                            <div class="form-group"> <label for="username">
+                                    <h6>Titular de tarjeta</h6>
+                                </label> <input v-model="name" maxlength="20" type="text" name="username" placeholder="Melba Fernando" required class="form-control "> </div>
+                            <div class="form-group"> <label for="cardNumber">
+                                    <h6>Numero de tarjeta</h6>
+                                </label>
+                                <div class="input-group"> <input v-model="numberCard" maxlength="16" type="text" name="cardNumber" placeholder="Numero valido" class="form-control " required>
+                                    <div class="input-group-append"> <span class="input-group-text text-muted">
+                                            <i class="bi bi-credit-card"></i>
+                                        </span> </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group"> <label><span class="hidden-xs">
+                                                <h6>Vencimiento</h6>
+                                            </span></label>
+                                        <div class="input-group"> <input v-model="date" maxlength="2" type="text" placeholder="MM" name="" class="form-control" required> <input v-model="date2" maxlength="2" type="text" placeholder="YY" name="" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group mb-3"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                        <h6>CVV<i class="fa fa-question-circle d-inline"></i></h6>
+                                    </label> <input v-model="cvv" maxlength="3" type="text" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-center">
+                                <button class="addToCart" @click="pay">Comprar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="fixed-button mt-5">
+        <div class="d-flex justify-content-evenly">
+            <div>
+                <ul>
+                    <li><a class="fs-5" href="#">Inicio</a></li>
+                    <li><a class="fs-5" href="#">Tickets</a></li>
+                    <li><a class="fs-5" href="#">Bandas</a></li>
+                    <li><a class="fs-5" href="#">Tienda</a></li>
+                </ul>
+            </div>
+            <div class="d-flex flex-column">
+                <img src="./img/logo-vid.png" alt="" />
+                <div class="rsAccess d-flex justify-content-evenly">
+                    <a href=""><i class="fab fa-facebook"></i></a>
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <span><a href="./index.html">&copy; Lollapalooza, LLC</a></span>
+            <span><a href="#">Privacy</a></span>
+            <span><a href="#">Términos y Condiciones</a></span>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Vue3 -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- Local JS -->
+    <script src="./js/payCard.js"></script>
+</body>
+
+</html>
